@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ContentPage
+    x:Class="ChatGPT.Views.ConversationView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:templates="clr-namespace:ChatGPT.Views.Templates"
+    xmlns:viewmodel="clr-namespace:ChatGPT.ViewModels"
+    x:Name="mainPage"
+    x:DataType="viewmodel:ConversationViewModel"
+                 Padding="0,60,0,0"
+    BackgroundColor="{AppThemeBinding Light={StaticResource White},
+                                      Dark={StaticResource Black}}"
+    >
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="6*,1*">
+            <Label Text="Jack Bot" FontFamily="OpenSansRegular" FontSize="20" FontAttributes="Bold" TextColor="White"  HorizontalOptions="{ OnPlatform Android=Start, iOS=Center}" Grid.Column="0" Grid.Row="0" VerticalTextAlignment="Center"/>
+            <Image Source="jack_bot.png" Grid.Column="1" Grid.Row="0" HeightRequest="40" HorizontalOptions="Start">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectThemeCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+    </Shell.TitleView>
+
+    <ContentPage.Resources>
+        <DataTemplate x:Key="UserMessageItemTemplate">
+            <templates:UserMessageItemTemplate />
+        </DataTemplate>
+
+        <DataTemplate x:Key="BotMessageItemTemplate">
+            <templates:BotMessageItemTemplate />
+        </DataTemplate>
+
+        <templates:MessageDataTemplateSelector
+            x:Key="MessageDataTemplateSelector"
+            BotMessageTemplate="{StaticResource BotMessageItemTemplate}"
+            UserMessageItemTemplate="{StaticResource UserMessageItemTemplate}"
+             />
+    </ContentPage.Resources>
+
+
+    <Grid RowDefinitions="*, Auto">
+
+
+
+        <Border
+            Grid.Row="0"
+            Padding="16,10,16,30"
+            BackgroundColor="{AppThemeBinding Light={StaticResource White},
+                                              Dark={StaticResource Black}}"
+            StrokeShape="RoundRectangle 0,0,15,15"
+            StrokeThickness="0">
+            <CollectionView
+                x:Name="myCollectionView"
+                ItemTemplate="{StaticResource MessageDataTemplateSelector}"
+                ItemsSource="{Binding Messages}">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout
+                        ItemSpacing="20"
+                        Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+
+            </CollectionView>
+        </Border>
+
+
+
+        <Grid
+            Grid.Row="1"
+            Padding="17,7"
+            ColumnDefinitions="*, Auto"
+            ColumnSpacing="10">
+            <Border
+                Grid.Column="0"
+                BackgroundColor="{AppThemeBinding Light={StaticResource QuinaryLight},
+                                                  Dark={StaticResource QuinaryDark}}"
+                HeightRequest="48"
+                StrokeShape="RoundRectangle 36,36,36,36"
+                StrokeThickness="0">
+
+                <Grid ColumnDefinitions="*, Auto">
+
+                    <Entry
+                        x:Name="QuestionEntry"
+                        Margin="16,0"
+                        Placeholder="Enter text here..."
+                        Style="{StaticResource TxtSubtitle2_3}"
+                        Text="{Binding Query}"
+                        TranslationY="4" />
+
+                </Grid>
+            </Border>
+
+            <Border
+                Grid.Column="1"
+                BackgroundColor="{AppThemeBinding Light={StaticResource QuinaryLight},
+                                                  Dark={StaticResource QuinaryDark}}"
+                HeightRequest="48"
+                StrokeShape="{OnPlatform WinUI='RoundRectangle 10,10,10,10',
+                                         MacCatalyst='RoundRectangle 10,10,10,10',
+                                         Default='RoundRectangle 24,24,24,24'}"
+                StrokeThickness="0"
+                WidthRequest="48">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CurrentCommand}" />
+                </Border.GestureRecognizers>
+
+                <Image
+                    HeightRequest="45"
+                    Source="send.png"
+                    WidthRequest="45" />
+            </Border>
+
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

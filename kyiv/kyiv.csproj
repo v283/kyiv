@@ -63,6 +63,28 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Mscc.GenerativeAI" Version="2.3.2" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<PackageReference Include="OpenAI" Version="1.11.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="9.1.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Constants\" />
+	  <None Remove="Resources\Images\jack_bot_light.png" />
+	  <None Remove="Resources\Images\send.png" />
+	  <None Remove="Resources\Images\svg_user.svg" />
+	  <None Remove="Resources\Images\jack_bot_dark.png" />
+	  <None Remove="ViewModels\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Constants\" />
+	  <Folder Include="ViewModels\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Images\jack_bot_light.png" />
+	  <BundleResource Include="Resources\Images\send.png" />
+	  <BundleResource Include="Resources\Images\svg_user.svg" />
+	  <BundleResource Include="Resources\Images\jack_bot_dark.png" />
+	</ItemGroup>
 </Project>
