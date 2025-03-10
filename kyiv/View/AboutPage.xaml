@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EngTest.Views.AboutPage"
+             Title="AboutPage"
+
+             BackgroundColor="White">
+    <VerticalStackLayout>
+        <Grid  RowDefinitions="*,*" ColumnDefinitions="*" Margin="10">
+            <Image HeightRequest="150" Source="app_header.png" Grid.Column="0" Grid.Row="0"/>
+            <Label HorizontalOptions="Center" FontSize="35" Text="English Grammar" TextColor="Black" Grid.Column="0" Grid.Row="1"/>
+        </Grid>
+        <Label 
+            Text="Hi everyone! &#10;
+Welcome to English Grammar, where we share only one common goal: to learn and teach English grammar. Each topic and task has an explanation that can easily help improve your English level. We work on the application every day, fixing bugs and adding new functions and tasks. This content can also be used for learning at school, as we carefully select all the material... &#10;
+However, this project is not your everyday grammar book because, no matter how hard we try, we cannot cover and teach everything.&#10;
+            
+            "
+            VerticalOptions="Center" 
+            HorizontalOptions="Start" Margin="10"  FontSize="17"/>
+        <Label  Margin="10" Text="For any questions please contact with us:" FontSize="18"/>
+
+        <Grid BackgroundColor="{StaticResource Primary}" RowDefinitions="*" ColumnDefinitions="*" HeightRequest="70" Margin="0, 10">
+
+            <Label HorizontalOptions="Center" VerticalOptions="Center" FontSize="19" FontAttributes="Bold" Text="E-mail: jackenglishgrammar@gmail.com" TextColor="White" Grid.Column="0" Grid.Row="0"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

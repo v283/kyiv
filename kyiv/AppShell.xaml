@@ -14,56 +14,63 @@
             <Image HeightRequest="100" Source="app_header.png"  HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
     </Shell.FlyoutHeader>
-
-    <FlyoutItem Title="Home">
+    <FlyoutItem Title="Home"  Icon="{AppThemeBinding Light=home_light.png, Dark=home_dark.png }"   >
         <Tab>
-            <ShellContent Title="Home" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage"/>
+            <ShellContent  ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="My Progress"  Icon="{AppThemeBinding Light=person_light.png, Dark=person_dark.png }">
+        <Tab>
+            <ShellContent  ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Exeprise"   Icon="{AppThemeBinding Light=jack_bot_light.png, Dark=jack_bot_dark.png}"  >
+        <Tab>
+            <ShellContent  ContentTemplate="{DataTemplate local:ExercisePage}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Community"  Icon="{AppThemeBinding Light=list_light.png, Dark=list_dark.png}">
+        <Tab>
+            <ShellContent  ContentTemplate="{DataTemplate local:ForumPage}" />
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="My Progress">
+    <!--<FlyoutItem Title="Share"  Icon="share.png">
         <Tab>
-
+            <ShellContent  ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+    </FlyoutItem>-->
+    <FlyoutItem Title="Settings"  Icon="{AppThemeBinding Light=settings_light.png, Dark=settings_dark.png}">
+        <Tab>
+            <ShellContent  ContentTemplate="{DataTemplate local:SettingsPage}" />
         </Tab>
     </FlyoutItem>
-
-    <FlyoutItem Title="Jack Bot">
+    <FlyoutItem Title="Privacy Policy"  Icon="{AppThemeBinding Light=dictionary_light.png, Dark=dictionary_dark.png}">
         <Tab>
-
+            <ShellContent  ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
     </FlyoutItem>
-
-    <FlyoutItem Title="Irregular Verbs">
+    <FlyoutItem Title="About Us"  Icon="{AppThemeBinding Light=about_light.png, Dark=about_dark.png}">
         <Tab>
+            <ShellContent  ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
     </FlyoutItem>
+    <Shell.FlyoutFooter >
+        <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*,*" RowSpacing="{x:OnPlatform Android=15, iOS=40}" >
+            <Label HeightRequest="18" VerticalOptions="Start" HorizontalOptions="Center" FontSize="17" TextColor="Grey" Text="Follow Us" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"  />
 
-    <FlyoutItem Title="Dictionary">
-        <Tab>
-        </Tab>
-    </FlyoutItem>
+            <ImageButton Command="{Binding GotoWebSiteCommand}" 
+             CommandParameter="https://t.me/english_learning_ch" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="0" Grid.Row="1" Source="telegram.png" HeightRequest="50"/>
 
-    <FlyoutItem Title="Settings">
-        <Tab>
+            <ImageButton Command="{Binding GotoWebSiteCommand}" 
+             CommandParameter="https://www.instagram.com/jackenglishgrammar/" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1" Grid.Row="1" Source="instagram.png" HeightRequest="50"/>
 
-        </Tab>
-    </FlyoutItem>
+            <ImageButton Command="{Binding GotoWebSiteCommand}" 
+             CommandParameter="https://www.youtube.com/channel/UC3nXBWi1I97rGph_PHlyxCA" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="2" Grid.Row="1" Source="youtube.png" HeightRequest="50"/>
 
-    <FlyoutItem Title="Privacy Policy">
-        <Tab>
-        </Tab>
-    </FlyoutItem>
 
-    <FlyoutItem Title="About Us">
-        <Tab>
-        </Tab>
-    </FlyoutItem>
-
-    <Shell.FlyoutFooter>
-        <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*,*" RowSpacing="{x:OnPlatform Android=15, iOS=40}">
-            <Label HeightRequest="18" VerticalOptions="Start" HorizontalOptions="Center" FontSize="17" TextColor="Grey"
-                   Text="Follow Us" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"  />
         </Grid>
+
     </Shell.FlyoutFooter>
 
 </Shell>

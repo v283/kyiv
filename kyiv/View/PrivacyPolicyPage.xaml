@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kyiv.View.PrivacyPolicyPage"
+             Title="Privacy Policy"
+
+             BackgroundColor="White">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Start" Padding="10" FontSize="16"
+         Text="[Jack - English Grammar &amp; Tests] &#10; &#10; Effective Date: [15/02/2024] &#10; 
+&#10;We [ValentineOS] is committed to protecting the privacy and security of your personal information. This Privacy Policy outlines how we collect, use, disclose, and protect the data you provide when using our application (&quot;the App&quot;) that integrates AdMob for advertising purposes and stores user data locally on your device. By using the App, you agree to the practices described in this Privacy Policy.
+&#10;&#10;1. Information We Collect:
+&#10;1.1. AdMob Data:
+The App uses AdMob, a mobile advertising service provided by Google LLC (&quot;Google&quot;). AdMob may collect certain non-personal information about your device, such as its unique identifier, IP address, and certain device information (e.g., device model, operating system version). This data is collected to deliver relevant ads and to analyze the performance of ads shown within the App. Google's use of this data is governed by their Privacy Policy (https://support.google.com/admob/answer/6128543?hl=en).
+&#10;&#10;1.2. Local User Data:&#10;
+We do not collect or store any personally identifiable information (PII) or sensitive data from our users. However, the App may store non-personal data locally on your device to enhance your experience, such as game scores, preferences, and settings.
+&#10;&#10;2. How We Use Your Information:
+&#10;&#10;2.1. AdMob Data:
+The AdMob data collected is used solely for displaying relevant advertisements within the App and improving ad relevance and performance. This data is processed in accordance with Google's Privacy Policy.
+&#10;&#10;2.2. Local User Data:
+&#10;The locally stored user data is used exclusively to enhance your experience within the App. This data remains on your device and is not accessed or transmitted by us.
+
+&#10;&#10;3. Advertising:
+
+&#10;The App may display advertisements from third-party ad networks, including but not limited to AdMob. These advertisements may be targeted based on the non-personal data collected by these ad networks. We do not have control over the content of these ads, and any interaction with these advertisements is subject to the privacy policy of the respective ad network.
+
+&#10;&#10;4. Third-Party Services:
+
+&#10;The App may contain links to third-party websites, services, or social media platforms that are not under our control. We are not responsible for the privacy practices or content of these third-party services. We encourage you to review their respective privacy policies before providing any personal information or using their services.
+
+&#10;&#10;5. Children's Privacy:
+&#10;The program is intended for use by children. We do not collect any personal data on remote servers, so parents can rest easy about their child's privacy. If any information is collected, then only by Google or OpenAIііі, for which we are not responsible.
+&#10;&#10;6. Security:
+
+&#10;We take reasonable measures to protect the data you provide to us. However, no method of transmission or storage is entirely secure, and we cannot guarantee the absolute security of your data.
+
+&#10;&#10;7. Changes to this Privacy Policy:
+
+&#10;We reserve the right to update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes by updating the Effective Date at the top of this policy. Your continued use of the App after the changes take effect constitutes your acceptance of the revised Privacy Policy.
+
+&#10;&#10;8. Contact Us:
+
+&#10;If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at [jackenglishgrammar@gmail.com].
+
+&#10;&#10;By using the App, you acknowledge that you have read and understood this Privacy Policy. If you do not agree with the terms of this policy, please do not use the App." 
+    />
+
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

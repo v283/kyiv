@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kyiv.View.SettingsPage"
+             Title="Settings"
+
+             BackgroundColor="White">
+    <VerticalStackLayout>
+
+        <Grid RowDefinitions="*" ColumnDefinitions="Auto, *" HorizontalOptions="Center" ColumnSpacing="10" Padding="25">
+            <Image HorizontalOptions="End" WidthRequest="45" Grid.Row="0" Grid.Column="0" Source="reload1.png"/>
+            <Label x:Name="ResetAll" Grid.Row="0" Grid.Column="1" FontSize="27" TextColor="Black" Text="Reset all" BackgroundColor="Transparent">
+                <Label.GestureRecognizers>
+
+                </Label.GestureRecognizers>
+
+            </Label>
+        </Grid>
+        
+
+    </VerticalStackLayout>
+</ContentPage>

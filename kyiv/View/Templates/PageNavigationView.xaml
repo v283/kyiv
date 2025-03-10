@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kyiv.View.Templates.PageNavigationView"
+             Title="PageNavigationView">
+    <Grid BackgroundColor="Transparent" Padding="10" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" ColumnDefinitions="auto, 6*" RowDefinitions="*">
+
+        <Image  Margin=" 10,0,0,0" Source="back.png" HeightRequest="35"  Grid.Row="0" Grid.Column="0" >
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnGoBack"/>
+            </Image.GestureRecognizers>
+
+        </Image>
+        <Border Background="{Binding TitleBackgroundColor}" Grid.Row="0" Grid.Column="1" StrokeShape="RoundRectangle 13" HeightRequest="40">
+            <Label  Text="{Binding Text}"  FontFamily="RammettoOne" FontSize="{Binding FontSize}" FontAttributes="None"
+                  TextColor="{Binding TextColor}"  HorizontalOptions="Center"  VerticalTextAlignment="Center"/>
+        </Border>
+    </Grid>
+</ContentPage>

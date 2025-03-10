@@ -9,7 +9,9 @@ namespace kyiv.View
         public MainPage()
         {
             InitializeComponent();
+            ProgressBar progressBar = new ProgressBar();
             BindingContext = new MainViewModel();
+            
         }
     }
 }
