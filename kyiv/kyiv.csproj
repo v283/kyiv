@@ -85,9 +85,18 @@
 	<ItemGroup>
 	  <Folder Include="Constants\" />
 	  <Folder Include="ViewModels\" />
-	  <Folder Include="Views\" />
 	  <Folder Include="Views\Templates\" />
 	  <Folder Include="Services\" />
 	  <Folder Include="Models\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="Views\PrivacyPolicyWebView.xaml.cs">
+	    <DependentUpon>PrivacyPolicyWebView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Update="Views\PrivacyPolicyWebView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 </Project>

@@ -63,6 +63,12 @@ public partial class AccountView : ContentPage
  //       await Navigation.PushAsync(new SettingsView());
     }
 
+    private async void OnPrivacyPolicyTapped(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PrivacyPolicyPage());
+
+    }
+
     private async void OnZCU(object sender, TappedEventArgs args)
     {
         try

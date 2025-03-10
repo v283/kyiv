@@ -104,7 +104,7 @@
                 </Image>
                 <Label VerticalOptions="Center" FontSize="15" Text="Політика конфіденційності"   Grid.Row="6" Grid.Column="1">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Tapped="OnPrivacyPolicyTapped"/>
                     </Label.GestureRecognizers>
                 </Label>
             </Grid>
