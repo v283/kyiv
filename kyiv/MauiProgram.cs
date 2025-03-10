@@ -1,4 +1,5 @@
-﻿using ChatGPT.Services;
+﻿using kyiv.Services;
+using ChatGPT.Services;
 using ChatGPT.ViewModels;
 using ChatGPT.Views;
 using CommunityToolkit.Maui;
@@ -24,8 +25,21 @@ public static class MauiProgram
 		builder.Services.AddTransient<ConversationViewModel>();
         builder.Services.AddSingleton<ConversationView>(); ;
 
+        builder.Services.AddSingleton<IOpenAIService, OpenAIService>();
+        builder.Services.AddSingleton<IDataService, DataService>();
+
+        var url = Constants.ApiKeys.SUPABASE_URL;
+        var key = Constants.ApiKeys.SUPABASE_KEY;
+
+           builder.Services.AddSingleton(provider => new Supabase.Client(url, key, new Supabase.SupabaseOptions
+        {
+            AutoRefreshToken = true,
+            AutoConnectRealtime = true,
+        }));
+
+
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
 		return builder.Build();

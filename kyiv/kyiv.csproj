@@ -67,6 +67,7 @@
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 		<PackageReference Include="OpenAI" Version="1.11.0" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="9.1.0" />
+		<PackageReference Include="Supabase" Version="1.1.1" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -76,9 +77,17 @@
 	  <None Remove="Resources\Images\svg_user.svg" />
 	  <None Remove="Resources\Images\jack_bot_dark.png" />
 	  <None Remove="ViewModels\" />
+	  <None Remove="Views\" />
+	  <None Remove="Views\Templates\" />
+	  <None Remove="Services\" />
+	  <None Remove="Models\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Constants\" />
 	  <Folder Include="ViewModels\" />
+	  <Folder Include="Views\" />
+	  <Folder Include="Views\Templates\" />
+	  <Folder Include="Services\" />
+	  <Folder Include="Models\" />
 	</ItemGroup>
 </Project>

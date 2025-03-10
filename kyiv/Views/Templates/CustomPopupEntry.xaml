@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="kyiv.Views.Templates.CustomPopupEntry" Color="Transparent"  Size="300,250">
+
+
+    <Border StrokeShape="RoundRectangle 10" BackgroundColor="White" >
+        <VerticalStackLayout Margin="15"  BackgroundColor="White">
+            <Image  HeightRequest="20" HorizontalOptions="Start" Source="close.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+
+                </Image.GestureRecognizers>
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="#43b02a"/>
+                </Image.Behaviors>
+
+            </Image>
+
+            <Label Text="{Binding PopUpTitle}" FontSize="20" HorizontalOptions="Center"/>
+
+            <Border Margin="10" StrokeShape="RoundRectangle 10">
+                <Entry Keyboard="{Binding EntryType}" x:Name="NewValue" Margin="15,0" Placeholder="Введіть нові дані" IsPassword="True"/>
+            </Border>
+
+
+            <Button Margin="20" BackgroundColor="#43b02a" FontSize="16" Text="Зберегти" Command="{Binding ChangeCommand}" />
+        </VerticalStackLayout>
+    </Border>
+
+</toolkit:Popup>
