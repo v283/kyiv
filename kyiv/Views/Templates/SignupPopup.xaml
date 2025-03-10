@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Class="kyiv.Views.Templates.SignupPopup"
+    Size="310, 430" Color="Transparent" >
+
+    <Border StrokeShape="RoundRectangle 10" BackgroundColor="White" >
+
+        <VerticalStackLayout >
+            <Image Margin="10,10,0,0" HeightRequest="20" HorizontalOptions="Start" Source="close.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnClose"/>
+
+                </Image.GestureRecognizers>
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="#43b02a"/>
+                </Image.Behaviors>
+
+            </Image>
+            <Label HorizontalOptions="Center" TextColor="#79B728" FontSize="19" FontAttributes="Bold"  Text="Sign Up"/>
+
+            <Border Margin="10,10,10,5" StrokeShape="RoundRectangle 10">
+                <Entry x:Name="nameEntry" Margin="15, 0" Placeholder="Ім'я та прізвище"/>
+            </Border>
+            <Border Margin="10,5" StrokeShape="RoundRectangle 10">
+                <Entry x:Name="loginEntry" Margin="15, 0" Placeholder="Email"/>
+            </Border>
+
+            <Border Margin="10,5" StrokeShape="RoundRectangle 10">
+                <Entry x:Name="passwordEntry" Margin="15, 0"  IsPassword="True" Placeholder="Password"/>
+            </Border>
+
+
+            <Button  BackgroundColor="#43b02a"  Margin="10"  Text="Sign Up"/>
+
+            <Label Margin="5" HorizontalOptions="Center" Text="Or Sign Up with"/>
+
+            <Grid Padding="5" ColumnDefinitions="*, *,*" RowDefinitions="*">
+                <Image Source="google.png" Grid.Column="0" Grid.Row="0"  HeightRequest="35"/>
+                <Image Source="facebook.png" Grid.Column="1" Grid.Row="0"  HeightRequest="35"/>
+                <Image Source="github.png" Grid.Column="2" Grid.Row="0"  HeightRequest="35"/>
+            </Grid>
+            <Label HorizontalOptions="Center" Margin="5">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="I have account! " />
+
+                        <Span Text="Close."  TextColor="#79B728"
+                  TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer  Tapped="OnClose"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+
+                    </FormattedString>
+
+                </Label.FormattedText>
+            </Label>
+        </VerticalStackLayout>
+
+
+    </Border>
+
+
+
+</toolkit:Popup>

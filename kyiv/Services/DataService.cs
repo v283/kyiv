@@ -1,5 +1,6 @@
 ﻿
 using Android.Database;
+using kyiv.Models;
 using Microsoft.IdentityModel.Tokens;
 using Supabase;
 
@@ -7,7 +8,7 @@ using static Supabase.Postgrest.Constants;
 
 namespace kyiv.Services
 {
-    public class DataService 
+    public class DataService : IDataService
     {
         // log
         // pasw 1234567
@@ -72,7 +73,50 @@ namespace kyiv.Services
             SecureStorage.RemoveAll();
         }
 
+        public async Task<UserDataModel> GetUserData()
+        {
+            UserDataModel rezult = new();
 
+            if (Guid.TryParse(SupabaseClient.Auth.CurrentUser.Id, out var userId))
+            {
+                var response = await _supabaseClient.From<UserDataModel>()
+                    .Select("*").Where(x => x.UserId == userId)
+                    .Get();
+                return response.Model;
+            }
+
+            return rezult;
+        }
+
+        public async Task UpdateUserDataAsync(string name, string email, string phone, DateTime? birth, string image = "")
+        {
+            try
+            {
+                if (Guid.TryParse(SupabaseClient.Auth.CurrentUser.Id, out var userId))
+                {
+
+                    var response = await _supabaseClient.From<UserDataModel>().
+                        Where(x => x.UserId == userId)
+                        .Set(x => x.Email, email).Set(x => x.Phone, phone).Set(x => x.Name, name).Set(x => x.Birth, birth).Set(x => x.Image, image)
+                        .Update(); ;
+
+                    if (SupabaseClient.Auth.CurrentUser.Email != email)
+                    {
+                        // change email in auth shema
+                    }
+                    if (SupabaseClient.Auth.CurrentUser.Phone != phone)
+                    {
+                        // change phone in auth shema
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding user data: {ex.Message}");
+
+            }
+        }
 
 
     }

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AvocadoMobile.Views.AccountView"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Shell.NavBarIsVisible="False">
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+
+            <Border StrokeThickness="0" Margin="10,0,0,30" StrokeShape="RoundRectangle 40,0,0,40" BackgroundColor="#07bc53" WidthRequest="170">
+                <Grid ColumnSpacing="7" HorizontalOptions="Center" RowDefinitions="*" ColumnDefinitions="Auto,Auto">
+                    <Label FontFamily="Lexend" TextColor="White" Text="AVOCADO" FontAttributes="Bold" FontSize="Title" Grid.Row="0" Grid.Column="0"/>
+                    <Image HeightRequest="27" Source="avocado_new.png" Grid.Row="0" Grid.Column="1"/>
+                </Grid>
+            </Border>
+
+            <Grid IsVisible="False" x:Name="userGrid" Padding="15,0,10,20" ColumnSpacing="20" RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *,Auto">
+                <Image HeightRequest="40" Source="account.png" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
+                <Label Text="{Binding BindUserDataModel.Name}" FontSize="16" Grid.Column="1" Grid.Row="0" />
+                <Label Text="{Binding BindUserDataModel.Email}" FontSize="12" Grid.Column="1" Grid.Row="1" />
+                <Label Margin="0,-10"  Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" FontSize="40" FontAttributes="Bold" FontFamily="MajorMonoDisplay" Text="&gt;" />
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnUserSettings"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+
+            <Button x:Name="loginBtn"  Text="Увійти" BackgroundColor="#42b029" TextColor="White" FontAttributes="Bold" Clicked="OnLogin" Margin="20,0,20,20"/>
+
+            <Grid  Padding="15" RowDefinitions="*,*,*,*,*,*,*" ColumnDefinitions="Auto, *" ColumnSpacing="30" RowSpacing="27">
+
+                <Image VerticalOptions="Center" HeightRequest="25" Source="saved.png" Grid.Row="0" Grid.Column="0">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
+
+                    </Image.Behaviors>
+
+                </Image>
+                <Label VerticalOptions="Center" FontSize="15" Text="Збережене" Grid.Row="0" Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Image VerticalOptions="Center" HeightRequest="25" Source="add_user.png"  Grid.Row="1" Grid.Column="0">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
+                    </Image.Behaviors>
+
+                </Image>
+                <Label x:Name="Ref" VerticalOptions="Center" FontSize="15" Text="Запросити друзів"  Grid.Row="1" Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image VerticalOptions="Center" HeightRequest="25" Source="ukraine.png"   Grid.Row="2" Grid.Column="0"/>
+                <Label  VerticalOptions="Center" FontSize="15" Text="Допомога ЗСУ"   Grid.Row="2" Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnZCU"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image VerticalOptions="Center" HeightRequest="25" Source="rating_stars.png"     Grid.Row="3" Grid.Column="0">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
+
+                    </Image.Behaviors>
+
+                </Image>
+                <Label VerticalOptions="Center" FontSize="15" Text="Оцінити додаток"     Grid.Row="3" Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image VerticalOptions="Center" HeightRequest="25" Source="settings.png"   Grid.Row="4" Grid.Column="0">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
+
+                    </Image.Behaviors>
+
+                </Image>
+                <Label VerticalOptions="Center" FontSize="15" Text="Налаштування"   Grid.Row="4" Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSettings"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image VerticalOptions="Center" HeightRequest="25" Source="customer_support.png"  Grid.Row="5" Grid.Column="0">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
+
+                    </Image.Behaviors>
+
+                </Image>
+                <Label VerticalOptions="Center" FontSize="15" Text="Підтримка"  Grid.Row="5" Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Image VerticalOptions="Center" HeightRequest="25" Source="privacy_policy.png"   Grid.Row="6" Grid.Column="0">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
+
+                    </Image.Behaviors>
+
+                </Image>
+                <Label VerticalOptions="Center" FontSize="15" Text="Політика конфіденційності"   Grid.Row="6" Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+
+            <Grid Margin="10,15,10,20" ColumnDefinitions="*,*,*,*,*" RowDefinitions="*,Auto">
+                <Image  HeightRequest="35" Source="telegram.png"  Grid.Row="0" Grid.Column="0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer  Tapped="OnTelegram"/>
+                    </Image.GestureRecognizers>
+
+                </Image>
+                <Label HorizontalOptions="Center" FontSize="11" Text="Telegram"  Grid.Row="1" Grid.Column="0"/>
+
+                <Image  HeightRequest="35" Source="instagram.png"  Grid.Row="0" Grid.Column="1">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label HorizontalOptions="Center" FontSize="11" Text="Instagram"  Grid.Row="1" Grid.Column="1"/>
+
+                <Image  HeightRequest="35" Source="tiktok.png"  Grid.Row="0" Grid.Column="2">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label  HorizontalOptions="Center" FontSize="11" Text="TicTok"  Grid.Row="1" Grid.Column="2"/>
+
+                <Image  HeightRequest="35" Source="youtube.png"  Grid.Row="0" Grid.Column="3">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label  HorizontalOptions="Center" FontSize="11" Text="YouTube"  Grid.Row="1" Grid.Column="3"/>
+
+                <Image  HeightRequest="35" Source="facebook.png"  Grid.Row="0" Grid.Column="4">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label  HorizontalOptions="Center" FontSize="11" Text="Facebook"  Grid.Row="1" Grid.Column="4"/>
+            </Grid>
+
+
+
+                <Label VerticalOptions="Center" HorizontalOptions="Center" FontSize="11" Text="Допомогти розробнику"  />
+
+                <Image Margin="10" VerticalOptions="Center" HeightRequest="50" Source="{AppThemeBinding Dark=mono_dark.png, Light=mono_light.png}" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDonate" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

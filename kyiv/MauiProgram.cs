@@ -26,7 +26,6 @@ public static class MauiProgram
         builder.Services.AddSingleton<ConversationView>(); ;
 
         builder.Services.AddSingleton<IOpenAIService, OpenAIService>();
-        builder.Services.AddSingleton<IDataService, DataService>();
 
         var url = Constants.ApiKeys.SUPABASE_URL;
         var key = Constants.ApiKeys.SUPABASE_KEY;
