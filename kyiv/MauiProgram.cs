@@ -4,6 +4,8 @@ using ChatGPT.ViewModels;
 using ChatGPT.Views;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using AndroidX.CardView.Widget;
+using kyiv.Views;
 
 namespace kyiv;
 
@@ -36,6 +38,18 @@ public static class MauiProgram
             AutoConnectRealtime = true,
         }));
 
+
+        //// Add ViewModels
+
+        //// Add Views
+
+
+
+        builder.Services.AddSingleton<AccountView>();
+
+        builder.Services.AddSingleton<UserSettingsView>();
+
+        builder.Services.AddSingleton<IDataService, DataService>();
 
 #if DEBUG
         builder.Logging.AddDebug();

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AvocadoMobile.Views.AccountView"
+             x:Class="kyiv.Views.AccountView"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Shell.NavBarIsVisible="False">
     <ScrollView>
@@ -9,7 +9,7 @@
 
             <Border StrokeThickness="0" Margin="10,0,0,30" StrokeShape="RoundRectangle 40,0,0,40" BackgroundColor="#07bc53" WidthRequest="170">
                 <Grid ColumnSpacing="7" HorizontalOptions="Center" RowDefinitions="*" ColumnDefinitions="Auto,Auto">
-                    <Label FontFamily="Lexend" TextColor="White" Text="AVOCADO" FontAttributes="Bold" FontSize="Title" Grid.Row="0" Grid.Column="0"/>
+                    <Label  TextColor="White" Text="Kyiv 24 hours" FontAttributes="Bold" FontSize="Title" Grid.Row="0" Grid.Column="0"/>
                     <Image HeightRequest="27" Source="avocado_new.png" Grid.Row="0" Grid.Column="1"/>
                 </Grid>
             </Border>

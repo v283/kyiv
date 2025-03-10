@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kyiv.Views.UserSettingsView"
+             Title="Мої дані">
+
+    <Grid Margin="15" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,*" ColumnDefinitions="2*,*, Auto" RowSpacing="5">
+        <Label Grid.Row="0" Grid.Column="0" FontSize="12" TextColor="Grey" Text="ПІБ"/>
+        <Label Grid.Row="1" Grid.Column="0" FontSize="14" TextColor="Black" Text="{Binding BindUserDataModel.Name}" />
+        <Image Grid.Row="1" Grid.Column="2" HeightRequest="23" Source="edit.png">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ChangeNameCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Grid.Row="2" Grid.Column="0" FontSize="12" TextColor="Grey" Margin="0,20,0,0" Text="Електронна пошта"/>
+        <Label Grid.Row="3" Grid.Column="0" FontSize="14" TextColor="Black" Text="{Binding BindUserDataModel.Email}" />
+        <Image Grid.Row="3" Grid.Column="2" HeightRequest="23" Source="edit.png">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ChangeEmailCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Grid.Row="4" Grid.Column="0" FontSize="12" TextColor="Grey" Margin="0,20,0,0" Text="Телефон"/>
+        <Label Grid.Row="5" Grid.Column="0" FontSize="14" TextColor="Black" Text="{Binding BindUserDataModel.Phone}" />
+        <Image Grid.Row="5" Grid.Column="2" HeightRequest="23" Source="edit.png">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ChangePhoneCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Grid.Row="6" Grid.Column="0" FontSize="12" TextColor="Grey" Margin="0,20,0,0" Text="Дата народження"/>
+        <Label Grid.Row="7" Grid.Column="0" FontSize="14" TextColor="Black" Text="{Binding BindUserDataModel.Birth, StringFormat='{0:dd-MM-yyyy}'}"   />
+        <Image Grid.Row="7" Grid.Column="2" HeightRequest="23" Source="edit.png">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ChangeDateOfBirthCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Label Grid.Row="8" Grid.Column="0"  HorizontalOptions="Start" Margin="0,20"
+                   FontSize="16" FontAttributes="Bold" TextColor="Red" Text="Вийти">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SignOutCommand}"/>
+
+            </Label.GestureRecognizers>
+
+        </Label>
+
+        <Label Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Center" Margin="0,20"
+                   FontSize="16" FontAttributes="Bold" TextColor="#42b029" Text="Змінити пароль" >
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ChangePasswordCommand}"/>
+
+            </Label.GestureRecognizers>
+
+        </Label>
+
+        <Label  Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="End"  Margin="20,0,0,40"
+                 HorizontalTextAlignment="Center"  FontSize="18" FontAttributes="Bold" TextColor="Red" Text="Видалити акаунт" />
+
+
+    </Grid>
+
+</ContentPage>

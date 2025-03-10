@@ -1,12 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using kyiv.ViewModels;
 
-namespace kyiv;
+namespace kyiv.Views;
 
-public partial class MainPage : ContentPage
+public partial class MainView : ContentPage
 {
 
-	public MainPage()
+	public MainView()
 	{
 		InitializeComponent();
 		BindingContext = new MainViewModel();

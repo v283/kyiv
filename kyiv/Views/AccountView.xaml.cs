@@ -60,7 +60,7 @@ public partial class AccountView : ContentPage
     }
     private async void OnSettings(object sender, TappedEventArgs args)
     {
-        await Navigation.PushAsync(new SettingsView());
+ //       await Navigation.PushAsync(new SettingsView());
     }
 
     private async void OnZCU(object sender, TappedEventArgs args)
