@@ -81,10 +81,4 @@
 	  <Folder Include="Constants\" />
 	  <Folder Include="ViewModels\" />
 	</ItemGroup>
-	<ItemGroup>
-	  <BundleResource Include="Resources\Images\jack_bot_light.png" />
-	  <BundleResource Include="Resources\Images\send.png" />
-	  <BundleResource Include="Resources\Images\svg_user.svg" />
-	  <BundleResource Include="Resources\Images\jack_bot_dark.png" />
-	</ItemGroup>
 </Project>

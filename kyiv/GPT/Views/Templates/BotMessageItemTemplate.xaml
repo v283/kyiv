@@ -26,12 +26,6 @@
                 IsVisible="{Binding IsTextActive}"
                 Style="{StaticResource TxtSubtitle2_2}"
                 Text="{Binding Text}" />
-
-            <!--<Image
-                HeightRequest="150"
-                IsVisible="{Binding IsImageActive}"
-                Source="{Binding Text}"
-                WidthRequest="150" />-->
         </StackLayout>
     </Border>
 
@@ -48,8 +42,8 @@
 
         <Image
             HeightRequest="30"
-            Source="{AppThemeBinding Light=jack_bot_dark.png,
-                                          Dark=jack_bot.png}"
+            Source="{AppThemeBinding Light=jack_bot_light.png,
+                                          Dark=jack_bot_dark.png}"
             WidthRequest="30" />
     </Border>
 
