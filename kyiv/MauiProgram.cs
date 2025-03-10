@@ -6,6 +6,8 @@ using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using AndroidX.CardView.Widget;
 using kyiv.Views;
+using kyiv.ViewModels;
+using kyiv.Views.Templates;
 
 namespace kyiv;
 
@@ -24,8 +26,26 @@ public static class MauiProgram
 			})
 			.Services.AddSingleton<IOpenAIService, OpenAIService>();
 
-		builder.Services.AddTransient<ConversationViewModel>();
-        builder.Services.AddSingleton<ConversationView>(); ;
+        //// Add ViewModels
+        builder.Services.AddTransient<MarkViewModel>();
+
+        builder.Services.AddSingleton<LoginPopup>();
+        builder.Services.AddSingleton<SignupPopup>();
+        //// Add Views
+
+
+        builder.Services.AddSingleton<MainView>();
+
+        builder.Services.AddTransient<MarkView>();
+        builder.Services.AddSingleton<AccountView>();
+
+        builder.Services.AddSingleton<UserSettingsView>();
+
+
+        builder.Services.AddSingleton<IOpenAIService, OpenAIService>();
+        builder.Services.AddTransient<ConversationViewModel>();
+        builder.Services.AddSingleton<ConversationView>();
+
 
         builder.Services.AddSingleton<IOpenAIService, OpenAIService>();
 

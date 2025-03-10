@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kyiv.Views.Templates.MarkMessageItemTemplate"
+    xmlns:model="clr-namespace:kyiv.Models"
+    x:DataType="model:MarkModel"
+    xmlns:templates="clr-namespace:kyiv.Views.Templates"
+    ColumnDefinitions="*" RowDefinitions="Auto"  >
+
+    <Border Margin="12" HorizontalOptions="Center"
+        x:Name="borderText" Grid.Column="0" Grid.Row="0"
+        Padding="10"
+        BackgroundColor="White"
+        StrokeShape=" RoundRectangle 10"
+        StrokeThickness="1">
+        <Grid RowDefinitions="Auto, Auto, Auto, Auto,Auto" RowSpacing="3" ColumnDefinitions="2*,*" >
+
+            <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text="{Binding Name}" FontAttributes="Bold" FontSize="16"   />
+
+            <templates:RaitingStarTemplate IsTapped="False" Grid.Column="1" Grid.Row="1"   Count="{Binding Mark}" HorizontalOptions="End"/>
+
+            <Label Grid.Column="1" Grid.Row="0" HorizontalOptions="End" 
+                   Text="{Binding WritenAt, StringFormat='{0:dd.MM.yyyy}'}"/>
+
+            <Label Margin="0,0,0,5"  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding Text}" />
+
+            <Label Grid.Column="0" Grid.Row="3" Grid.RowSpan="2"  FontAttributes="Bold" HorizontalOptions="End" >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Адреса: " FontAttributes="Bold"/>
+                        <Span Text="{Binding Location}" />
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                  <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type templates:MarkMessageItemTemplate}}, Path=OpenInGoogleMapsCommand}" CommandParameter="{Binding Location}" />
+
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label Grid.Column="1" Grid.Row="3" Text="Магазин:" FontAttributes="Bold" HorizontalOptions="End"  />
+            <Image HeightRequest="23"  Grid.Column="1" Grid.Row="4" Source="{Binding Shop}" HorizontalOptions="End" />
+        </Grid>
+    </Border>
+
+
+
+</Grid>

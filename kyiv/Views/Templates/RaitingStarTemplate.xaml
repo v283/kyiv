@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kyiv.Views.Templates.RaitingStarTemplate"
+             x:Name="this">
+    <HorizontalStackLayout x:Name="starStack" >
+        <Image Source="star_grey.png" WidthRequest="22" HeightRequest="22">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding StarTapCommand}" CommandParameter="1"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="star_grey.png" WidthRequest="22" HeightRequest="22">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding StarTapCommand}" CommandParameter="2"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="star_grey.png" WidthRequest="22" HeightRequest="22">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding StarTapCommand}" CommandParameter="3"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="star_grey.png" WidthRequest="22" HeightRequest="22">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding StarTapCommand}" CommandParameter="4"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="star_grey.png" WidthRequest="22" HeightRequest="22">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding StarTapCommand}" CommandParameter="5"/>
+            </Image.GestureRecognizers>
+        </Image>
+    </HorizontalStackLayout>
+</ContentView>
