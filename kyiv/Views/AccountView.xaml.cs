@@ -23,9 +23,9 @@ public partial class AccountView : ContentPage
 	}
 	private async void OnLogin(object sender, EventArgs args)
 	{
-        bool result = (bool)(await Shell.Current.CurrentPage.ShowPopupAsync(new LoginPopup(_dataService)));
+        var popupResult = await Shell.Current.CurrentPage.ShowPopupAsync(new LoginPopup(_dataService));
 
-        if (result)
+        if (popupResult is bool result && result)
         {
             userGrid.IsVisible = true;
             loginBtn.IsVisible = false;

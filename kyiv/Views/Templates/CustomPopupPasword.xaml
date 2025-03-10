@@ -27,7 +27,7 @@
             </Border>
 
 
-            <Button Margin="20" BackgroundColor="#43b02a" FontSize="16" Text="Зберегти" Command="{Binding ChangePasswordCommand}" />
+            <Button Margin="20"  FontSize="16" Text="Зберегти" Command="{Binding ChangePasswordCommand}" />
         </VerticalStackLayout>
     </Border>
 </toolkit:Popup>

@@ -23,7 +23,7 @@
             <DatePicker WidthRequest="90" HorizontalOptions="Center"  x:Name="datePicker" />
 
 
-            <Button Margin="20" BackgroundColor="#43b02a" FontSize="16" Text="Зберегти" Command="{Binding SaveCommand}" />
+            <Button Margin="20" FontSize="16" Text="Зберегти" Command="{Binding SaveCommand}" />
         </VerticalStackLayout>
     </Border>
 

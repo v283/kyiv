@@ -26,7 +26,7 @@
             </Border>
 
 
-            <Button Margin="20" BackgroundColor="#43b02a" FontSize="16" Text="Зберегти" Command="{Binding ChangeCommand}" />
+            <Button Margin="20" FontSize="16" Text="Зберегти" Command="{Binding ChangeCommand}" />
         </VerticalStackLayout>
     </Border>
 

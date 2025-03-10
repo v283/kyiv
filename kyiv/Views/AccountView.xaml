@@ -7,7 +7,7 @@
     <ScrollView>
         <VerticalStackLayout Padding="10">
 
-            <Border StrokeThickness="0" Margin="10,0,0,30" StrokeShape="RoundRectangle 40,0,0,40" BackgroundColor="#07bc53" WidthRequest="170">
+            <Border StrokeThickness="0" Margin="10,0,0,30" StrokeShape="RoundRectangle 40,0,0,40" BackgroundColor="{StaticResource Primary}" WidthRequest="170">
                 <Grid ColumnSpacing="7" HorizontalOptions="Center" RowDefinitions="*" ColumnDefinitions="Auto,Auto">
                     <Label  TextColor="White" Text="Kyiv 24 hours" FontAttributes="Bold" FontSize="Title" Grid.Row="0" Grid.Column="0"/>
                     <Image HeightRequest="27" Source="avocado_new.png" Grid.Row="0" Grid.Column="1"/>
@@ -24,7 +24,7 @@
                 </Grid.GestureRecognizers>
             </Grid>
 
-            <Button x:Name="loginBtn"  Text="Увійти" BackgroundColor="#42b029" TextColor="White" FontAttributes="Bold" Clicked="OnLogin" Margin="20,0,20,20"/>
+            <Button x:Name="loginBtn"  Text="Увійти"  TextColor="White" FontAttributes="Bold" Clicked="OnLogin" Margin="20,0,20,20"/>
 
             <Grid  Padding="15" RowDefinitions="*,*,*,*,*,*,*" ColumnDefinitions="Auto, *" ColumnSpacing="30" RowSpacing="27">
 

@@ -18,7 +18,7 @@
 
             </Image>
 
-            <Label HorizontalOptions="Center" TextColor="#43b02a" FontSize="19" FontAttributes="Bold"  Text="Login"/>
+            <Label HorizontalOptions="Center" TextColor="{StaticResource Primary}"  FontSize="19" FontAttributes="Bold"  Text="Login"/>
 
             <Border Margin="10" StrokeShape="RoundRectangle 10">
                 <Entry x:Name="loginEntry" Margin="15, 0" Placeholder="Email Or Phone number"/>
@@ -29,9 +29,9 @@
             </Border>
 
 
-            <Label HorizontalOptions="End" TextColor="#79B728" Text="Forgot your password" Margin="0, 0,20,20"/>
+            <Label HorizontalOptions="End" TextColor="{StaticResource Primary}" Text="Forgot your password" Margin="0, 0,20,20"/>
 
-            <Button Clicked="OnLogin" BackgroundColor="#43b02a"  Margin="10" Text="Login"/>
+            <Button Clicked="OnLogin"   Margin="10" Text="Login"/>
 
             <Label Margin="5" HorizontalOptions="Center" Text="Or Login with"/>
 
@@ -46,7 +46,7 @@
                     <FormattedString>
                         <Span Text="Don't have account?" />
 
-                        <Span Text=" Sign up"  TextColor="#79B728"
+                        <Span Text=" Sign up"  TextColor="{StaticResource Primary}" 
                   TextDecorations="Underline">
                             <Span.GestureRecognizers>
                                 <TapGestureRecognizer  Tapped="OnSignUp"/>

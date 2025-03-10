@@ -33,7 +33,7 @@
             </Border>
 
 
-            <Button  BackgroundColor="#43b02a"  Margin="10"  Text="Sign Up"/>
+            <Button Clicked="OnRegister"  BackgroundColor="#43b02a"  Margin="10"  Text="Sign Up"/>
 
             <Label Margin="5" HorizontalOptions="Center" Text="Or Sign Up with"/>
 
@@ -47,7 +47,7 @@
                     <FormattedString>
                         <Span Text="I have account! " />
 
-                        <Span Text="Close."  TextColor="#79B728"
+                        <Span Text="Close."  TextColor="{StaticResource Primary}"
                   TextDecorations="Underline">
                             <Span.GestureRecognizers>
                                 <TapGestureRecognizer  Tapped="OnClose"/>

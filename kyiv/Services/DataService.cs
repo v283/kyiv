@@ -65,6 +65,7 @@ namespace kyiv.Services
                 }
             };
             var response = await _supabaseClient.Auth.SignUp(email, password, options);
+            UpdateUserDataAsync(name, email, "", new(), "svg_user.svg");
             return false;
         }
         public async Task SignOutAsync()
@@ -82,6 +83,7 @@ namespace kyiv.Services
                 var response = await _supabaseClient.From<UserDataModel>()
                     .Select("*").Where(x => x.UserId == userId)
                     .Get();
+
                 return response.Model;
             }
 
