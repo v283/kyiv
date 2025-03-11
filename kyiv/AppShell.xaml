@@ -24,7 +24,7 @@
             <ShellContent  ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Exeprise"   Icon="{AppThemeBinding Light=jack_bot_light.png, Dark=jack_bot_dark.png}"  >
+    <FlyoutItem Title="Exeprise" Icon="{AppThemeBinding Light=jack_bot_light.png, Dark=jack_bot_dark.png}"  >
         <Tab>
             <ShellContent  ContentTemplate="{DataTemplate local:ExercisePage}" />
         </Tab>

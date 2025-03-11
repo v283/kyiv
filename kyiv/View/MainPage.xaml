@@ -1,51 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:kyiv.View.Templates"
+             xmlns:templates="clr-namespace:kyiv.View.Templates"
+             xmlns:controls="clr-namespace:kyiv.Controls"
              xmlns:adMobControls="clr-namespace:Plugin.MauiMTAdmob.Controls;assembly=Plugin.MauiMTAdmob"
              x:Class="kyiv.View.MainPage" Title="kiyv">
-
     <Grid ColumnDefinitions="*" RowDefinitions="Auto, Auto,Auto,Auto, Auto, *"  RowSpacing="12" Padding="10" Background="White">
-        <Border Margin="5, 2"  Grid.Row="0" Grid.Column="0" WidthRequest="285" HeightRequest="47" HorizontalOptions="Center" VerticalOptions="Center" StrokeThickness="0" StrokeShape="RoundRectangle 30" Style="{StaticResource LGradientBorder}"   >
-            <Border.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding LevelSelectedCommand}" CommandParameter="beginner"/>
-            </Border.GestureRecognizers>
-            <Label   Margin="-21" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"  FontSize="Medium" Text="BEGINNER"/>
+        <Border Margin="5, 2"  Grid.Row="0" Grid.Column="0" WidthRequest="380" HeightRequest="170" HorizontalOptions="Start" VerticalOptions="Center" StrokeThickness="0" StrokeShape="RoundRectangle 30" Style="{StaticResource LGradientBorder}"   >
+            <templates:ProgressBar/>
         </Border>
-        <Border Margin="5, 2"  Grid.Row="1" Grid.Column="0" WidthRequest="285" HeightRequest="47" HorizontalOptions="Center" VerticalOptions="Center" StrokeThickness="0" StrokeShape="RoundRectangle 30" Style="{StaticResource LGradientBorder}"     >
-            <Border.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding LevelSelectedCommand}" CommandParameter="preintermediate"/>
-            </Border.GestureRecognizers>
-            <Label   Margin="-21" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"  FontSize="Medium" Text="PRE-INTERMEDIATE"/>
+        <Border Margin="5, 2"  Grid.Row="1" Grid.Column="0" WidthRequest="180" HeightRequest="150" HorizontalOptions="Start" VerticalOptions="Center" StrokeThickness="0" StrokeShape="RoundRectangle 30" Style="{StaticResource LGradientBorder}"   >
+            <controls:MyCircleProgressBar FontZoom="0.9" TextStyle="Percent" TextColor="Black" Thickness="10" ProgressColor="ForestGreen" ProgressLeftColor="#e6e6e6"
+                     Size="120" Total="80"  Done="79"  x:Name="YearProgressBar" VerticalOptions="Center" HorizontalOptions="Center" />
         </Border>
-        <Border Margin="5, 2"  Grid.Row="2" Grid.Column="0" WidthRequest="285" HeightRequest="47" HorizontalOptions="Center" VerticalOptions="Center" StrokeThickness="0" StrokeShape="RoundRectangle 30" Style="{StaticResource LGradientBorder}"     >
-            <Border.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding LevelSelectedCommand}" CommandParameter="intermediate"/>
-            </Border.GestureRecognizers>
-            <Label   Margin="-21" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"  FontSize="Medium" Text="INTERMEDIATE"/>
+        <Border Margin="5, 2"  Grid.Row="1" Grid.Column="0" WidthRequest="180" HeightRequest="150" HorizontalOptions="End" VerticalOptions="Center" StrokeThickness="0" StrokeShape="RoundRectangle 30" Style="{StaticResource LGradientBorder}"   >
+            <controls:MyCircleProgressBar FontZoom="0.9" TextStyle="Percent" TextColor="Black" Thickness="10" ProgressColor="ForestGreen" ProgressLeftColor="#e6e6e6"
+         Size="120" Total="90"  Done="73"  x:Name="MounthProgressBar" VerticalOptions="Center" HorizontalOptions="Center" />
         </Border>
-        <Border Margin="5, 2"  Grid.Row="3" Grid.Column="0" WidthRequest="285" HeightRequest="47" HorizontalOptions="Center" VerticalOptions="Center" StrokeThickness="0" StrokeShape="RoundRectangle 30" Style="{StaticResource LGradientBorder}"     >
-            <Border.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding LevelSelectedCommand}" CommandParameter="upperintermediate"/>
-            </Border.GestureRecognizers>
-            <Label   Margin="-21" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"  FontSize="Medium" Text="UPPER-INTERMEDIATE"/>
+        <Border Margin="5, 2"  Grid.Row="2" Grid.Column="0" WidthRequest="180" HeightRequest="150" HorizontalOptions="Start" VerticalOptions="Center" StrokeThickness="0" StrokeShape="RoundRectangle 30" Style="{StaticResource LGradientBorder}"   >
+            <controls:MyCircleProgressBar FontZoom="0.9" TextStyle="Percent" TextColor="Black" Thickness="10" ProgressColor="ForestGreen" ProgressLeftColor="#e6e6e6"
+Size="120" Total="10"  Done="5"  x:Name="DayProgressBar" VerticalOptions="Center" HorizontalOptions="Center" />
         </Border>
-        <Border Margin="5, 2"  Grid.Row="4" Grid.Column="0" WidthRequest="285" HeightRequest="47" HorizontalOptions="Center" VerticalOptions="Center" StrokeThickness="0" StrokeShape="RoundRectangle 30" Style="{StaticResource LGradientBorder}"     >
-            <Border.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding LevelSelectedCommand}" CommandParameter="advanced"/>
-            </Border.GestureRecognizers>
-            <Label   Margin="-21" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"  FontSize="Medium" Text="ADVANCED"/>
-        </Border>
+        <Border Margin="5, 2"  Grid.Row="2" Grid.Column="0" WidthRequest="180" HeightRequest="150" HorizontalOptions="End" VerticalOptions="Center" StrokeThickness="0" StrokeShape="RoundRectangle 30" Style="{StaticResource LGradientBorder}"   >
 
+        </Border>
+        <Border Margin="5, 2"  Grid.Row="3" Grid.Column="0" WidthRequest="380" HeightRequest="170" HorizontalOptions="Start" VerticalOptions="Center" StrokeThickness="0" StrokeShape="RoundRectangle 30" Style="{StaticResource LGradientBorder}"   >
 
-        <!--<adMobControls:MTAdView VerticalOptions="End" HorizontalOptions="Center" Grid.Row="5" Grid.Column="0" AdSize="Smart" x:Name="myAds" AdsId="{OnPlatform Android='ca-app-pub-2108598265596673/8924575542', 
-                                   iOS='ca-app-pub-3940256099942544/2934735716'}"/>-->
-        <!--there I don't show banner, thanks google policy-->
-
-        <controls:ProgressBar Margin="5,2" Padding="0" Grid.Column="0" Grid.Row="5" 
-                      VerticalOptions="End" HeightRequest="5"/>
-
+        </Border>
     </Grid>
-
-
 </ContentPage>

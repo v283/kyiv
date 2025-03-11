@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using kyiv;
+using kyiv.Controls;
 using kyiv.ViewModels;
 
 namespace kyiv.View
@@ -10,6 +11,7 @@ namespace kyiv.View
         {
             InitializeComponent();
             ProgressBar progressBar = new ProgressBar();
+            MyCircleProgressBar myCircleProgressBar = new MyCircleProgressBar();
             BindingContext = new MainViewModel();
             
         }

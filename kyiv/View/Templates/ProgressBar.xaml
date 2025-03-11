@@ -3,15 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="kyiv.View.Templates.ProgressBar" WidthRequest="450">
 
-    <Grid Padding="20" VerticalOptions="End">
+    <Grid Padding="20">
         <CollectionView ItemsSource="{Binding Days}" HorizontalScrollBarVisibility="Never" HorizontalOptions="Center" >
             <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="27"/>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="22"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout HorizontalOptions="Center">
-                        <Border WidthRequest="30" HeightRequest="100"  Stroke="Gray" BackgroundColor="Transparent"
+                        <Border WidthRequest="30" HeightRequest="100"  Stroke="Gray" BackgroundColor="White"
                                StrokeShape="RoundRectangle 40" Padding="0">
                             <Grid>
                                 <BoxView Color="DarkOrange"

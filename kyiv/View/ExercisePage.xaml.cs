@@ -1,6 +1,6 @@
 namespace kyiv.View;
 
-public partial class ExercisePage : ContentView
+public partial class ExercisePage : ContentPage
 {
 	public ExercisePage()
 	{

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kyiv.Controls.NewWord">
+    <Grid ColumnDefinitions="*, *" RowDefinitions="*, *, *, *, *, *" BackgroundColor="White" Padding="10" RowSpacing="5">
+
+        <Image HeightRequest="23" HorizontalOptions="End" Grid.Row="0" Grid.Column="1" Source="check.png">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Editor Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+        <Label HorizontalOptions="Start" FontAttributes="Bold" TextColor="Grey" FontSize="12" Text="TERM" Grid.Row="2" Grid.Column="0" />
+        <Label HorizontalOptions="End" FontAttributes="Bold" TextColor="#8ee6d6" FontSize="12" Text="SELECT LANGUAGE" Grid.Row="2" Grid.Column="1">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Button_Clicked"/>
+
+            </Label.GestureRecognizers>
+
+        </Label>
+
+        <Editor Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Label HorizontalOptions="Start" FontAttributes="Bold" TextColor="Grey" FontSize="12" Text="DEFINITION" Grid.Row="4" Grid.Column="0" />
+        <Label HorizontalOptions="End" FontAttributes="Bold" TextColor="#8ee6d6" FontSize="12" Text="SELECT LANGUAGE" Grid.Row="4" Grid.Column="1" />
+
+        <Image Source="camera.png"  Grid.Row="5" HorizontalOptions="End" HeightRequest="35" Grid.Column="1">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnImageLink"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image x:Name="uploadImage" HeightRequest="40" Grid.Row="5" HorizontalOptions="End"  Grid.Column="0"/>
+    </Grid>
+</ContentView>
+
