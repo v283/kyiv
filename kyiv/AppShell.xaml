@@ -47,12 +47,12 @@
     </FlyoutItem>
     <FlyoutItem Title="Privacy Policy"  Icon="{AppThemeBinding Light=dictionary_light.png, Dark=dictionary_dark.png}">
         <Tab>
-            <ShellContent  ContentTemplate="{DataTemplate local:MainPage}" />
+            <ShellContent  ContentTemplate="{DataTemplate local:PrivacyPolicyPage}" />
         </Tab>
     </FlyoutItem>
     <FlyoutItem Title="About Us"  Icon="{AppThemeBinding Light=about_light.png, Dark=about_dark.png}">
         <Tab>
-            <ShellContent  ContentTemplate="{DataTemplate local:MainPage}" />
+            <ShellContent  ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
     </FlyoutItem>
     <Shell.FlyoutFooter >

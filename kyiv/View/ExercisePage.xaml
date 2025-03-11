@@ -3,18 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="kyiv.View.ExercisePage" Title="Tasks"  BackgroundColor="White">
     <VerticalStackLayout>
-        <Grid ColumnDefinitions="*" RowDefinitions="Auto, Auto,Auto,Auto, Auto, *"  RowSpacing="12" Padding="10" Background="White">
+        <Grid ColumnDefinitions="*" RowDefinitions="Auto, Auto,Auto,Auto, Auto, *"  RowSpacing="40" Background="White">
             <HorizontalStackLayout Margin="5,2" Grid.Row="0" Grid.Column="0"
                                    HorizontalOptions="Center" VerticalOptions="Center"
-                                   Spacing="10">
+                                   Spacing="10" Padding="0,15,0,0">
                 <Border WidthRequest="400" HeightRequest="350" 
-                        BackgroundColor="Red" StrokeShape="RoundRectangle 30"/>
+                        BackgroundColor="Red" StrokeShape="RoundRectangle 30">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LevelSelectedCommand}" CommandParameter="pvp"/>
+                    </Border.GestureRecognizers>
+                    <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="End">
+                        <Label Text="PvP" 
+                               TextColor="White"
+                               FontSize="28" Margin="0,10,0,0"/>
+                    </HorizontalStackLayout>
+                </Border>
+
             </HorizontalStackLayout>
             <HorizontalStackLayout Margin="5,2" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"
                                    Spacing="10">
                 <Border WidthRequest="400" HeightRequest="350" BackgroundColor="Blue" 
                         StrokeThickness="0" StrokeShape="RoundRectangle 30">
-
+                    <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="End">
+                        <Label Text="PvE" 
+                               TextColor="White"
+                               FontSize="28" Margin="0,10,0,0"/>
+                    </HorizontalStackLayout>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LevelSelectedCommand}" CommandParameter="pve"/>
+                    </Border.GestureRecognizers>
                 </Border>
             </HorizontalStackLayout>
         </Grid>

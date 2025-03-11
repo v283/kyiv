@@ -1,4 +1,4 @@
-namespace kyiv.Views;
+namespace kyiv.View;
 
 public partial class AboutPage : ContentPage
 {

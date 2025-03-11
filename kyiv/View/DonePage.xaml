@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:templates="clr-namespace:kyiv.View.Templates"
-             xmlns:controls="clr-namespace:kyiv.Controls"
-             x:Class="kyiv.View.ForumPage">
+             x:Class="kyiv.View.DonePage"
+             Title="DonePage">
     <VerticalStackLayout>
         <Label 
             Text="Welcome to .NET MAUI!"

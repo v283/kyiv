@@ -1,6 +1,6 @@
 namespace kyiv.View;
 
-public partial class ForumPage : ContentView
+public partial class ForumPage : ContentPage
 {
 	public ForumPage()
 	{
