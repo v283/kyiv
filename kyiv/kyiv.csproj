@@ -67,6 +67,8 @@
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 		<PackageReference Include="OpenAI" Version="1.11.0" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="9.1.0" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />
 		<PackageReference Include="Supabase" Version="1.1.1" />
 	</ItemGroup>
 
@@ -87,7 +89,6 @@
 	  <Folder Include="ViewModels\" />
 	  <Folder Include="Views\Templates\" />
 	  <Folder Include="Services\" />
-	  <Folder Include="Models\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Compile Update="Views\PrivacyPolicyWebView.xaml.cs">
@@ -95,6 +96,9 @@
 	  </Compile>
 	</ItemGroup>
 	<ItemGroup>
+	  <MauiXaml Update="Views\NotePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\PrivacyPolicyWebView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
