@@ -3,6 +3,7 @@ using Supabase;
 using Supabase.Gotrue;
 using CommunityToolkit.Maui.Views;
 using kyiv.Views.Templates;
+using System.Diagnostics;
 
 namespace kyiv.Services
 {
@@ -21,47 +22,60 @@ namespace kyiv.Services
             
         }
 
-        public async Task<bool> AddMarkAsync(string commentText)
+        public async Task<bool> AddMarkAsync(string commentText, string topic)
         {
             try
             {
-                // Отримуємо дані користувача
-                var userData = await GetUserData(); // Використовуємо await, щоб отримати результат
-                Guid uuid = userData.UserId; // Беремо UserId з отриманих даних користувача
-
-                // Перевірка на порожній коментар
-                if (string.IsNullOrWhiteSpace(commentText))
+                var userData = await GetUserData();
+                if (userData == null || userData.UserId == Guid.Empty)
                 {
-                    Console.WriteLine("Помилка: коментар не може бути порожнім!");
+                    Debug.WriteLine("Помилка: не вдалося отримати дані користувача.");
                     return false;
                 }
 
-                // Створення нового коментаря
+                if (string.IsNullOrWhiteSpace(commentText) || string.IsNullOrWhiteSpace(topic))
+                {
+                    Debug.WriteLine("Помилка: коментар або тема не можуть бути порожніми!");
+                    return false;
+                }
+
+                // Округлюємо час до хвилин
+                var currentTime = DateTime.UtcNow;
+                var roundedTime = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, currentTime.Hour, currentTime.Minute, 0);
+
                 MarkModel newMark = new()
                 {
-                    Id = Guid.NewGuid(), // Генеруємо унікальний ID
-                    Text = commentText,  // Текст коментаря
-                    UserId = uuid,       // UUID користувача
-                    WritenAt = DateTime.UtcNow // Час написання
+                    Id = Guid.NewGuid(),
+                    Text = commentText,
+                    UserId = userData.UserId,
+                    Name = userData.Name, // Заповнюємо ім'я користувача
+                    WritenAt = roundedTime, // Використовуємо округлений час
+                    Topic = topic // Додаємо тему
                 };
 
-                // Відправка нового коментаря до бази даних
                 var response = await _supabaseClient.From<MarkModel>().Insert(newMark);
 
-                // Перевірка відповіді та підтвердження успіху
                 if (response != null && response.Models.Count > 0)
                 {
-                    Console.WriteLine("Коментар успішно додано до бази даних.");
+                    Debug.WriteLine("Коментар успішно додано до бази даних.");
                     return true;
+                }
+                else
+                {
+                    Debug.WriteLine("Помилка: не вдалося додати коментар до бази даних.");
+                    return false;
                 }
             }
             catch (Exception ex)
             {
-                // Обробка помилок
-                Console.WriteLine($"Помилка при додаванні коментаря: {ex.Message}");
+                Debug.WriteLine($"Помилка при додаванні коментаря: {ex.Message}");
+                Debug.WriteLine($"StackTrace: {ex.StackTrace}");
+                if (ex.InnerException != null)
+                {
+                    Debug.WriteLine($"InnerException: {ex.InnerException.Message}");
+                }
+                return false;
             }
-
-            return false;
         }
         public async Task<bool> LoginAsync(string email, string password)
         {
@@ -137,23 +151,29 @@ namespace kyiv.Services
             await _supabaseClient.Auth.SignOut();
             SecureStorage.RemoveAll();
         }
-
         public async Task<UserDataModel> GetUserData()
         {
-            UserDataModel rezult = new();
+            UserDataModel result = new();
+
+            // Перевірка, чи користувач автентифікований
+            if (SupabaseClient.Auth.CurrentUser == null)
+            {
+                Console.WriteLine("Помилка: користувач не автентифікований.");
+                return result;
+            }
 
             if (Guid.TryParse(SupabaseClient.Auth.CurrentUser.Id, out var userId))
             {
                 var response = await _supabaseClient.From<UserDataModel>()
-                    .Select("*").Where(x => x.UserId == userId)
+                    .Select("*")
+                    .Where(x => x.UserId == userId)
                     .Get();
 
-                return response.Model;
+                return response.Model ?? result; // Повертаємо результат або пустий об'єкт
             }
 
-            return rezult;
+            return result;
         }
-
         public async Task UpdateUserDataAsync(string name, string email, string phone, DateTime? birth, string image = "")
         {
             try

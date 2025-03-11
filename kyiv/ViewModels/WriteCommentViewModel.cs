@@ -8,7 +8,7 @@ namespace kyiv.ViewModels
     public partial class WriteCommentViewModel : ObservableObject
     {
         [ObservableProperty]
-        private string commentText;
+        private string commentText, topic;
 
         private readonly DataService _dataService;
 
@@ -24,40 +24,40 @@ namespace kyiv.ViewModels
         }
 
         [RelayCommand]
-        private async void SendMark()
+        private async Task SendMark()
         {
             if (string.IsNullOrWhiteSpace(CommentText))
             {
-                Console.WriteLine("Коментар не може бути порожнім!");
+                await Application.Current.MainPage.DisplayAlert("Помилка", "Коментар не може бути порожнім!", "OK");
                 return;
             }
 
             if (_dataService == null)
             {
-                Console.WriteLine("Помилка: DataService не ініціалізовано!");
+                await Application.Current.MainPage.DisplayAlert("Помилка", "DataService не ініціалізовано!", "OK");
                 return;
             }
 
             try
             {
-                // Викликаємо асинхронний метод і чекаємо результат
-                bool success = await _dataService.AddMarkAsync(CommentText);
+                bool success = await _dataService.AddMarkAsync(CommentText, Topic);
 
                 if (success)
                 {
-                    CommentText = string.Empty; // Очистити поле коментаря після успішного додавання
+                    CommentText = string.Empty;
+                    Topic = string.Empty;
+                    MessagingCenter.Send(this, "RefreshComments"); // Відправити повідомлення
+                    await Shell.Current.Navigation.PopModalAsync();
                 }
                 else
                 {
-                    CommentText = "Не вдалося додати коментар.";
+                    await Application.Current.MainPage.DisplayAlert("Помилка", "Не вдалося додати коментар.", "OK");
                 }
             }
             catch (Exception ex)
             {
-                // Обробляємо помилки та виводимо їх
-                CommentText = ($"Сталася помилка при додаванні коментаря: {ex.Message}");
+                await Application.Current.MainPage.DisplayAlert("Помилка", $"Сталася помилка при додаванні коментаря: {ex.Message}", "OK");
             }
         }
-
     }
 }

@@ -4,7 +4,6 @@ using ChatGPT.ViewModels;
 using ChatGPT.Views;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using AndroidX.CardView.Widget;
 using kyiv.Views;
 using kyiv.ViewModels;
 using kyiv.Views.Templates;
@@ -32,6 +31,11 @@ public static class MauiProgram
         builder.Services.AddSingleton<LoginPopup>();
         builder.Services.AddSingleton<SignupPopup>();
         //// Add Views
+        builder.Services.AddSingleton<DataService>();
+        builder.Services.AddSingleton<MarkViewModel>();
+        builder.Services.AddTransient<WriteCommentViewModel>();
+
+
 
 
         builder.Services.AddSingleton<MainView>();

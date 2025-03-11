@@ -84,7 +84,6 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Constants\" />
-	  <Folder Include="ViewModels\" />
 	  <Folder Include="Views\" />
 	  <Folder Include="Views\Templates\" />
 	  <Folder Include="Services\" />

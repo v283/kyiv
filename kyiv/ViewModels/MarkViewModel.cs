@@ -5,31 +5,55 @@ using kyiv.Views;
 using kyiv.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-
-namespace kyiv.ViewModels
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using kyiv.ViewModels;
+public partial class MarkViewModel : ObservableObject
 {
-	public partial class MarkViewModel:ObservableObject
-	{
-        private readonly DataService _dataService;
+    private readonly DataService _dataService;
 
-        [ObservableProperty]
-		List<MarkModel> comments;
+    [ObservableProperty]
+    private ObservableCollection<MarkModel> comments;
 
-		public MarkViewModel(IDataService dataService)
+    public MarkViewModel(IDataService dataService)
+    {
+        _dataService = (DataService)dataService;
+        Comments = new ObservableCollection<MarkModel>(); // Ініціалізація колекції
+        Initialyze();
+        // Підписатися на повідомлення
+        MessagingCenter.Subscribe<WriteCommentViewModel>(this, "RefreshComments", async (sender) =>
         {
-            _dataService = (DataService)dataService;
-            Initialyze();
-        }
-        private async void Initialyze()
+            await LoadCommentsAsync();
+        });
+    }
+
+    private async void Initialyze()
+    {
+        await LoadCommentsAsync();
+    }
+
+    public async Task LoadCommentsAsync()
+    {
+        try
         {
-            Comments = (await _dataService.SupabaseClient.From<MarkModel>().Get()).Models;
+            var data = (await _dataService.SupabaseClient.From<MarkModel>().Get()).Models;
+            Comments.Clear(); // Очистити поточні дані
+            foreach (var item in data)
+            {
+                Comments.Add(item); // Додати нові дані
+            }
+            Debug.WriteLine("Коментарі успішно оновлено.");
         }
-        [RelayCommand]
-        private async void WriteComment()
+        catch (Exception ex)
         {
-            await Shell.Current.Navigation.PushModalAsync(new WriteCommentView(_dataService));
+            Debug.WriteLine($"Помилка при оновленні коментарів: {ex.Message}");
         }
-        
-	}
+    }
+
+
+    [RelayCommand]
+    private async void WriteComment()
+    {
+        await Shell.Current.Navigation.PushModalAsync(new WriteCommentView(_dataService));
+    }
 }
-
