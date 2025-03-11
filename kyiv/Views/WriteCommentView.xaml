@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kyiv.Views.WriteCommentView"
+             xmlns:local="clr-namespace:kyiv.ViewModels"
+             xmlns:templates="clr-namespace:kyiv.Views.Templates"
+             >
+    <Grid Padding="15" ColumnSpacing="20" ColumnDefinitions="Auto, *" RowDefinitions="Auto,*">
+        <Image Grid.Column="0" Grid.Row="0"  HeightRequest="20" HorizontalOptions="Start" Source="close.png">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type local:WriteCommentViewModel}}, Path=CloseCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Grid.Column="1" Grid.Row="0" FontAttributes="Bold" FontSize="21" Text="Написати відгук"/>
+
+        <templates:RaitingStarTemplate IsTapped="True" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Count="{Binding Mark}" HorizontalOptions="End"/>
+
+    </Grid>
+</ContentPage>

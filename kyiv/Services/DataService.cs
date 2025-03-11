@@ -1,5 +1,4 @@
-﻿
-using Android.Database;
+﻿using Android.Database;
 using kyiv.Models;
 using Microsoft.IdentityModel.Tokens;
 using Supabase;
@@ -20,7 +19,7 @@ namespace kyiv.Services
         public DataService(Supabase.Client supabaseClient)
         {
             _supabaseClient = supabaseClient;
-
+            
         }
 
 
@@ -65,6 +64,9 @@ namespace kyiv.Services
                 }
             };
             var response = await _supabaseClient.Auth.SignUp(email, password, options);
+
+            // check wheather user confirmed sign up than
+           // UpdateUserDataAsync(name, email, "", new(), "svg_user.svg");
             return false;
         }
         public async Task SignOutAsync()
@@ -82,6 +84,7 @@ namespace kyiv.Services
                 var response = await _supabaseClient.From<UserDataModel>()
                     .Select("*").Where(x => x.UserId == userId)
                     .Get();
+
                 return response.Model;
             }
 

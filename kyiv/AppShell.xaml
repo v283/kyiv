@@ -14,9 +14,9 @@
         <ShellContent Title="Рецепти" Route="recipeview"
                      Icon="home.png"
                      ContentTemplate="{DataTemplate views:MainView}" />
-        <ShellContent Title="Каталог" Route="catalogview"
+        <ShellContent Title="Коменти" Route="catalogview"
                      Icon="home.png" 
-                     ContentTemplate="{DataTemplate views:MainView}" />
+                     ContentTemplate="{DataTemplate views:MarkView}" />
         <ShellContent Title="Обрані" Route="cartview"
                      Icon="home.png"
                      ContentTemplate="{DataTemplate views:MainView}" />
