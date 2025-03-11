@@ -74,6 +74,49 @@ namespace kyiv.Services
             await _supabaseClient.Auth.SignOut();
             SecureStorage.RemoveAll();
         }
+        public async Task<bool> AddMarkAsync(string commentText)
+        {
+            try
+            {
+                // Отримуємо дані користувача
+                var userData = await GetUserData(); // Використовуємо await, щоб отримати результат
+                Guid uuid = userData.UserId; // Беремо UserId з отриманих даних користувача
+
+                // Перевірка на порожній коментар
+                if (string.IsNullOrWhiteSpace(commentText))
+                {
+                    Console.WriteLine("Помилка: коментар не може бути порожнім!");
+                    return false;
+                }
+
+                // Створення нового коментаря
+                MarkModel newMark = new()
+                {
+                    Id = Guid.NewGuid(), // Генеруємо унікальний ID
+                    Text = commentText,  // Текст коментаря
+                    UserId = uuid,       // UUID користувача
+                    WritenAt = DateTime.UtcNow // Час написання
+                };
+
+                // Відправка нового коментаря до бази даних
+                var response = await _supabaseClient.From<MarkModel>().Insert(newMark);
+
+                // Перевірка відповіді та підтвердження успіху
+                if (response != null && response.Models.Count > 0)
+                {
+                    Console.WriteLine("Коментар успішно додано до бази даних.");
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Обробка помилок
+                Console.WriteLine($"Помилка при додаванні коментаря: {ex.Message}");
+            }
+
+            return false;
+        }
+
 
         public async Task<UserDataModel> GetUserData()
         {

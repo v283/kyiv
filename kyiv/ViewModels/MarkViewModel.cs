@@ -27,7 +27,7 @@ namespace kyiv.ViewModels
         [RelayCommand]
         private async void WriteComment()
         {
-            await Shell.Current.Navigation.PushModalAsync(new WriteCommentView());
+            await Shell.Current.Navigation.PushModalAsync(new WriteCommentView(_dataService));
         }
         
 	}

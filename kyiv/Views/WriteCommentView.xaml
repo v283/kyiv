@@ -3,17 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="kyiv.Views.WriteCommentView"
              xmlns:local="clr-namespace:kyiv.ViewModels"
-             xmlns:templates="clr-namespace:kyiv.Views.Templates"
-             >
-    <Grid Padding="15" ColumnSpacing="20" ColumnDefinitions="Auto, *" RowDefinitions="Auto,*">
-        <Image Grid.Column="0" Grid.Row="0"  HeightRequest="20" HorizontalOptions="Start" Source="close.png">
+             xmlns:templates="clr-namespace:kyiv.Views.Templates">
+
+    <Grid Padding="15" ColumnSpacing="20" RowSpacing="15"
+          RowDefinitions="Auto, Auto, *, Auto"
+          ColumnDefinitions="Auto, *">
+
+        <!-- Кнопка закриття -->
+        <Image Grid.Column="0" Grid.Row="0" HeightRequest="20" HorizontalOptions="Start" Source="close.png">
             <Image.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type local:WriteCommentViewModel}}, Path=CloseCommand}" />
+                <TapGestureRecognizer Command="{Binding CloseCommand}" />
             </Image.GestureRecognizers>
         </Image>
+
+        <!-- Заголовок -->
         <Label Grid.Column="1" Grid.Row="0" FontAttributes="Bold" FontSize="21" Text="Написати відгук"/>
 
-        <templates:RaitingStarTemplate IsTapped="True" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Count="{Binding Mark}" HorizontalOptions="End"/>
+        <!-- Рейтинг -->
+        <templates:RaitingStarTemplate IsTapped="True" 
+                                       Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                                       Count="{Binding Mark}" HorizontalOptions="End"/>
+
+        <Editor Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
+        Text="{Binding CommentText, Mode=TwoWay}" 
+        Placeholder="Напишіть ваш відгук тут..."
+        AutoSize="TextChanges"
+        BackgroundColor="White"
+        HeightRequest="150"
+        Margin="0,10,0,10"/>
+
+        <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"
+        Text="Відправити" 
+        Command="{Binding SendMarkCommand}"
+        BackgroundColor="Blue"
+        TextColor="White"
+        CornerRadius="10"
+        Padding="10"
+        HorizontalOptions="Fill"/>
+
 
     </Grid>
 </ContentPage>

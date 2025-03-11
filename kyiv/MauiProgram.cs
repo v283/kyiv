@@ -63,6 +63,8 @@ public static class MauiProgram
 
         //// Add Views
 
+        builder.Services.AddSingleton<WriteCommentViewModel>();
+        builder.Services.AddSingleton<WriteCommentView>();
 
 
         builder.Services.AddSingleton<AccountView>();
