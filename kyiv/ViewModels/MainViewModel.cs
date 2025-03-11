@@ -1,6 +1,8 @@
 ﻿using System;
+using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using kyiv.Views.Templates;
 
 namespace kyiv.ViewModels
 {
@@ -14,7 +16,9 @@ namespace kyiv.ViewModels
         [RelayCommand]
         private async Task ToGpt()
         {
-            await Shell.Current.GoToAsync($"chatgpt?question=hello");
+             await Shell.Current.GoToAsync($"chatgpt?question=hello");
+
+            //var emailCkeck = await Shell.Current.CurrentPage.ShowPopupAsync(new EmailCkeckPopup());
         }
     }
 }
