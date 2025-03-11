@@ -14,7 +14,7 @@
 
                 </Image.GestureRecognizers>
                 <Image.Behaviors>
-                    <toolkit:IconTintColorBehavior TintColor="#43b02a"/>
+                    <toolkit:IconTintColorBehavior TintColor="#512BD4"/>
                 </Image.Behaviors>
 
             </Image>
