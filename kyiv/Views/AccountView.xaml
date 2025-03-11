@@ -41,6 +41,19 @@
                     </Label.GestureRecognizers>
                 </Label>
 
+                <Image VerticalOptions="Center" HeightRequest="25" Source="saved.png" Grid.Row="0" Grid.Column="0">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
+
+                    </Image.Behaviors>
+
+                </Image>
+                <Label VerticalOptions="Center" FontSize="15" Text="Збережене" Grid.Row="0" Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Label.GestureRecognizers>
+                </Label>
+
                 <Image VerticalOptions="Center" HeightRequest="25" Source="add_user.png"  Grid.Row="1" Grid.Column="0">
                     <Image.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
