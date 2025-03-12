@@ -9,7 +9,7 @@ using SQLite;
 
 namespace kyiv.Models
 {
-    public class Note
+    public class NoteModel
     {
         private int _id;
         private string _text;
@@ -29,6 +29,5 @@ namespace kyiv.Models
             get;
             set;
         }
-
     }
 }

@@ -2,49 +2,37 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="kyiv.Views.NotesPage"
-             Title="Нотатки">
-    <ScrollView>
-        <Grid Padding="20" RowSpacing="20"
-              RowDefinitions="Auto, *">
+                      xmlns:model="clr-namespace:kyiv.Models"
+         xmlns:templates="clr-namespace:kyiv.Views.Templates"
+         Title="Відгуки">
 
-            <Button Grid.Row="0"
-                Text="Створити нотатку"
-                    Clicked="OnCreateNoteClicked"
-                    BackgroundColor="{StaticResource Primary}"
-                    TextColor="White"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Center"/>
+    <Grid>
+        
+        <CollectionView ItemsSource="{Binding Notes}"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    x:Name="NotesListView">
 
-            <ListView Grid.Row="1" 
-                x:Name="NotesListView"
-                      ItemsSource="{Binding Notes}"
-                      ItemSelected="OnNoteSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid ColumnDefinitions="*, Auto">
-                                <VerticalStackLayout 
-                                     Grid.Column="0"
-                                    VerticalOptions="Center">
-                                    <Label Text="{Binding Name}" FontSize="16"/>
-                                    <Label Text="{Binding Text}" FontSize="11" TextColor="Gray"/>
-                                </VerticalStackLayout>
-                                <Button Grid.Column="1"
-                                    Text="Видалити"
-                                    Clicked="OnDeleteNoteClicked"
-                                    BackgroundColor="{StaticResource Primary}"
-                                    TextColor="White"
-                                    FontAttributes="Bold"
-                                    HeightRequest="30"
-                                    WidthRequest="80"
-                                    FontSize="10"
-                                    VerticalOptions="Center"/>  
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"/>
+            </CollectionView.ItemsLayout>
 
-        </Grid>
-    </ScrollView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:MarkModel">
+                    <templates:NoteItemTemplate />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        <Button Text="Створити нотатку"
+            Clicked="OnCreateNoteClicked"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Margin="20"
+            BackgroundColor="Blue"
+            TextColor="White"
+            CornerRadius="10"
+            Padding="10" />
+    </Grid>
 </ContentPage>

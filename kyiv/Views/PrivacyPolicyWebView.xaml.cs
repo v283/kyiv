@@ -5,15 +5,17 @@ namespace kyiv.Views;
 
 public partial class PrivacyPolicyPage : ContentPage
 {
-	private const string SupabaseFileUrl = "https://gqowltjejkvnonrcdkwt.supabase.co/storage/v1/object/public/documents//index2.html";
+	private const string SupabaseFileUrl = "https://bejewelled-hummingbird-b53519.netlify.app";
 
     public PrivacyPolicyPage()
 	{
 		InitializeComponent();
 
-		LoadHtmlFromSupabase();
+		//LoadCustomWeb();
 
-    }
+        LoadHtmlFromSupabase();
+
+	}
 
 	private async void LoadHtmlFromSupabase()
 	{
@@ -32,4 +34,16 @@ public partial class PrivacyPolicyPage : ContentPage
 			await DisplayAlert("Помилка", "Не вдалося завантажити сторінку.", "ОК");
 		}
 	}
+
+    private async void LoadCustomWeb()
+    {
+        try
+        {
+			PrivacyPolicyWebView.Source = new UrlWebViewSource { Url = SupabaseFileUrl };
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Помилка", $"Не вдалося завантажити сторінку. Деталі: {ex.Message}", "ОК");
+        }
+    }
 }

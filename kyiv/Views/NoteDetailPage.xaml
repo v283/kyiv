@@ -2,32 +2,41 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="kyiv.Views.NoteDetailPage"
-             Title="NoteDetailPage">
+             Title="Редагування нотатки">
 
     <Grid Padding="15" ColumnSpacing="20" RowSpacing="15"
-          RowDefinitions="Auto, Auto, *">
-        <Button Grid.Row="0"
-                Text="Зберегти зміни"
-                    Clicked="OnSaveChangesClicked"
-                    BackgroundColor="{StaticResource Primary}"
-                    TextColor="White"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Center"/>
+          RowDefinitions="Auto, Auto, *, Auto">
 
 
-        <Entry Grid.Row="1"
+        <Entry Grid.Row="0"
             x:Name="NameEntry"
                    Placeholder="Назва нотатки"
+               MaxLength="20"
+               FontSize="18"
                    Text="{Binding Name}"/>
 
-        <Editor Grid.Row="2"
+        <Editor Grid.Row="1"
                 x:Name="TextEditor"
                 Placeholder="Text нотатки..."
                 AutoSize="TextChanges"
-                Text="{Binding Text}"
-/>
+                Text="{Binding Text}"/>
+
+        <Button Grid.Row="3" Grid.Column="0"
+                Text="Видалити нотатку"
+                Clicked="OnDeleteNoteClicked"
+                BackgroundColor="Red"
+                TextColor="White"
+                FontAttributes="Bold"
+                HorizontalOptions="Start" />
+
+        <Button Grid.Row="3" Grid.Column="1"
+                Text="Зберегти зміни"
+                Clicked="OnSaveChangesClicked"
+                BackgroundColor="{StaticResource Primary}"
+                TextColor="White"
+                FontAttributes="Bold"
+                HorizontalOptions="End" />
 
     </Grid>
-    
-    
+
 </ContentPage>

@@ -6,10 +6,10 @@ namespace kyiv.Views;
 
 public partial class NoteDetailPage : ContentPage
 {
-	private Note _note;
+	private NoteModel _note;
 	private LocalDataService _databaseService;
 
-	public NoteDetailPage(Note note)
+	public NoteDetailPage(NoteModel note)
 	{
 		InitializeComponent();
 
@@ -25,6 +25,22 @@ public partial class NoteDetailPage : ContentPage
 
 		await Navigation.PopAsync();
 	}
+
+    private async void OnDeleteNoteClicked(object sender, EventArgs e)
+    {
+        if (sender is Button button && button.BindingContext is NoteModel note)
+        {
+            bool confirm = await DisplayAlert("Видалити нотатку", "Ви впевнені, що хочете видалити нотатку?", "Так", "Ні");
+
+            if (confirm)
+            {
+                _databaseService.DeleteNote(note.Id);
+
+				await Navigation.PopAsync();
+            }
+        }
+
+    }
 
     protected override void OnDisappearing()
 	{

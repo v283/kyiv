@@ -19,33 +19,33 @@ namespace kyiv.Services
 
             _database = new SQLiteConnection(dbPath);
 
-            _database.CreateTable<Note>();
+            _database.CreateTable<NoteModel>();
         }
 
 
-        public List<Note> GetNotes()
+        public List<NoteModel> GetNotes()
         {
-            return _database.Table<Note>().ToList();
+            return _database.Table<NoteModel>().ToList();
         }
 
-        public Note GetNote(int id)
+        public NoteModel GetNote(int id)
         {
-            return _database.Table<Note>().FirstOrDefault(n => n.Id == id);
+            return _database.Table<NoteModel>().FirstOrDefault(n => n.Id == id);
         }
 
-        public void AddNote(Note note)
+        public void AddNote(NoteModel note)
         {
             _database.Insert(note);
         }
 
-        public void UpdateNote(Note note)
+        public void UpdateNote(NoteModel note)
         {
             _database.Update(note);
         }
 
         public void DeleteNote(int id)
         {
-            _database.Delete<Note>(id);
+            _database.Delete<NoteModel>(id);
         }
     }
 }

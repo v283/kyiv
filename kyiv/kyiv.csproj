@@ -71,8 +71,6 @@
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />
 		<PackageReference Include="Supabase" Version="1.1.1" />
-		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
-		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -114,6 +112,9 @@
 	  <MauiXaml Update="Views\NoteDetailPage.xaml" />
 	  <MauiXaml Update="Views\NotesPage.xaml" />
 	  <MauiXaml Update="Views\PrivacyPolicyWebView.xaml" />
+	  <MauiXaml Update="Views\Templates\NoteItemTemplate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Templates\SuccessPopup.xaml" />
 	</ItemGroup>
 
