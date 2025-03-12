@@ -1,19 +1,23 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="kyiv.Views.MarkView"
              xmlns:model="clr-namespace:kyiv.Models"
              xmlns:templates="clr-namespace:kyiv.Views.Templates"
              Title="Відгуки">
-
     <Grid>
-        <!-- CollectionView для відображення списку коментарів -->
+        <!-- Анімація завантаження -->
+        <ActivityIndicator IsRunning="{Binding IsLoading}" 
+                           IsVisible="{Binding IsLoading}"
+                           Color="Blue"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+
+        <!-- Список коментарів -->
         <CollectionView ItemsSource="{Binding Comments}"
                         SelectionMode="None"
                         HorizontalOptions="Fill"
-                        VerticalOptions="Fill">
-
-            <!-- Шаблон для кожного коментаря -->
+                        VerticalOptions="Fill"
+                        IsVisible="{Binding IsNotLoading}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:MarkModel">
                     <templates:MarkMessageItemTemplate />
@@ -21,7 +25,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <!-- Кнопка для додавання нового коментаря -->
+        <!-- Кнопка для написання відгуку -->
         <Button Text="Написати відгук"
                 Command="{Binding WriteCommentCommand}"
                 HorizontalOptions="End"
@@ -30,6 +34,7 @@
                 BackgroundColor="Blue"
                 TextColor="White"
                 CornerRadius="10"
-                Padding="10" />
+                Padding="10"
+                IsVisible="{Binding IsNotLoading}" />
     </Grid>
 </ContentPage>
