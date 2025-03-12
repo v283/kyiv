@@ -50,7 +50,7 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.png"  />
+		<MauiIcon Include="Resources\AppIcon\appicon.png" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
@@ -94,6 +94,7 @@
 	  <None Remove="Services\" />
 	  <None Remove="Models\" />
 	  <None Remove="Resources\Images\google.png" />
+	  <None Remove="Notes.db" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -106,10 +107,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\NoteDetailPage.xaml"/>
-	  <MauiXaml Update="Views\NotesPage.xaml"/>
-	  <MauiXaml Update="Views\PrivacyPolicyWebView.xaml"/>
-	  <MauiXaml Update="Views\Templates\SuccessPopup.xaml"/>
+	  <MauiXaml Update="Views\NoteDetailPage.xaml" />
+	  <MauiXaml Update="Views\NotesPage.xaml" />
+	  <MauiXaml Update="Views\PrivacyPolicyWebView.xaml" />
+	  <MauiXaml Update="Views\Templates\SuccessPopup.xaml" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <EmbeddedResource Include="Notes.db" />
+	</ItemGroup>
 </Project>
