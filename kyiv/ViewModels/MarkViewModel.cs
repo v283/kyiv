@@ -11,6 +11,7 @@ using kyiv.ViewModels;
 public partial class MarkViewModel : ObservableObject
 {
     private readonly DataService _dataService;
+    private bool _isWriteCommentViewOpen = false; // Прапорець для відстеження стану вікна
 
     [ObservableProperty]
     private ObservableCollection<MarkModel> comments;
@@ -20,11 +21,6 @@ public partial class MarkViewModel : ObservableObject
         _dataService = (DataService)dataService;
         Comments = new ObservableCollection<MarkModel>(); // Ініціалізація колекції
         Initialyze();
-        // Підписатися на повідомлення
-        //MessagingCenter.Subscribe<WriteCommentViewModel>(this, "RefreshComments", async (sender) =>
-        //{
-        //    await LoadCommentsAsync();
-        //});
     }
 
     private async void Initialyze()
@@ -56,10 +52,24 @@ public partial class MarkViewModel : ObservableObject
         }
     }
 
-
     [RelayCommand]
     private async void WriteComment()
     {
-        await Shell.Current.Navigation.PushModalAsync(new WriteCommentView(_dataService));
+        // Перевірка, чи вікно вже відкрите
+        if (_isWriteCommentViewOpen)
+        {
+            return; // Якщо вікно вже відкрите, нічого не робимо
+        }
+
+        _isWriteCommentViewOpen = true; // Позначити, що вікно відкрите
+
+        try
+        {
+            await Shell.Current.Navigation.PushModalAsync(new WriteCommentView(_dataService));
+        }
+        finally
+        {
+            _isWriteCommentViewOpen = false; // Позначити, що вікно закрите
+        }
     }
 }
