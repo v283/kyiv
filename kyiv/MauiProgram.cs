@@ -4,7 +4,6 @@ using ChatGPT.ViewModels;
 using ChatGPT.Views;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using AndroidX.CardView.Widget;
 using kyiv.Views;
 using kyiv.ViewModels;
 using kyiv.Views.Templates;
@@ -48,6 +47,12 @@ public static class MauiProgram
 
 
         builder.Services.AddSingleton<IOpenAIService, OpenAIService>();
+
+
+
+        // deep link
+        builder.Services.AddSingleton<AppShell>();
+
 
         var url = Constants.ApiKeys.SUPABASE_URL;
         var key = Constants.ApiKeys.SUPABASE_KEY;

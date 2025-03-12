@@ -4,6 +4,7 @@ using Supabase;
 using Supabase.Gotrue;
 using CommunityToolkit.Maui.Views;
 using kyiv.Views.Templates;
+using static Supabase.Gotrue.Constants;
 
 namespace kyiv.Services
 {
@@ -92,6 +93,30 @@ namespace kyiv.Services
 
             return false;
         }
+
+
+        public async void LoginWithGoogle()
+        {
+            //var supabase = Util.GetSupabase();
+
+            SignInOptions o = new()
+            {
+                FlowType = OAuthFlowType.PKCE,
+            };
+
+            var signInUrl = await _supabaseClient.Auth.SignIn(Provider.Google, o);
+
+            if (signInUrl == null) throw new Exception();
+
+            WebAuthenticatorResult authResult = await WebAuthenticator.Default.AuthenticateAsync(
+        signInUrl.Uri,
+        new Uri("kyiv://callback"));
+            // manage the auth result
+            Supabase.Gotrue.Session? session = _supabaseClient.Auth.CurrentSession;
+            String? oAuthToken = session?.AccessToken;
+            await Shell.Current.GoToAsync("where");
+        }
+
         public async Task SignOutAsync()
         {
             await _supabaseClient.Auth.SignOut();
@@ -143,5 +168,26 @@ namespace kyiv.Services
 
             }
         }
+    }
+}
+
+public static class Util
+{
+    public static Supabase.Client GetSupabase()
+    {
+        Supabase.Client? c = IPlatformApplication.Current?.Services.GetService<Supabase.Client>();
+        if (c == null)
+        {
+            var url = kyiv.Constants.ApiKeys.SUPABASE_URL;// "https://<url here>.supabase.co";
+            var key = kyiv.Constants.ApiKeys.SUPABASE_KEY;
+            var options = new SupabaseOptions
+            {
+                AutoRefreshToken = true,
+                AutoConnectRealtime = true,
+               // SessionHandler = new CustomSessionHandler()
+            };
+            return new Supabase.Client(url, key, options);
+        }
+        return c;
     }
 }

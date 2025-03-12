@@ -31,7 +31,7 @@ public partial class AccountView : ContentPage
             loginBtn.IsVisible = false;
             viewModel.Initialize();
         }
-
+        OnAppearing();
     }
 
 

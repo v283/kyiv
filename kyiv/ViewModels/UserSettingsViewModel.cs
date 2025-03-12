@@ -38,24 +38,31 @@ namespace kyiv.ViewModels
                 string oldPass = passwords.Item1;
                 string newPass = passwords.Item2;
 
-                var signInPaswCheck = await _dataService.SupabaseClient.Auth.SignIn(_dataService.SupabaseClient.Auth.CurrentUser.Email, oldPass);
-
-                if (signInPaswCheck.User != null)
+                try
                 {
+                    var signInPaswCheck = await _dataService.SupabaseClient.Auth.SignIn(_dataService.SupabaseClient.Auth.CurrentUser.Email, oldPass);
 
-                    var updateResult = await _dataService.SupabaseClient.Auth.Update(new Supabase.Gotrue.UserAttributes { Password = newPass });
+                    if (signInPaswCheck.User != null)
+                    {
 
-                    if (updateResult.UserMetadata != null)
-                    {
-                        // Password update succeeded.
-                        await Shell.Current.DisplayAlert("Success", "Password updated successfully.", "OK");
-                    }
-                    else
-                    {
-                        // Handle errors here.
-                        await Shell.Current.DisplayAlert("Error", "Password update failed.", "OK");
+                        var updateResult = await _dataService.SupabaseClient.Auth.Update(new Supabase.Gotrue.UserAttributes { Password = newPass });
+
+                        if (updateResult.UserMetadata != null)
+                        {
+                            await Shell.Current.DisplayAlert("Success", "Password updated successfully.", "OK");
+                        }
+                        else
+                        {
+                            await Shell.Current.DisplayAlert("Error", "Password update failed.", "OK");
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    await Shell.Current.DisplayAlert("Error", "Password update failed.", "OK");
+                }
+
+
 
 
 

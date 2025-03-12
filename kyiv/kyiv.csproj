@@ -41,6 +41,13 @@
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
 	  <CreatePackage>false</CreatePackage>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
+	  <AndroidKeyStore>True</AndroidKeyStore>
+	  <AndroidSigningKeyStore>/Users/valentine/Documents/GitHub/kyiv/kyivkey.keystore</AndroidSigningKeyStore>
+	  <AndroidSigningStorePass>kyivpassword12</AndroidSigningStorePass>
+	  <AndroidSigningKeyAlias>KyivAlias</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>kyivpassword12</AndroidSigningKeyPass>
+	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -81,6 +88,7 @@
 	  <None Remove="Views\Templates\" />
 	  <None Remove="Services\" />
 	  <None Remove="Models\" />
+	  <None Remove="Resources\Images\google.png" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Constants\" />
@@ -89,5 +97,8 @@
 	  <Folder Include="Views\Templates\" />
 	  <Folder Include="Services\" />
 	  <Folder Include="Models\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Images\google.png" />
 	</ItemGroup>
 </Project>

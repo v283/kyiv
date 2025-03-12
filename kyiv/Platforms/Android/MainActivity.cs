@@ -17,5 +17,16 @@ public class MainActivity : MauiAppCompatActivity
         // to adjust keybord for ai chat
         Window.SetSoftInputMode(SoftInput.AdjustResize);
     }
+
+    protected override void OnNewIntent(Android.Content.Intent intent)
+    {
+        base.OnNewIntent(intent);
+        if (intent.Data != null)
+        {
+            string deepLinkUrl = intent.Data.ToString();
+            Shell.Current.GoToAsync(deepLinkUrl); // Navigate in the app
+        }
+    }
+
 }
 
