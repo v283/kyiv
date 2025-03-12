@@ -1,9 +1,11 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="kyiv.Views.MarkView"
+             x:Name="Root"
              xmlns:model="clr-namespace:kyiv.Models"
              xmlns:templates="clr-namespace:kyiv.Views.Templates"
              Title="Відгуки">
+
     <Grid>
         <!-- Анімація завантаження -->
         <ActivityIndicator IsRunning="{Binding IsLoading}" 
@@ -12,18 +14,25 @@
                            HorizontalOptions="Center"
                            VerticalOptions="Center"/>
 
-        <!-- Список коментарів -->
-        <CollectionView ItemsSource="{Binding Comments}"
-                        SelectionMode="None"
-                        HorizontalOptions="Fill"
-                        VerticalOptions="Fill"
-                        IsVisible="{Binding IsNotLoading}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:MarkModel">
-                    <templates:MarkMessageItemTemplate />
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <!-- ScrollView для плавної прокрутки -->
+        <ScrollView x:Name="MainScrollView"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    IsVisible="{Binding IsNotLoading}">
+            <StackLayout BindableLayout.ItemsSource="{Binding Comments}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="model:MarkModel">
+                        <!-- Вміст елементу списку -->
+                        <templates:MarkMessageItemTemplate />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+
+            <!-- Додаємо жест для обробки свайпів у сторони -->
+            <ScrollView.GestureRecognizers>
+                <PanGestureRecognizer PanUpdated="OnPanUpdated" />
+            </ScrollView.GestureRecognizers>
+        </ScrollView>
 
         <!-- Кнопка для написання відгуку -->
         <Button Text="Написати відгук"
