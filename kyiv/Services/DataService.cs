@@ -1,4 +1,5 @@
-﻿using kyiv.Models;
+
+using kyiv.Models;
 using Supabase;
 using Supabase.Gotrue;
 using CommunityToolkit.Maui.Views;
@@ -218,5 +219,3 @@ namespace kyiv.Services
 
     }
 }
-
-

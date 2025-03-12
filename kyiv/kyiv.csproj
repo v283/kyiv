@@ -50,7 +50,7 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon.png"  />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
@@ -74,6 +74,8 @@
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 		<PackageReference Include="OpenAI" Version="1.11.0" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="9.1.0" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />
 		<PackageReference Include="Supabase" Version="1.1.1" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />
@@ -93,14 +95,21 @@
 	  <None Remove="Models\" />
 	  <None Remove="Resources\Images\google.png" />
 	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="Constants\" />
-	  <Folder Include="Services\" />
-	  <Folder Include="Models\" />
-	</ItemGroup>
-	<ItemGroup>
 
-	  <MauiXaml Update="Views\Templates\SuccessPopup.xaml">
-	  </MauiXaml>
+	<ItemGroup>
+	  <Compile Update="Views\NotesPage.xaml.cs">
+	    <DependentUpon>NotesPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\PrivacyPolicyWebView.xaml.cs">
+	    <DependentUpon>PrivacyPolicyWebView.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\NoteDetailPage.xaml"/>
+	  <MauiXaml Update="Views\NotesPage.xaml"/>
+	  <MauiXaml Update="Views\PrivacyPolicyWebView.xaml"/>
+	  <MauiXaml Update="Views\Templates\SuccessPopup.xaml"/>
+	</ItemGroup>
+
 </Project>
