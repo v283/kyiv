@@ -43,16 +43,24 @@ namespace kyiv.Services
 
         public async Task<bool> RestoreSessionAsync()
         {
-            var token = await SecureStorage.Default.GetAsync("authToken");
-            var refreshToken = await SecureStorage.Default.GetAsync("refreshToken");
-
-            if (!string.IsNullOrEmpty(token) && !string.IsNullOrEmpty(refreshToken))
+            try
             {
-                var session = await _supabaseClient.Auth.SetSession(token, refreshToken);
+                var token = await SecureStorage.Default.GetAsync("authToken");
+                var refreshToken = await SecureStorage.Default.GetAsync("refreshToken");
 
-                return session != null;
+                if (!string.IsNullOrEmpty(token) && !string.IsNullOrEmpty(refreshToken))
+                {
+                    var session = await _supabaseClient.Auth.SetSession(token, refreshToken);
+
+                    return session != null;
+
+                }
+            }
+            catch (Exception ex)
+            {
 
             }
+            SecureStorage.RemoveAll();
 
             return false;
         }

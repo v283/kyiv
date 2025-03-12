@@ -5,6 +5,7 @@ using kyiv.ViewModels;
 using kyiv.Views.Templates;
 using CommunityToolkit.Maui.Views;
 using Supabase.Interfaces;
+using Microsoft.IdentityModel.Tokens;
 
 namespace kyiv.Views;
 
@@ -31,7 +32,9 @@ public partial class AccountView : ContentPage
             loginBtn.IsVisible = false;
             viewModel.Initialize();
         }
+
         OnAppearing();
+
     }
 
 
@@ -43,7 +46,11 @@ public partial class AccountView : ContentPage
         {
             userGrid.IsVisible = true;
             loginBtn.IsVisible = false;
+            if ( viewModel.BindUserDataModel == null)
+            {
+                viewModel.Initialize();
 
+            }
         }
         else
         {
