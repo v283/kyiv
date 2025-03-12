@@ -34,6 +34,10 @@ public partial class AccountView : ContentPage
 
     }
 
+    private async void OnNotesTapped(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new NotesPage());
+    }
 
     protected override async void OnAppearing()
     {
@@ -61,6 +65,12 @@ public partial class AccountView : ContentPage
     private async void OnSettings(object sender, TappedEventArgs args)
     {
  //       await Navigation.PushAsync(new SettingsView());
+    }
+
+    private async void OnPrivacyPolicyTapped(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PrivacyPolicyPage());
+
     }
 
     private async void OnZCU(object sender, TappedEventArgs args)
