@@ -42,6 +42,11 @@ public partial class LoginPopup : Popup
 
     public Command CloseCommand { get; }
 
+    private async void OnSignInWithGoogleAsync(object sender, TappedEventArgs args)
+    {
+
+    }
+
     //public async Task InitializeAsync()
     //{
     //    await _client.InitializeAsync();

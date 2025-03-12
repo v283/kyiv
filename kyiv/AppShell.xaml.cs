@@ -9,5 +9,7 @@ public partial class AppShell : Shell
 		InitializeComponent();
         Routing.RegisterRoute("chatgpt", typeof(ConversationView));
     }
+
+
 }
 

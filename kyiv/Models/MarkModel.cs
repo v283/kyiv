@@ -5,7 +5,6 @@ using System.ComponentModel;
 
 namespace kyiv.Models
 {
-
     [Table("mark_table")]
     public partial class MarkModel : BaseModel, INotifyPropertyChanged
     {
@@ -21,14 +20,16 @@ namespace kyiv.Models
         public string Name
         {
             get => name;
-            set
-            {
-                if (name != value)
-                {
-                    name = value;
-                    OnPropertyChanged(nameof(Name));
-                }
-            }
+            set => SetField(ref name, value);
+        }
+
+        private string? topic;
+
+        [Column("topic")]
+        public string? Topic
+        {
+            get => topic;
+            set => SetField(ref topic, value);
         }
 
         private DateTime? writenAt;
@@ -37,115 +38,39 @@ namespace kyiv.Models
         public DateTime? WritenAt
         {
             get => writenAt;
-            set
-            {
-                if (writenAt != value)
-                {
-                    writenAt = value;
-                    OnPropertyChanged(nameof(WritenAt));
-                }
-            }
+            set => SetField(ref writenAt, value);
         }
 
         private string text;
+
         [Column("text")]
         public string Text
         {
             get => text;
-            set
-            {
-                if (text != value)
-                {
-                    text = value;
-                    OnPropertyChanged(nameof(Text));
-                }
-            }
+            set => SetField(ref text, value);
         }
 
         private string images;
+
         [Column("images")]
         public string Images
         {
             get => images;
-            set
-            {
-                if (images != value)
-                {
-                    images = value;
-                    OnPropertyChanged(nameof(Images));
-                }
-            }
+            set => SetField(ref images, value);
         }
 
-        private int mark;
-
-        [Column("mark")]
-        public int Mark
-        {
-            get => mark;
-            set
-            {
-                if (mark != value)
-                {
-                    mark = value;
-                    OnPropertyChanged(nameof(Mark));
-                }
-
-            }
-        }
-        //product_id
-
-        private int productId;
-        [Column("product_id")]
-        public int ProductId
-        {
-            get => productId;
-            set
-            {
-                if (productId != value)
-                {
-                    productId = value;
-                    OnPropertyChanged(nameof(ProductId));
-                }
-            }
-        }
-
-        private string shop;
-        [Column("shop")]
-        public string Shop
-        {
-            get => shop;
-            set
-            {
-                if (shop != value)
-                {
-                    shop = value;
-                    OnPropertyChanged(nameof(Shop));
-                }
-            }
-        }
-        //location
-
-        private string location;
-        [Column("location")]
-        public string Location
-        {
-            get => location;
-            set
-            {
-                if (location != value)
-                {
-                    location = value;
-                    OnPropertyChanged(nameof(Location));
-                }
-            }
-        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
+        private void SetField<T>(ref T field, T value, [System.Runtime.CompilerServices.CallerMemberName] string propertyName = "")
+        {
+            if (!EqualityComparer<T>.Default.Equals(field, value))
+            {
+                field = value;
+                OnPropertyChanged(propertyName);
+            }
+        }
     }
-
 }
-

@@ -17,5 +17,7 @@ public class MainActivity : MauiAppCompatActivity
         // to adjust keybord for ai chat
         Window.SetSoftInputMode(SoftInput.AdjustResize);
     }
+
+
 }
 

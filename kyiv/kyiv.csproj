@@ -41,9 +41,16 @@
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
 	  <CreatePackage>false</CreatePackage>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
+	  <AndroidKeyStore>True</AndroidKeyStore>
+	  <AndroidSigningKeyStore>/Users/valentine/Documents/GitHub/kyiv/kyivkey.keystore</AndroidSigningKeyStore>
+	  <AndroidSigningStorePass>kyivpassword12</AndroidSigningStorePass>
+	  <AndroidSigningKeyAlias>KyivAlias</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>kyivpassword12</AndroidSigningKeyPass>
+	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon.png"  />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
@@ -70,10 +77,13 @@
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />
 		<PackageReference Include="Supabase" Version="1.1.1" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Remove="Constants\" />
+	  <None Remove="Resources\Images\Green_check.png" />
 	  <None Remove="Resources\Images\jack_bot_light.png" />
 	  <None Remove="Resources\Images\send.png" />
 	  <None Remove="Resources\Images\svg_user.svg" />
@@ -83,12 +93,9 @@
 	  <None Remove="Views\Templates\" />
 	  <None Remove="Services\" />
 	  <None Remove="Models\" />
+	  <None Remove="Resources\Images\google.png" />
 	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="Constants\" />
-	  <Folder Include="ViewModels\" />
-	  <Folder Include="Views\Templates\" />
-	</ItemGroup>
+
 	<ItemGroup>
 	  <Compile Update="Views\NotesPage.xaml.cs">
 	    <DependentUpon>NotesPage.xaml</DependentUpon>
@@ -97,15 +104,12 @@
 	    <DependentUpon>PrivacyPolicyWebView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
+
 	<ItemGroup>
-	  <MauiXaml Update="Views\NoteDetailPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\NotesPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\PrivacyPolicyWebView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+	  <MauiXaml Update="Views\NoteDetailPage.xaml"/>
+	  <MauiXaml Update="Views\NotesPage.xaml"/>
+	  <MauiXaml Update="Views\PrivacyPolicyWebView.xaml"/>
+	  <MauiXaml Update="Views\Templates\SuccessPopup.xaml"/>
 	</ItemGroup>
+
 </Project>
