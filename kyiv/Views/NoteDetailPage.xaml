@@ -3,26 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="kyiv.Views.NoteDetailPage"
              Title="NoteDetailPage">
-    <ScrollView>
-        <VerticalStackLayout Padding="10">
-            <Button Text="Зберегти зміни"
+
+    <Grid Padding="15" ColumnSpacing="20" RowSpacing="15"
+          RowDefinitions="Auto, Auto, *">
+        <Button Grid.Row="0"
+                Text="Зберегти зміни"
                     Clicked="OnSaveChangesClicked"
                     BackgroundColor="{StaticResource Primary}"
                     TextColor="White"
                     FontAttributes="Bold"
                     HorizontalOptions="Center"/>
 
-            <Entry x:Name="NameEntry"
+
+        <Entry Grid.Row="1"
+            x:Name="NameEntry"
                    Placeholder="Назва нотатки"
                    Text="{Binding Name}"/>
 
-            <Editor x:Name="TextEditor"
-                    Placeholder="Text нотатки..."
-                    AutoSize="TextChanges"
-                    HeightRequest="200"
-                    Text="{Binding Text}"/>
+        <Editor Grid.Row="2"
+                x:Name="TextEditor"
+                Placeholder="Text нотатки..."
+                AutoSize="TextChanges"
+                Text="{Binding Text}"
+/>
 
-        </VerticalStackLayout>
-    </ScrollView>
+    </Grid>
+    
     
 </ContentPage>
