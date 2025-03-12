@@ -5,31 +5,71 @@ using kyiv.Views;
 using kyiv.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-
-namespace kyiv.ViewModels
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using kyiv.ViewModels;
+public partial class MarkViewModel : ObservableObject
 {
-	public partial class MarkViewModel:ObservableObject
-	{
-        private readonly DataService _dataService;
+    private readonly DataService _dataService;
+    private bool _isWriteCommentViewOpen = false; // Прапорець для відстеження стану вікна
 
-        [ObservableProperty]
-		List<MarkModel> comments;
+    [ObservableProperty]
+    private ObservableCollection<MarkModel> comments;
 
-		public MarkViewModel(IDataService dataService)
+    public MarkViewModel(IDataService dataService)
+    {
+        _dataService = (DataService)dataService;
+        Comments = new ObservableCollection<MarkModel>(); // Ініціалізація колекції
+        Initialyze();
+    }
+
+    private async void Initialyze()
+    {
+        await LoadCommentsAsync();
+    }
+
+    public async Task LoadCommentsAsync()
+    {
+        try
         {
-            _dataService = (DataService)dataService;
-            Initialyze();
+            // Отримати дані, відсортовані за датою (від новіших до старіших)
+            var data = (await _dataService.SupabaseClient
+                .From<MarkModel>()
+                .Order("writen_at", Supabase.Postgrest.Constants.Ordering.Descending) // Сортування за спаданням
+                .Get())
+                .Models;
+
+            Comments.Clear(); // Очистити поточні дані
+            foreach (var item in data)
+            {
+                Comments.Add(item); // Додати нові дані
+            }
+            Debug.WriteLine("Коментарі успішно оновлено.");
         }
-        private async void Initialyze()
+        catch (Exception ex)
         {
-            Comments = (await _dataService.SupabaseClient.From<MarkModel>().Get()).Models;
+            Debug.WriteLine($"Помилка при оновленні коментарів: {ex.Message}");
         }
-        [RelayCommand]
-        private async void WriteComment()
+    }
+
+    [RelayCommand]
+    private async void WriteComment()
+    {
+        // Перевірка, чи вікно вже відкрите
+        if (_isWriteCommentViewOpen)
         {
-            await Shell.Current.Navigation.PushModalAsync(new WriteCommentView());
+            return; // Якщо вікно вже відкрите, нічого не робимо
         }
-        
-	}
+
+        _isWriteCommentViewOpen = true; // Позначити, що вікно відкрите
+
+        try
+        {
+            await Shell.Current.Navigation.PushModalAsync(new WriteCommentView(_dataService));
+        }
+        finally
+        {
+            _isWriteCommentViewOpen = false; // Позначити, що вікно закрите
+        }
+    }
 }
-
