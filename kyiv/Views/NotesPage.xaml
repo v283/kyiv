@@ -4,16 +4,19 @@
              x:Class="kyiv.Views.NotesPage"
              Title="Нотатки">
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20">
+        <Grid Padding="20" RowSpacing="20"
+              RowDefinitions="Auto, *">
 
-            <Button Text="Створити нотатку"
+            <Button Grid.Row="0"
+                Text="Створити нотатку"
                     Clicked="OnCreateNoteClicked"
                     BackgroundColor="{StaticResource Primary}"
                     TextColor="White"
                     FontAttributes="Bold"
                     HorizontalOptions="Center"/>
 
-            <ListView x:Name="NotesListView"
+            <ListView Grid.Row="1" 
+                x:Name="NotesListView"
                       ItemsSource="{Binding Notes}"
                       ItemSelected="OnNoteSelected">
                 <ListView.ItemTemplate>
@@ -42,6 +45,6 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-        </VerticalStackLayout>
+        </Grid>
     </ScrollView>
 </ContentPage>
