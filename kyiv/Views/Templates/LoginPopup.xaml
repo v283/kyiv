@@ -36,7 +36,13 @@
             <Label Margin="5" HorizontalOptions="Center" Text="Or Login with"/>
 
             <Grid Padding="5" ColumnDefinitions="*, *,*" RowDefinitions="*">
-                <Image Source="google.png" Grid.Column="0" Grid.Row="0"  HeightRequest="35"/>
+                <Image Source="google.png" Grid.Column="0" Grid.Row="0"  HeightRequest="35">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSignInWithGoogleAsync"/>
+
+                    </Image.GestureRecognizers>
+
+                </Image>
                 <Image Source="facebook.png" Grid.Column="1" Grid.Row="0"  HeightRequest="35"/>
                 <Image Source="github.png" Grid.Column="2" Grid.Row="0"  HeightRequest="35"/>
             </Grid>

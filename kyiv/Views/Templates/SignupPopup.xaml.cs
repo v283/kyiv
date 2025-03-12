@@ -23,7 +23,16 @@ public partial class SignupPopup : Popup
         bool isSignUp = await _dataService.SignUpAsync(loginEntry.Text, passwordEntry.Text, nameEntry.Text);
         if (isSignUp)
         {
-            this.Close();
+
+            try
+            {
+                var isLogIn = await _dataService.LoginAsync(loginEntry.Text, passwordEntry.Text);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.CurrentPage.ShowPopupAsync(new LoginPopup(_dataService));
+            }
             // and send to login page login and password and wait when user click login btn
         }
 
