@@ -43,7 +43,6 @@
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
 	  <AndroidKeyStore>True</AndroidKeyStore>
-	  <AndroidSigningKeyStore>/Users/valentine/Documents/GitHub/kyiv/kyivkey.keystore</AndroidSigningKeyStore>
 	  <AndroidSigningStorePass>kyivpassword12</AndroidSigningStorePass>
 	  <AndroidSigningKeyAlias>KyivAlias</AndroidSigningKeyAlias>
 	  <AndroidSigningKeyPass>kyivpassword12</AndroidSigningKeyPass>

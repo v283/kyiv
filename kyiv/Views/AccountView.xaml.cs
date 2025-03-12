@@ -14,15 +14,15 @@ public partial class AccountView : ContentPage
 
     private AccountViewModel viewModel;
     public AccountView(IDataService dataService)
-	{
+    {
         _dataService = (DataService)dataService;
         InitializeComponent();
         viewModel = new(dataService);
         BindingContext = viewModel;
-       
-	}
-	private async void OnLogin(object sender, EventArgs args)
-	{
+
+    }
+    private async void OnLogin(object sender, EventArgs args)
+    {
         var popupResult = await Shell.Current.CurrentPage.ShowPopupAsync(new LoginPopup(_dataService));
 
         if (popupResult is bool result && result)
@@ -34,9 +34,6 @@ public partial class AccountView : ContentPage
         OnAppearing();
     }
 
-        await Navigation.PushAsync(new NotesPage());
-    }
->>>>>>>>> Temporary merge branch 2
 
     protected override async void OnAppearing()
     {
@@ -228,4 +225,3 @@ public partial class AccountView : ContentPage
 //    }
 
 //}
-
