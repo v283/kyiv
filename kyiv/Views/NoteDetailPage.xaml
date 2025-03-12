@@ -5,6 +5,13 @@
              Title="NoteDetailPage">
     <ScrollView>
         <VerticalStackLayout Padding="10">
+            <Button Text="Зберегти зміни"
+                    Clicked="OnSaveChangesClicked"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"/>
+
             <Entry x:Name="NameEntry"
                    Placeholder="Назва нотатки"
                    Text="{Binding Name}"/>

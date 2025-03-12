@@ -1,3 +1,4 @@
+using Android.App;
 using kyiv.Models;
 using kyiv.Services;
 
@@ -18,10 +19,18 @@ public partial class NoteDetailPage : ContentPage
 		BindingContext = _note;
 	}
 
-	protected override void OnDisappearing()
+	private async void OnSaveChangesClicked(object sender, EventArgs e)
+	{
+		_databaseService.UpdateNote(_note);
+
+		await Navigation.PopAsync();
+	}
+
+    protected override void OnDisappearing()
 	{
 		base.OnDisappearing();
 
-		_databaseService.UpdateNote(_note);
+		//_databaseService.UpdateNote(_note);
 	}
+
 }
