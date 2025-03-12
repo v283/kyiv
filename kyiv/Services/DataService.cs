@@ -29,7 +29,7 @@ namespace kyiv.Services
                 var userData = await GetUserData();
                 if (userData == null || userData.UserId == Guid.Empty)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Помилка", "Для написання коментаря необхідно бути авторизованим.", "OK");
+                    Debug.WriteLine("Помилка: не вдалося отримати дані користувача.");
                     return false;
                 }
 
@@ -39,9 +39,16 @@ namespace kyiv.Services
                     return false;
                 }
 
-                // Округлюємо час до хвилин
+                // Отримати поточний час і округлити його до хвилин
                 var currentTime = DateTime.UtcNow;
-                var roundedTime = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, currentTime.Hour, currentTime.Minute, 0);
+                var roundedTime = new DateTime(
+                    currentTime.Year,
+                    currentTime.Month,
+                    currentTime.Day,
+                    currentTime.Hour,
+                    currentTime.Minute,
+                    0 // Секунди встановлюємо в 0
+                );
 
                 MarkModel newMark = new()
                 {

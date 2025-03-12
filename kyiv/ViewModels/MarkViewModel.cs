@@ -36,7 +36,13 @@ public partial class MarkViewModel : ObservableObject
     {
         try
         {
-            var data = (await _dataService.SupabaseClient.From<MarkModel>().Get()).Models;
+            // Отримати дані, відсортовані за датою (від новіших до старіших)
+            var data = (await _dataService.SupabaseClient
+                .From<MarkModel>()
+                .Order("writen_at", Supabase.Postgrest.Constants.Ordering.Descending) // Сортування за спаданням
+                .Get())
+                .Models;
+
             Comments.Clear(); // Очистити поточні дані
             foreach (var item in data)
             {
