@@ -33,8 +33,21 @@ public partial class AccountView : ContentPage
         }
         OnAppearing();
     }
+    private void OnToggleThemeClicked(object sender, EventArgs e)
+    {
+        var currentTheme = Application.Current.RequestedTheme;
 
-
+        if (currentTheme == AppTheme.Dark)
+        {
+            Application.Current.UserAppTheme = AppTheme.Light;
+            ((Button)sender).Text = "🌙"; // Змінюємо іконку на місяць
+        }
+        else
+        {
+            Application.Current.UserAppTheme = AppTheme.Dark;
+            ((Button)sender).Text = "☀️"; // Змінюємо іконку на сонце
+        }
+    }
     protected override async void OnAppearing()
     {
         base.OnAppearing();

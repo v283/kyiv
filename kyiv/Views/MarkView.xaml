@@ -18,8 +18,10 @@
         <ScrollView x:Name="MainScrollView"
                     HorizontalOptions="Fill"
                     VerticalOptions="Fill"
-                    IsVisible="{Binding IsNotLoading}">
-            <StackLayout BindableLayout.ItemsSource="{Binding Comments}">
+                    IsVisible="{Binding IsNotLoading}"
+                    BackgroundColor="{AppThemeBinding Light=LightGray, Dark=DarkGray}">
+            <StackLayout BindableLayout.ItemsSource="{Binding Comments}"
+                         BackgroundColor="{AppThemeBinding Light=LightGray, Dark=DarkGray}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="model:MarkModel">
                         <!-- Вміст елементу списку -->

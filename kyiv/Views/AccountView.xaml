@@ -13,7 +13,19 @@
                     <Image HeightRequest="27" Source="avocado_new.png" Grid.Row="0" Grid.Column="1"/>
                 </Grid>
             </Border>
-
+            <!-- Кнопка для перемикання теми -->
+            <Button Text="🌙" 
+                Clicked="OnToggleThemeClicked"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                Margin="20"
+                BackgroundColor="Transparent"
+                TextColor="Black"
+                FontSize="20"
+                CornerRadius="25"
+                WidthRequest="50"
+                HeightRequest="50" />
+            
             <Grid IsVisible="False" x:Name="userGrid" Padding="15,0,10,20" ColumnSpacing="20" RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *,Auto">
                 <Image HeightRequest="40" Source="{Binding BindUserDataModel.Image}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
                 <Label Text="{Binding BindUserDataModel.Name}" FontSize="16" Grid.Column="1" Grid.Row="0" />
@@ -162,13 +174,13 @@
 
 
 
-                <Label VerticalOptions="Center" HorizontalOptions="Center" FontSize="11" Text="Допомогти розробнику"  />
+            <Label VerticalOptions="Center" HorizontalOptions="Center" FontSize="11" Text="Допомогти розробнику"  />
 
-                <Image Margin="10" VerticalOptions="Center" HeightRequest="50" Source="{AppThemeBinding Dark=mono_dark.png, Light=mono_light.png}" >
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnDonate" />
-                    </Image.GestureRecognizers>
-                </Image>
+            <Image Margin="10" VerticalOptions="Center" HeightRequest="50" Source="{AppThemeBinding Dark=mono_dark.png, Light=mono_light.png}" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDonate" />
+                </Image.GestureRecognizers>
+            </Image>
 
 
 
