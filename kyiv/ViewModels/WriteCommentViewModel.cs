@@ -54,7 +54,7 @@ namespace kyiv.ViewModels
                     await Application.Current.MainPage.ShowPopupAsync(successPopup);
 
                     // Оновити коментарі
-                    MessagingCenter.Send(this, "RefreshComments");
+                    //MessagingCenter.Send(this, "RefreshComments");
 
                     // Закрити сторінку
                     await Shell.Current.Navigation.PopModalAsync();

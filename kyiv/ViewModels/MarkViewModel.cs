@@ -21,10 +21,10 @@ public partial class MarkViewModel : ObservableObject
         Comments = new ObservableCollection<MarkModel>(); // Ініціалізація колекції
         Initialyze();
         // Підписатися на повідомлення
-        MessagingCenter.Subscribe<WriteCommentViewModel>(this, "RefreshComments", async (sender) =>
-        {
-            await LoadCommentsAsync();
-        });
+        //MessagingCenter.Subscribe<WriteCommentViewModel>(this, "RefreshComments", async (sender) =>
+        //{
+        //    await LoadCommentsAsync();
+        //});
     }
 
     private async void Initialyze()
