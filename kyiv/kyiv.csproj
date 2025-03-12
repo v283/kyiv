@@ -72,6 +72,7 @@
 
 	<ItemGroup>
 	  <None Remove="Constants\" />
+	  <None Remove="Resources\Images\Green_check.png" />
 	  <None Remove="Resources\Images\jack_bot_light.png" />
 	  <None Remove="Resources\Images\send.png" />
 	  <None Remove="Resources\Images\svg_user.svg" />
@@ -84,9 +85,12 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Constants\" />
-	  <Folder Include="Views\" />
-	  <Folder Include="Views\Templates\" />
 	  <Folder Include="Services\" />
 	  <Folder Include="Models\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Update="Views\Templates\SuccessPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 </Project>

@@ -1,7 +1,9 @@
 ﻿using System;
+using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using kyiv.Services;
+using kyiv.Views.Templates;
 
 namespace kyiv.ViewModels
 {
@@ -46,7 +48,15 @@ namespace kyiv.ViewModels
                 {
                     CommentText = string.Empty;
                     Topic = string.Empty;
-                    MessagingCenter.Send(this, "RefreshComments"); // Відправити повідомлення
+
+                    // Відобразити Popup про успішну відправку
+                    var successPopup = new SuccessPopup();
+                    await Application.Current.MainPage.ShowPopupAsync(successPopup);
+
+                    // Оновити коментарі
+                    MessagingCenter.Send(this, "RefreshComments");
+
+                    // Закрити сторінку
                     await Shell.Current.Navigation.PopModalAsync();
                 }
                 else

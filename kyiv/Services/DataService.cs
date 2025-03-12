@@ -29,7 +29,7 @@ namespace kyiv.Services
                 var userData = await GetUserData();
                 if (userData == null || userData.UserId == Guid.Empty)
                 {
-                    Debug.WriteLine("Помилка: не вдалося отримати дані користувача.");
+                    await Application.Current.MainPage.DisplayAlert("Помилка", "Для написання коментаря необхідно бути авторизованим.", "OK");
                     return false;
                 }
 
