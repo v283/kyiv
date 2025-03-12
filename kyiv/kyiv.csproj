@@ -88,15 +88,20 @@
 	  <Folder Include="Constants\" />
 	  <Folder Include="ViewModels\" />
 	  <Folder Include="Views\Templates\" />
-	  <Folder Include="Services\" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Compile Update="Views\NotesPage.xaml.cs">
+	    <DependentUpon>NotesPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\PrivacyPolicyWebView.xaml.cs">
 	    <DependentUpon>PrivacyPolicyWebView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 	<ItemGroup>
-	  <MauiXaml Update="Views\NotePage.xaml">
+	  <MauiXaml Update="Views\NoteDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NotesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PrivacyPolicyWebView.xaml">

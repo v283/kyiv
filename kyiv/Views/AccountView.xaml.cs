@@ -36,7 +36,7 @@ public partial class AccountView : ContentPage
 
     private async void OnNotesTapped(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new NotePage());
+        await Navigation.PushAsync(new NotesPage());
     }
 
     protected override async void OnAppearing()
