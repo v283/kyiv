@@ -44,7 +44,7 @@ public partial class LoginPopup : Popup
 
     private async void OnSignInWithGoogleAsync(object sender, TappedEventArgs args)
     {
-        _dataService.LoginWithGoogle();
+
     }
 
     //public async Task InitializeAsync()
