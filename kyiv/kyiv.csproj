@@ -111,7 +111,8 @@
 	    <DependentUpon>PrivacyPolicyWebView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
-	  <MauiXaml Update="Views\NoteDetailPage.xaml">
+	<ItemGroup>
+		<MauiXaml Update="Views\NoteDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\NotesPage.xaml">
