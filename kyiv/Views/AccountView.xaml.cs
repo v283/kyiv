@@ -11,6 +11,7 @@ namespace kyiv.Views;
 public partial class AccountView : ContentPage
 {
     private readonly DataService _dataService;
+    private bool _isNavigating = false;
 
     private AccountViewModel viewModel;
     public AccountView(IDataService dataService)
@@ -55,14 +56,36 @@ public partial class AccountView : ContentPage
 
     private async void OnNotesTapped(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new NotesPage());
+        if (_isNavigating) return;
+
+        _isNavigating = true;
+
+        try
+        {
+            await Navigation.PushAsync(new NotesPage());
+        }
+        finally
+        {
+            _isNavigating = false;
+        }
     }
 
 
 
     private async void OnUserSettings(object sender, TappedEventArgs args)
     {
-        await Navigation.PushAsync(new UserSettingsView(_dataService, viewModel.BindUserDataModel));
+        if (_isNavigating) return;
+
+        _isNavigating = true;
+
+        try
+        {
+            await Navigation.PushAsync(new UserSettingsView(_dataService, viewModel.BindUserDataModel));
+        }
+        finally
+        {
+            _isNavigating = false;
+        }
     }
     private async void OnSettings(object sender, TappedEventArgs args)
     {
@@ -71,7 +94,18 @@ public partial class AccountView : ContentPage
 
     private async void OnPrivacyPolicyTapped(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new PrivacyPolicyPage());
+        if (_isNavigating) return;
+
+        _isNavigating = true;
+
+        try
+        {
+            await Navigation.PushAsync(new PrivacyPolicyPage());
+        }
+        finally
+        {
+            _isNavigating = false;
+        }
 
     }
 
