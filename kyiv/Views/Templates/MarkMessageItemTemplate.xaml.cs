@@ -11,4 +11,5 @@ public partial class MarkMessageItemTemplate : ContentView
         InitializeComponent();
         BindingContext = this;
     }
+
  }
