@@ -2,21 +2,30 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="kyiv.Views.NotesPage"
-                      xmlns:model="clr-namespace:kyiv.Models"
-         xmlns:templates="clr-namespace:kyiv.Views.Templates"
-         Title="Відгуки">
+             xmlns:model="clr-namespace:kyiv.Models"
+             xmlns:templates="clr-namespace:kyiv.Views.Templates"
+             Title="Відгуки">
 
-    <Grid>
-        
+    <!-- Додаємо ресурси для кольорів -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="DarkBackgroundColor">#00246B</Color>
+            <Color x:Key="WhiteBackgroundColor">#FDF6F6</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource WhiteBackgroundColor}, Dark={StaticResource DarkBackgroundColor}}">
+
+        <!-- CollectionView з адаптивним фоном -->
         <CollectionView ItemsSource="{Binding Notes}"
-                    HorizontalOptions="Fill"
-                    VerticalOptions="Fill"
-                    x:Name="NotesListView">
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Fill"
+                        x:Name="NotesListView"
+                        BackgroundColor="Transparent">
 
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" Span="2"/>
             </CollectionView.ItemsLayout>
-
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:MarkModel">
@@ -24,15 +33,16 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        
+
+        <!-- Кнопка для створення нотатки -->
         <Button Text="Створити нотатку"
-            Clicked="OnCreateNoteClicked"
-            HorizontalOptions="End"
-            VerticalOptions="End"
-            Margin="20"
-            BackgroundColor="Blue"
-            TextColor="White"
-            CornerRadius="10"
-            Padding="10" />
+                Clicked="OnCreateNoteClicked"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Margin="20"
+                BackgroundColor="{AppThemeBinding Light=Blue, Dark=DarkBlue}"
+                TextColor="White"
+                CornerRadius="10"
+                Padding="10" />
     </Grid>
 </ContentPage>

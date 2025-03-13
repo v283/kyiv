@@ -4,7 +4,13 @@
              x:Class="kyiv.Views.Templates.NoteItemTemplate"
              xmlns:model="clr-namespace:kyiv.Models"
              x:DataType="model:NoteModel">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="DarkBackgroundMarkColor">#CADCFC</Color>
+            <Color x:Key="WhiteBackgroundMarkColor">#1995AD</Color>
 
+        </ResourceDictionary>
+    </ContentView.Resources>
     <Grid ColumnDefinitions="*" 
       RowDefinitions="Auto, Auto"
       HorizontalOptions="Fill" 

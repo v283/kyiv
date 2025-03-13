@@ -4,6 +4,13 @@
              x:Class="kyiv.Views.AccountView"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Shell.NavBarIsVisible="False">
+    <!-- Додаємо ресурс для кольору темного режиму -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="DarkBackgroundColor">#021024</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ScrollView>
         <VerticalStackLayout Padding="10">
 

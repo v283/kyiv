@@ -5,6 +5,16 @@
              xmlns:model="clr-namespace:kyiv.Models"
              x:DataType="model:MarkModel">
 
+    <!-- Додаємо ресурси для кольорів -->
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="DarkBackgroundMarkColor">#1a1a1a</Color>
+            <Color x:Key="WhiteBackgroundMarkColor">#afafd5</Color>
+            <Color x:Key="WhiteTextColor">#d8d8e4</Color>
+            <Color x:Key="BlackTextColor">#232324</Color>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
     <Grid ColumnDefinitions="*" 
           RowDefinitions="Auto"
           HorizontalOptions="Fill" 
@@ -15,8 +25,8 @@
                 HorizontalOptions="Fill" 
                 VerticalOptions="Start"
                 Padding="10"
-                BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
-                Stroke="{AppThemeBinding Light=Black, Dark=White}"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource WhiteBackgroundMarkColor}, Dark={DynamicResource DarkBackgroundMarkColor}}"
+                Stroke="Transparent"
                 StrokeShape="RoundRectangle 10"
                 StrokeThickness="1">
 
@@ -33,14 +43,14 @@
                        FontSize="16"
                        LineBreakMode="TailTruncation"
                        HorizontalOptions="Start"
-                       TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+                       TextColor="{AppThemeBinding Light={StaticResource BlackTextColor}, Dark={StaticResource WhiteTextColor}}" />
 
                 <!-- Дата створення -->
                 <Label Grid.Column="1" Grid.Row="0" 
                        HorizontalOptions="End"
                        Text="{Binding WritenAt, StringFormat='{0:dd.MM.yyyy HH:mm}'}"
                        FontSize="12"
-                       TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+                       TextColor="{AppThemeBinding Light={StaticResource BlackTextColor}, Dark={StaticResource WhiteTextColor}}" />
 
                 <!-- Тема коментаря -->
                 <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
@@ -50,7 +60,7 @@
                        LineBreakMode="TailTruncation"
                        MaxLines="1"
                        HorizontalOptions="Fill"
-                       TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+                       TextColor="{AppThemeBinding Light={StaticResource BlackTextColor}, Dark={StaticResource WhiteTextColor}}" />
 
                 <!-- Текст коментаря -->
                 <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
@@ -60,7 +70,7 @@
                        Margin="0,5,0,5"
                        HorizontalOptions="Start"
                        VerticalOptions="Fill"
-                       TextColor="{AppThemeBinding Light=Black, Dark=White}">
+                       TextColor="{AppThemeBinding Light={StaticResource BlackTextColor}, Dark={StaticResource WhiteTextColor}}">
                     <Label.Triggers>
                         <!-- Виправлений DataTrigger -->
                         <DataTrigger TargetType="Label"
