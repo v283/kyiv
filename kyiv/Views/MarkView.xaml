@@ -10,7 +10,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="DarkBackgroundColor">Black</Color>
-            <Color x:Key="WhiteBackgroundColor">#66A5AD</Color>
+            <Color x:Key="WhiteBackgroundColor">#c3c3df</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
 

@@ -82,7 +82,7 @@ public partial class MarkView : ContentPage
                     if (finalDiffX < -50) // Свайп вліво
                     {
                         Debug.WriteLine("Виявлено свайп вліво.");
-                        await Shell.Current.GoToAsync("//accoutviewpage"); // Перехід на сторінку AccountView
+                        await Shell.Current.GoToAsync("//cartview"); // Перехід на сторінку AccountView
                     }
                     else if (finalDiffX > 50) // Свайп вправо
                     {

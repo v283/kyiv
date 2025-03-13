@@ -9,7 +9,7 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <Color x:Key="DarkBackgroundMarkColor">#1a1a1a</Color>
-            <Color x:Key="WhiteBackgroundMarkColor">#afafd5</Color>
+            <Color x:Key="WhiteBackgroundMarkColor">#ffffff</Color>
             <Color x:Key="WhiteTextColor">#d8d8e4</Color>
             <Color x:Key="BlackTextColor">#232324</Color>
         </ResourceDictionary>

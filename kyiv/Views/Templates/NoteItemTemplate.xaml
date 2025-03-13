@@ -6,24 +6,26 @@
              x:DataType="model:NoteModel">
     <ContentView.Resources>
         <ResourceDictionary>
-            <Color x:Key="DarkBackgroundMarkColor">#CADCFC</Color>
-            <Color x:Key="WhiteBackgroundMarkColor">#1995AD</Color>
+            <Color x:Key="DarkBackgroundMarkColor">#1a1a1a</Color>
+            <Color x:Key="WhiteBackgroundMarkColor">White</Color>
 
         </ResourceDictionary>
     </ContentView.Resources>
     <Grid ColumnDefinitions="*" 
       RowDefinitions="Auto, Auto"
       HorizontalOptions="Fill" 
-      VerticalOptions="Start">
+      VerticalOptions="Start"
+          BackgroundColor="Transparent">
 
-        
-        <!-- Border займає всю ширину екрана -->
-        <Border Margin="10"
+
+        <!-- Border займає всю ширину екрана #222426 #373A40 -->
+        <Border Margin="12, 40, 12, 12"
 
             HorizontalOptions="Fill" 
             VerticalOptions="Start"
-            Padding="10"
-            BackgroundColor="White"
+            Padding="20, 10"
+            BackgroundColor="{AppThemeBinding Light={DynamicResource WhiteBackgroundMarkColor}, Dark={DynamicResource DarkBackgroundMarkColor}}"
+                Stroke="Transparent"
             HeightRequest="250"
             StrokeShape="RoundRectangle 10"
             StrokeThickness="1"
@@ -44,9 +46,9 @@
                    LineBreakMode="WordWrap"
                    MaxLines="5"
                    Margin="0,5,0,5"
-                       TextColor="Black"
                    HorizontalOptions="Start"
-                   VerticalOptions="Fill">
+                   VerticalOptions="Fill"
+                       TextColor="White">
                 </Label>
 
             </Grid>
@@ -57,7 +59,7 @@
                    LineBreakMode="TailTruncation"
                    MaxLines="2"
                    HorizontalOptions="Center"
-               Margin="0, 0, 0, 30">
+               Margin="0, 0, 0, 0">
         </Label>
     </Grid>
 </ContentView>
