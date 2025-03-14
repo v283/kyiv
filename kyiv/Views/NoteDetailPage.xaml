@@ -5,7 +5,7 @@
              Title="Редагування нотатки">
 
     <Grid Padding="15" ColumnSpacing="20" RowSpacing="15"
-          RowDefinitions="Auto, Auto, *, Auto">
+          RowDefinitions="Auto, *, 0, Auto">
 
 
         <Entry Grid.Row="0"

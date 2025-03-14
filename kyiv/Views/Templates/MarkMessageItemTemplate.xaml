@@ -18,14 +18,14 @@
     <Grid ColumnDefinitions="*" 
           RowDefinitions="Auto"
           HorizontalOptions="Fill" 
-          VerticalOptions="Start">
+          VerticalOptions="Start"
+          BackgroundColor="{AppThemeBinding Light={StaticResource WhiteBackgroundColor}, Dark={StaticResource DarkBackgroundColor}}">
 
         <!-- Border займає всю ширину екрана -->
         <Border Margin="12" 
                 HorizontalOptions="Fill" 
                 VerticalOptions="Start"
                 Padding="10"
-                BackgroundColor="{AppThemeBinding Light={DynamicResource WhiteBackgroundMarkColor}, Dark={DynamicResource DarkBackgroundMarkColor}}"
                 Stroke="Transparent"
                 StrokeShape="RoundRectangle 10"
                 StrokeThickness="1">

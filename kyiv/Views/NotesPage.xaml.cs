@@ -26,16 +26,16 @@ public partial class NotesPage : ContentPage
 
     protected override void OnAppearing()
     {
-        base.OnAppearing();
-
         LoadNotes();
+        base.OnAppearing();
+        
     }
 
     private void LoadNotes()
 	{
 		Notes.Clear();
 
-		var notes = _databaseService.GetNotes();
+        var notes = _databaseService.GetNotes();
 
 		foreach(var note in notes)
 		{

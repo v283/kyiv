@@ -1,4 +1,3 @@
-using Android.App;
 using kyiv.Models;
 using kyiv.Services;
 
@@ -44,9 +43,10 @@ public partial class NoteDetailPage : ContentPage
 
     protected override void OnDisappearing()
 	{
-		base.OnDisappearing();
 
-		//_databaseService.UpdateNote(_note);
+        _databaseService.UpdateNote(_note);
+        base.OnDisappearing();
+
 	}
 
 }
