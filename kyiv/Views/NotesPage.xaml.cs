@@ -4,6 +4,7 @@ using kyiv.Models;
 using SQLite;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using kyiv.ViewModels;
 
 namespace kyiv.Views;
 
@@ -12,59 +13,59 @@ public partial class NotesPage : ContentPage
 	private LocalDataService _databaseService;
 
 	public ObservableCollection<NoteModel> Notes { get; set; } = new ObservableCollection<NoteModel>();
+	NotesViewModel vm;
 
     public NotesPage()
 	{
 		InitializeComponent();
 
 		_databaseService = new LocalDataService();
-
-		BindingContext = this;
-
-        LoadNotes();
-	}
+		vm = new();
+		BindingContext = vm;
+        vm.LoadNotes();
+    }
 
     protected override void OnAppearing()
     {
-        LoadNotes();
+        //vm.LoadNotes();
         base.OnAppearing();
         
     }
 
-    private void LoadNotes()
-	{
-		Notes.Clear();
+ //   private void LoadNotes()
+	//{
+	//	Notes.Clear();
 
-        var notes = _databaseService.GetNotes();
+ //       var notes = _databaseService.GetNotes();
 
-		foreach(var note in notes)
-		{
-			Notes.Add(note);
-		}
+	//	foreach(var note in notes)
+	//	{
+	//		Notes.Add(note);
+	//	}
 
-		//NotesListView.ItemsSource = notes;
+	//	//NotesListView.ItemsSource = notes;
 
-	}
+	//}
 
-	private async void OnCreateNoteClicked(object sender, EventArgs e)
-	{
-		var newNote = new NoteModel { Name = "Нова нотатка", Text = "" };
+	//private async void OnCreateNoteClicked(object sender, EventArgs e)
+	//{
+	//	var newNote = new NoteModel { Name = "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ", Text = "" };
 
-		_databaseService.AddNote(newNote);
+	//	_databaseService.AddNote(newNote);
 
-		Notes.Add(newNote);
+	//	Notes.Add(newNote);
 
-		await Navigation.PushAsync(new NoteDetailPage(newNote));
-    }
+	//	await Navigation.PushAsync(new NoteDetailPage(newNote));
+ //   }
 
-	private async void OnNoteTapped(object sender, SelectedItemChangedEventArgs e)
-	{
-		if(e.SelectedItem is NoteModel selectedNote)
-		{
-			await Navigation.PushAsync(new NoteDetailPage(selectedNote));
+	//private async void OnNoteTapped(object sender, SelectedItemChangedEventArgs e)
+	//{
+	//	if(e.SelectedItem is NoteModel selectedNote)
+	//	{
+	//		await Navigation.PushAsync(new NoteDetailPage(selectedNote));
 
-			NotesListView.SelectedItem = null;
-		}
-	}
+	//		NotesListView.SelectedItem = null;
+	//	}
+	//}
 
 }

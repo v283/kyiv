@@ -9,25 +9,58 @@ using SQLite;
 
 namespace kyiv.Models
 {
-    public class NoteModel
+    public class NoteModel : INotifyPropertyChanged
     {
         private int _id;
         private string _text;
         private string _name;
 
         [PrimaryKey, AutoIncrement]
-        public int Id {
-            get;
-            set;
+        public int Id
+        {
+            get => _id;
+            set
+            {
+                if (_id != value)
+                {
+                    _id = value;
+                    OnPropertyChanged();
+                }
+            }
         }
-        public string Text {
-            get;
-            set;
+
+        public string Text
+        {
+            get => _text;
+            set
+            {
+                if (_text != value)
+                {
+                    _text = value;
+                    OnPropertyChanged();
+                }
+            }
         }
+
         public string Name
         {
-            get;
-            set;
+            get => _name;
+            set
+            {
+                if (_name != value)
+                {
+                    _name = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
+

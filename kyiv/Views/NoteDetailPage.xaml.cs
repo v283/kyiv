@@ -29,7 +29,7 @@ public partial class NoteDetailPage : ContentPage
     {
         if (sender is Button button && button.BindingContext is NoteModel note)
         {
-            bool confirm = await DisplayAlert("Видалити нотатку", "Ви впевнені, що хочете видалити нотатку?", "Так", "Ні");
+            bool confirm = await DisplayAlert("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ", "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ?", "пїЅпїЅпїЅ", "Ні");
 
             if (confirm)
             {
@@ -45,6 +45,7 @@ public partial class NoteDetailPage : ContentPage
 	{
 
         _databaseService.UpdateNote(_note);
+		Thread.Sleep(500);
         base.OnDisappearing();
 
 	}

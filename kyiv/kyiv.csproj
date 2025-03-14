@@ -51,9 +51,6 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
-
-		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
@@ -89,42 +86,27 @@
 	  <None Remove="Notes.db" />
 	</ItemGroup>
 
-	<ItemGroup>
+<!--	<ItemGroup>
 	  <Compile Update="Views\NotesPage.xaml.cs">
 	    <DependentUpon>NotesPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\PrivacyPolicyWebView.xaml.cs">
 	    <DependentUpon>PrivacyPolicyWebView.xaml</DependentUpon>
 	  </Compile>
-	</ItemGroup>
-	<ItemGroup>
-		<MauiXaml Update="Views\NoteDetailPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\NotesPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\PrivacyPolicyWebView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
-	<ItemGroup>
+	</ItemGroup>-->
+
+<!--	<ItemGroup>
 	  <MauiXaml Update="Views\NoteDetailPage.xaml" />
 	  <MauiXaml Update="Views\NotesPage.xaml" />
 	  <MauiXaml Update="Views\PrivacyPolicyWebView.xaml" />
-	  <MauiXaml Update="Views\RecepiesView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\SelectedView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Templates\NoteItemTemplate.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+	  <MauiXaml Update="Views\RecepiesView.xaml"/>
+	  <MauiXaml Update="Views\SelectedView.xaml"/>
+	  <MauiXaml Update="Views\Templates\NoteItemTemplate.xaml"/>
 	  <MauiXaml Update="Views\Templates\SuccessPopup.xaml" />
-	</ItemGroup>
+	</ItemGroup>-->
 
 	<ItemGroup>
 	  <EmbeddedResource Include="Notes.db" />
 	</ItemGroup>
+
 </Project>
