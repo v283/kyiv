@@ -1,4 +1,3 @@
-using Android.App;
 using kyiv.Models;
 using kyiv.Services;
 

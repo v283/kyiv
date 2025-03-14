@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using kyiv.Views;
 using kyiv.ViewModels;
 using kyiv.Views.Templates;
+using Plugin.MauiMTAdmob;
 
 namespace kyiv;
 
@@ -18,6 +19,7 @@ public static class MauiProgram
 		builder
 			.UseMauiApp<App>()
 			.UseMauiCommunityToolkit()
+            .UseMauiMTAdmob()
             .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
