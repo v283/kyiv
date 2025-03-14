@@ -9,7 +9,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="DarkBackgroundColor">Black</Color>
-            <Color x:Key="WhiteBackgroundColor">#e0e0e0</Color>
+            <Color x:Key="WhiteBackgroundColor">#c3c3df</Color>
             <Color x:Key="DarkTextColor">#FFFFFF</Color>
             <Color x:Key="WhiteTextColor">#000000</Color>
         </ResourceDictionary>
@@ -40,7 +40,7 @@
                 VerticalOptions="End"
                 Margin="20"
                 BackgroundColor="{AppThemeBinding Light=Blue, Dark=DarkBlue}"
-                TextColor="{AppThemeBinding Light={StaticResource WhiteTextColor}, Dark={StaticResource DarkTextColor}}"
+                TextColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource DarkTextColor}}"
                 CornerRadius="10"
                 Padding="10" />
     </Grid>
