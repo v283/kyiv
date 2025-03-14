@@ -5,7 +5,7 @@ namespace kyiv.Views;
 
 public partial class PrivacyPolicyPage : ContentPage
 {
-	private const string SupabaseFileUrl = "https://bejewelled-hummingbird-b53519.netlify.app";
+	private const string SupabaseFileUrl = "https://gqowltjejkvnonrcdkwt.supabase.co/storage/v1/object/public/documents//index2.html";
 
     public PrivacyPolicyPage()
 	{
