@@ -23,7 +23,7 @@ namespace kyiv.Services
         public DataService(Supabase.Client supabaseClient)
         {
             _supabaseClient = supabaseClient;
-            
+
         }
 
 

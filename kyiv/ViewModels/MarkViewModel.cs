@@ -15,7 +15,10 @@ public partial class MarkViewModel : ObservableObject
 
     [ObservableProperty]
     private ObservableCollection<MarkModel> comments;
+    [ObservableProperty]
+    private bool isLoading;  // Прапорець для анімації завантаження
 
+    public bool IsNotLoading => !IsLoading;  // Протилежне значення для видимості списку
     public MarkViewModel(IDataService dataService)
     {
         _dataService = (DataService)dataService;
@@ -32,6 +35,8 @@ public partial class MarkViewModel : ObservableObject
     {
         try
         {
+            IsLoading = true;
+            OnPropertyChanged(nameof(IsNotLoading)); // Оновлення прив’язки
             // Отримати дані, відсортовані за датою (від новіших до старіших)
             var data = (await _dataService.SupabaseClient
                 .From<MarkModel>()
@@ -49,6 +54,11 @@ public partial class MarkViewModel : ObservableObject
         catch (Exception ex)
         {
             Debug.WriteLine($"Помилка при оновленні коментарів: {ex.Message}");
+        }
+        finally
+        {
+            IsLoading = false;
+            OnPropertyChanged(nameof(IsNotLoading)); // Оновлення видимості після завантаження
         }
     }
 

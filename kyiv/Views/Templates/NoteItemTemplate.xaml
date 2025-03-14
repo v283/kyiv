@@ -4,12 +4,18 @@
              x:Class="kyiv.Views.Templates.NoteItemTemplate"
              xmlns:model="clr-namespace:kyiv.Models"
              x:DataType="model:NoteModel">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="DarkBackgroundMarkColor">#1a1a1a</Color>
+            <Color x:Key="WhiteBackgroundMarkColor">White</Color>
 
+        </ResourceDictionary>
+    </ContentView.Resources>
     <Grid ColumnDefinitions="*" 
       RowDefinitions="Auto, Auto"
       HorizontalOptions="Fill" 
       VerticalOptions="Start"
-          BackgroundColor="Black">
+          BackgroundColor="Transparent">
 
 
         <!-- Border займає всю ширину екрана #222426 #373A40 -->
@@ -18,7 +24,7 @@
             HorizontalOptions="Fill" 
             VerticalOptions="Start"
             Padding="20, 10"
-            BackgroundColor="#1a1a1a"
+            BackgroundColor="{AppThemeBinding Light={DynamicResource WhiteBackgroundMarkColor}, Dark={DynamicResource DarkBackgroundMarkColor}}"
                 Stroke="Transparent"
             HeightRequest="250"
             StrokeShape="RoundRectangle 10"

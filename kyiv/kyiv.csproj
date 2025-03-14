@@ -97,11 +97,27 @@
 	    <DependentUpon>PrivacyPolicyWebView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
-
+	<ItemGroup>
+		<MauiXaml Update="Views\NoteDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NotesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PrivacyPolicyWebView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
 	<ItemGroup>
 	  <MauiXaml Update="Views\NoteDetailPage.xaml" />
 	  <MauiXaml Update="Views\NotesPage.xaml" />
 	  <MauiXaml Update="Views\PrivacyPolicyWebView.xaml" />
+	  <MauiXaml Update="Views\RecepiesView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SelectedView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Templates\NoteItemTemplate.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
