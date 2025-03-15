@@ -30,6 +30,11 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainViewModel}}, Path=ToGptCommand}"
                 HorizontalOptions="Fill" />
+
+            <Button
+                Text="AddMob" 
+                Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainViewModel}}, Path=AddMobCommand}"
+                HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>
 

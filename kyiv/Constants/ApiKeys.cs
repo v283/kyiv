@@ -4,7 +4,7 @@ namespace kyiv.Constants
 {
 	public class ApiKeys
 	{
-        public static string ApiKeyGPT = "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";
+        public static string ApiKeyGPT = "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";
 
         //supabase
         public const string SUPABASE_URL = "https://gqowltjejkvnonrcdkwt.supabase.co";

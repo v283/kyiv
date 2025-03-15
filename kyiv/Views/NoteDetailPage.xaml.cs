@@ -1,3 +1,4 @@
+
 using kyiv.Models;
 using kyiv.Services;
 
@@ -5,25 +6,25 @@ namespace kyiv.Views;
 
 public partial class NoteDetailPage : ContentPage
 {
-	private NoteModel _note;
-	private LocalDataService _databaseService;
+    private NoteModel _note;
+    private LocalDataService _databaseService;
 
-	public NoteDetailPage(NoteModel note)
-	{
-		InitializeComponent();
+    public NoteDetailPage(NoteModel note)
+    {
+        InitializeComponent();
 
-		_note = note;
-		_databaseService = new LocalDataService();
+        _note = note;
+        _databaseService = new LocalDataService();
 
-		BindingContext = _note;
-	}
+        BindingContext = _note;
+    }
 
-	private async void OnSaveChangesClicked(object sender, EventArgs e)
-	{
-		_databaseService.UpdateNote(_note);
+    private async void OnSaveChangesClicked(object sender, EventArgs e)
+    {
+        _databaseService.UpdateNote(_note);
 
-		await Navigation.PopAsync();
-	}
+        await Navigation.PopAsync();
+    }
 
     private async void OnDeleteNoteClicked(object sender, EventArgs e)
     {
@@ -35,19 +36,19 @@ public partial class NoteDetailPage : ContentPage
             {
                 _databaseService.DeleteNote(note.Id);
 
-				await Navigation.PopAsync();
+                await Navigation.PopAsync();
             }
         }
 
     }
 
     protected override void OnDisappearing()
-	{
+    {
 
         _databaseService.UpdateNote(_note);
-		Thread.Sleep(500);
+        Thread.Sleep(500);
         base.OnDisappearing();
 
-	}
+    }
 
 }

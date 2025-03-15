@@ -8,8 +8,8 @@ using kyiv.Views;
 
 namespace kyiv.ViewModels
 {
-	public partial class NotesViewModel : ObservableObject
-	{
+    public partial class NotesViewModel : ObservableObject
+    {
         private LocalDataService _databaseService;
 
         [ObservableProperty]
@@ -17,7 +17,7 @@ namespace kyiv.ViewModels
 
 
         public NotesViewModel()
-		{
+        {
             _databaseService = new LocalDataService();
             LoadNotes();
         }

@@ -15,7 +15,7 @@ namespace kyiv.Services
 
         public LocalDataService()
         {
-            var dbPath = Path.Combine(FileSystem.AppDataDirectory, "Notes.db");
+            var dbPath = Path.Combine(FileSystem.AppDataDirectory, "NoteModels.db");
 
             _database = new SQLiteConnection(dbPath);
 
@@ -23,27 +23,27 @@ namespace kyiv.Services
         }
 
 
-        public List<NoteModel> GetNotes()
+        public List<NoteModel> GetNoteModels()
         {
             return _database.Table<NoteModel>().ToList();
         }
 
-        public NoteModel GetNote(int id)
+        public NoteModel GetNoteModel(int id)
         {
             return _database.Table<NoteModel>().FirstOrDefault(n => n.Id == id);
         }
 
-        public void AddNote(NoteModel note)
+        public void AddNoteModel(NoteModel NoteModel)
         {
-            _database.Insert(note);
+            _database.Insert(NoteModel);
         }
 
-        public void UpdateNote(NoteModel note)
+        public void UpdateNoteModel(NoteModel NoteModel)
         {
-            _database.Update(note);
+            _database.Update(NoteModel);
         }
 
-        public void DeleteNote(int id)
+        public void DeleteNoteModel(int id)
         {
             _database.Delete<NoteModel>(id);
         }
