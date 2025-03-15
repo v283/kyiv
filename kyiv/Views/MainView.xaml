@@ -6,19 +6,24 @@
             xmlns:templates="clr-namespace:kyiv.Views.Templates">
 
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
+        <VerticalStackLayout>
+
+            <Grid Padding="10" ColumnDefinitions="*,*" ColumnSpacing="5" RowSpacing="5" RowDefinitions="*,*">
+                <Button CornerRadius="0" HeightRequest="90"  Grid.Column="0" Grid.Row="0" Text="Математика" Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainViewModel}}, Path=GetTopicsCommand}" CommandParameter="mathtable" />
+                <Button CornerRadius="0" HeightRequest="90" Grid.Column="1" Grid.Row="0" Text="Українська мова" Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainViewModel}}, Path=GetTopicsCommand}" CommandParameter="ukrtable" />
+                <Button CornerRadius="0" HeightRequest="90" Grid.Column="0" Grid.Row="1" Text="Англійська мова" Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainViewModel}}, Path=GetTopicsCommand}" CommandParameter="engtable" />
+                <Button CornerRadius="0" HeightRequest="90" Grid.Column="1" Grid.Row="1" Text="Історія" Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainViewModel}}, Path=GetTopicsCommand}" CommandParameter="historytable" />
+            </Grid>
 
 
             <templates:ProgressBar   />
-         
 
 
-            <Button
-                Text="AddMob" 
+
+            <!--<Button
+                Text="Добровільний донат" 
                 Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainViewModel}}, Path=AddMobCommand}"
-                HorizontalOptions="Fill" />
+                HorizontalOptions="Fill" />-->
         </VerticalStackLayout>
     </ScrollView>
 

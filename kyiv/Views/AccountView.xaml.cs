@@ -113,6 +113,30 @@ public partial class AccountView : ContentPage
         }
     }
 
+    private async void OnInastagram(object sender, TappedEventArgs args)
+    {
+        try
+        {
+            Uri uri = new Uri("https://www.instagram.com/vntu_sharp/");
+            await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
+    private async void OnYouTube(object sender, TappedEventArgs args)
+    {
+        try
+        {
+            Uri uri = new Uri("https://www.youtube.com/channel/UCOWySaJBaBtVPu-20q8zxpQ");
+            await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
     private async void OnDonate(object sender, TappedEventArgs args)
     {
         try

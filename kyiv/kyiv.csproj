@@ -81,11 +81,15 @@
 		<EmbeddedResource Include="Notes.db" />
 		<EmbeddedResource Include="mydb.db" />
 		<EmbeddedResource Include="dictionary.db" />
+		<EmbeddedResource Include="UserData.db" />
+		<EmbeddedResource Include="tests.db" />
 	</ItemGroup>
 	<ItemGroup>
 	  <None Remove="dictionary.db" />
 	  <None Remove="Data\" />
 	  <None Remove="Resources\Images\folder.png" />
+	  <None Remove="UserData.db" />
+	  <None Remove="tests.db" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Data\" />

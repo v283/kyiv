@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kyiv.Views.ExplanationTestsPage"
+             xmlns:local="clr-namespace:kyiv.Views"
+             xmlns:templates="clr-namespace:kyiv.Views.Templates"
+             BackgroundColor="White">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior Command="{Binding GoBackCommand}"/>
+    </Shell.BackButtonBehavior>
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="6*,1*">
+            <Label x:Name="explTitle" FontFamily="OpenSansRegular" FontSize="20" FontAttributes="Bold" TextColor="White"  HorizontalOptions="{ OnPlatform Android=Start, iOS=Center}" Grid.Column="0" Grid.Row="0" VerticalTextAlignment="Center"/>
+            <Image Source="{AppThemeBinding Light=bot_dark.png, Dark=bot_dark.png}" Grid.Column="1" Grid.Row="0" HeightRequest="40" HorizontalOptions="Start">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnChatBot"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+    </Shell.TitleView>
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *" ColumnDefinitions="*,*,*" ColumnSpacing="0">
+
+            <Button x:Name="explanationTabBtn" Clicked="OnExplanationTabCliked" Grid.Row="0" Grid.Column="0" Text="Explantion" TextColor="Black" BackgroundColor="#8a2be2" CornerRadius="1"/>
+            <Button x:Name="testsTabBtn" Clicked="OnTestsTabCliked" Grid.Row="0" Grid.Column="1" Text="Test" TextColor="#aeaaad" BackgroundColor="#f8f3f6" CornerRadius="1"/>
+            <Button x:Name="examTabBtn" Clicked="OnExamTabCliked" Grid.Row="0" Grid.Column="2" Text="Exam" TextColor="#aeaaad" BackgroundColor="#f8f3f6" CornerRadius="1"/>
+
+
+
+            <Grid IsVisible="True" x:Name="explanationTab" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"  RowDefinitions="*,auto" ColumnDefinitions="*">
+
+                <Grid Grid.Column="0" Grid.Row="0" RowDefinitions="*,auto" ColumnDefinitions="*">
+                    <WebView Grid.Column="0" Grid.Row="0" x:Name="explanationWebView"/>
+                    <Grid Grid.Column="0" Grid.Row="1" RowDefinitions="*" ColumnSpacing="100" ColumnDefinitions="*, *" Margin="10">
+                        <Button x:Name="knowBtn" Clicked="OnKnow" CornerRadius="30" BackgroundColor="#00c37d" Text=" I know" Grid.Row="0" Grid.Column="0"/>
+                        <Button x:Name="notKnowBtn" Clicked="OnNotKnow" CornerRadius="30" BackgroundColor="Red" Text=" I don't know" Grid.Row="0" Grid.Column="0"/>
+                        <Button Clicked="OnTestsTabCliked" CornerRadius="30" Text="Tests" Grid.Row="0" Grid.Column="1"/>
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+
+            <Grid IsVisible="False" x:Name="testsTab" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" RowDefinitions="*, Auto" ColumnDefinitions="*">
+                <Grid Grid.Row="0" Grid.Column="0" RowDefinitions="*, Auto" ColumnDefinitions="*">
+                    <ScrollView  >
+                        <VerticalStackLayout>
+
+                            <CollectionView x:Name="testsColection" SelectionMode="Single" SelectionChanged="OnTestsSelectedChanged" >
+
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Style="{StaticResource CollectionGrid}" RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *" Margin="0, 2" RowSpacing="8">
+
+                                            <templates:MyCircleProgressBar  FontZoom="1.1" TextStyle="Percent"  Thickness="7" ProgressColor="#8a2be2" ProgressLeftColor="#e6e6e6"
+                                                                                  Total="100" Done="{Binding Result}" Size="45" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>
+
+                                            <Label Text="{Binding TestName}" LineBreakMode="TailTruncation" FontSize="21"  Grid.Column="1" Grid.Row="0" Margin="8"/>
+
+                                        </Grid>
+
+                                    </DataTemplate>
+
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                        </VerticalStackLayout>
+
+
+                    </ScrollView>
+
+                </Grid>
+            </Grid>
+
+            <Grid IsVisible="False" x:Name="examTab" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" RowDefinitions="*, Auto" ColumnDefinitions="*">
+                <Grid Grid.Row="0" Grid.Column="0"  RowDefinitions="*, Auto"  ColumnDefinitions="*">
+
+                    <ScrollView >
+                        <VerticalStackLayout VerticalOptions="Start"   >
+
+
+                            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*" Margin="5" ColumnSpacing="65" >
+
+
+                                <Border  HorizontalOptions="Center" StrokeThickness="0" VerticalOptions="Center" StrokeShape="Ellipse" Background="{StaticResource Primary}"  WidthRequest="60" HeightRequest="60" Grid.Row="0" Grid.Column="0" 
+                                          IsVisible="True"  >
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnPreviousTask" />
+                                    </Border.GestureRecognizers>
+
+                                    <Label Margin="-20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"  FontSize="45" Text="&lt;"/>
+                                </Border>
+
+                                <templates:MyCircleProgressBar FontZoom="0.9" TextStyle="OnlyDone" TextColor="Black" Thickness="7" ProgressColor="#8a2be2" ProgressLeftColor="#e6e6e6"
+                                                                                   Size="70" Total="10"  Done="1" x:Name="testProgressBar"  Grid.Row="0" Grid.Column="1" />
+
+                                <Border StrokeShape="Ellipse" Background="{StaticResource Primary}" StrokeThickness="0" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="60" HeightRequest="60" Grid.Row="0" Grid.Column="2" 
+                                            >
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnNextTask"/>
+                                    </Border.GestureRecognizers>
+
+                                    <Label  Margin="-20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"  FontSize="45" Text="&gt;"/>
+                                </Border>
+                            </Grid>
+
+                            <Label x:Name="question" FontSize="21"  Margin="10" />
+
+                            <templates:AnswerGrid Notify="OnAnswer" x:Name="answGrid"/>
+
+                            <Entry x:Name="answEntry" ReturnCommand="{Binding OnAnswEntryCompleted}" WidthRequest="300" Placeholder="Write your answer"  FontSize="18"/>
+
+                            <Border x:Name="answerBtn"  HorizontalOptions="Center" VerticalOptions="Center" StrokeShape="RoundRectangle 30" BackgroundColor="{StaticResource Primary}" StrokeThickness="0" WidthRequest="115" HeightRequest="60"   >
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnAnswerBtn"/>
+                                </Border.GestureRecognizers>
+
+                                <Label  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"  FontSize="21" Text="Answer"/>
+                            </Border>
+
+                            <Grid Margin="10" ColumnDefinitions="* , *" RowDefinitions="Auto, Auto" x:Name="explanationGrid" BackgroundColor="#eaf8e7">
+                                <Label x:Name="explanation" TextColor="#2eaa63" FontSize="17" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"/>
+
+                                <Border Margin="5, 2" WidthRequest="53" HeightRequest="53"  HorizontalOptions="End" VerticalOptions="End" StrokeShape="RoundRectangle 30" Background="{StaticResource Primary}" StrokeThickness="0"  Grid.Row="1" Grid.Column="1"  >
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnNextTask"/>
+                                    </Border.GestureRecognizers>
+
+                                    <Label   Margin="-20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"  FontSize="40" Text="&gt;"/>
+                                </Border>
+
+                            </Grid>
+
+                            <Grid Margin="10" x:Name="resultGrid" RowDefinitions="*, *, *, *" ColumnDefinitions="Auto,*" ColumnSpacing="15" RowSpacing="5">
+
+                                <templates:MyCircleProgressBar Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" FontZoom="0.9" TextStyle="Percent"  Thickness="10" ProgressColor="#8a2be2" ProgressLeftColor="#e6e6e6"
+                                         Size="120" Total="10"  Done="1"  x:Name="resultProgressBar" VerticalOptions="Center" HorizontalOptions="Center" />
+
+                                <Label x:Name="resultPhrase" Grid.Row="0" Grid.Column="1" FontSize="25"  FontAttributes="Bold" Text="You're doing great!"/>
+                                <Label Grid.Row="1" Grid.Column="1" FontSize="20"  FontAttributes="Bold"
+                                           Text="{Binding Source={x:Reference resultProgressBar}, Path=Total, StringFormat='Total: {0}'}" />
+                                <Label Grid.Row="2" Grid.Column="1" FontSize="20"  FontAttributes="Bold"
+                                           Text="{Binding Source={x:Reference resultProgressBar}, Path=Done, StringFormat='Done: {0}'}"/>
+
+                                <Border Margin="50" WidthRequest="300" HeightRequest="53"  HorizontalOptions="Center" VerticalOptions="Center" StrokeShape="RoundRectangle 30" Background="{StaticResource Primary}" StrokeThickness="0"  Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0"  >
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnTestsTabCliked"/>
+                                    </Border.GestureRecognizers>
+                                    <Label  Margin="-20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"  FontSize="35" Text="To Tests"/>
+                                </Border>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </ScrollView>
+
+                                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+    </ContentPage.Content>
+
+</ContentPage>

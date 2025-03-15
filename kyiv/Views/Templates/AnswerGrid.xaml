@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="this"
+             x:Class="kyiv.Views.Templates.AnswerGrid">
+
+    <Grid BackgroundColor="Transparent" x:Name="answGrid" BindingContext="{x:Reference this}" ColumnDefinitions="*" Margin="10" RowSpacing="10" RowDefinitions="Auto, Auto, Auto, Auto, Auto" >
+
+        <Border x:Name="fAnswA"  Grid.Column="0" Grid.Row="0" HeightRequest="50" StrokeShape="RoundRectangle 30" BackgroundColor="Transparent">
+            <Label x:Name="answA" Text="{Binding AnswA}" VerticalOptions="Center" Margin="5, -20" FontSize="18">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAnswerGesture"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Border>
+        <Border x:Name="fAnswB"  Grid.Column="0" Grid.Row="1" HeightRequest="50"  StrokeShape="RoundRectangle 30" BackgroundColor="Transparent">
+
+            <Label x:Name="answB" Text="{Binding AnswB}" VerticalOptions="Center" Margin="5, -20" FontSize="18">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAnswerGesture"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Border>
+        <Border x:Name="fAnswC"  Grid.Column="0" Grid.Row="2" HeightRequest="50" StrokeShape="RoundRectangle 30" BackgroundColor="Transparent">
+
+            <Label x:Name="answC" Text="{Binding AnswC}"  VerticalOptions="Center" Margin="5, -20" FontSize="18">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAnswerGesture"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Border>
+        <Border  x:Name="fAnswD"  Grid.Column="0" Grid.Row="3" HeightRequest="50" StrokeShape="RoundRectangle 30" BackgroundColor="Transparent">
+            <Label  x:Name="answD" Text="{Binding AnswD}" VerticalOptions="Center" Margin="5, -20" FontSize="18">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAnswerGesture"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Border>
+
+        <Border x:Name="answerBtn" Grid.Column="0" Grid.Row="4" HorizontalOptions="Center" VerticalOptions="Center" StrokeShape="RoundRectangle 30" Style="{StaticResource RGradientBorder}" StrokeThickness="0" WidthRequest="100" HeightRequest="55"   >
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAnswerBtn"/>
+            </Border.GestureRecognizers>
+
+            <Label  Margin="-20" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  FontSize="21" Text="Answer"/>
+        </Border>
+    </Grid>
+
+
+</ContentView>
+

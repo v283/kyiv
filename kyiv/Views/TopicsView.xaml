@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:kyiv.Views.Templates"
+             xmlns:local="clr-namespace:kyiv.ViewModels"
+             x:Class="kyiv.Views.TopicsView"  
+             BackgroundColor="White" x:Name="TopicsPae"
+             >
+
+
+    <!--<ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>-->
+
+
+
+
+
+    <ScrollView  >
+        <VerticalStackLayout Margin="0,10" >
+
+
+            <Button BackgroundColor="White" HorizontalOptions="Start" HeightRequest="20" WidthRequest="30">
+                <Button.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android" Value="0,-15.5" />
+                        <On Platform="iOS" Value="0,-27" />
+                    </OnPlatform>
+                </Button.Margin>
+            </Button>
+            <CollectionView x:Name="sd"  ItemsSource="{Binding Topics}"  >
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate >
+                        <Grid   RowDefinitions="Auto" ColumnDefinitions="Auto, *"  RowSpacing="0">
+                            <!--<Image Source="{Binding IsDoneImage}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HeightRequest="43" WidthRequest="43" Margin="2,-3, 7,0"/>-->
+                            <controls:CustomBox BoxBackgroundColor="Transparent" IsDoneText="{Binding IsDoneImage}" CornerRadius="3" Thickness="2" LineLength="50" Size="{OnPlatform Android=35, iOS=45}"  StrokeColor="{StaticResource Primary}" Grid.RowSpan="2" Grid.Row="0" Grid.Column="0"  />
+                            <Label Text="{Binding TopicName}" LineBreakMode="TailTruncation" FontSize="20" TextColor="#4D79BD" Grid.Column="1" Grid.Row="0" Margin="7"/>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type local:TopicsViewModel}}, Path=TopicSelectedCommand}"  CommandParameter="{Binding .}"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button BackgroundColor="White" Margin="0, -10.3" HorizontalOptions="Start" HeightRequest="20" WidthRequest="30"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+
+
+
+
+
+
+
+
+</ContentPage>

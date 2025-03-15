@@ -2,6 +2,7 @@
 using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using kyiv.Views;
 using kyiv.Views.Templates;
 using Plugin.MauiMTAdmob;
 
@@ -12,6 +13,13 @@ namespace kyiv.ViewModels
         public MainViewModel()
         {
 
+        }
+
+
+        [RelayCommand]
+        private async Task GetTopics(string subj)
+        {
+            Shell.Current.Navigation.PushAsync(new TopicsView("engtable"));
         }
 
         [RelayCommand]

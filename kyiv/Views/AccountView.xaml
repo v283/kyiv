@@ -133,7 +133,7 @@
 
                 <Image  HeightRequest="35" Source="instagram.png"  Grid.Row="0" Grid.Column="1">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Tapped="OnInastagram" />
                     </Image.GestureRecognizers>
                 </Image>
                 <Label HorizontalOptions="Center" FontSize="11" Text="Instagram"  Grid.Row="1" Grid.Column="1"/>
@@ -142,7 +142,7 @@
 
                 <Image  HeightRequest="35" Source="youtube.png"  Grid.Row="0" Grid.Column="2">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Tapped="OnYouTube" />
                     </Image.GestureRecognizers>
                 </Image>
                 <Label  HorizontalOptions="Center" FontSize="11" Text="YouTube"  Grid.Row="1" Grid.Column="2"/>
