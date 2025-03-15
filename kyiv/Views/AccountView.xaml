@@ -28,7 +28,7 @@
 
             <Grid  Padding="15" RowDefinitions="*,*,*,*,*,*,*,*" ColumnDefinitions="Auto, *" ColumnSpacing="30" RowSpacing="23">
 
-                <Image VerticalOptions="Center" HeightRequest="25" Source="jack_bot_light.png" Grid.Row="0" Grid.Column="0">
+                <Image VerticalOptions="Center" HeightRequest="25" Source="bot_light.png" Grid.Row="0" Grid.Column="0">
                     <Image.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
 

@@ -42,8 +42,8 @@
 
         <Image
             HeightRequest="30"
-            Source="{AppThemeBinding Light=jack_bot_light.png,
-                                          Dark=jack_bot_dark.png}"
+            Source="{AppThemeBinding Light=bot_light.png,
+                                          Dark=bot_dark.png}"
             WidthRequest="30" />
     </Border>
 
