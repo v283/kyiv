@@ -1,47 +1,96 @@
+
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="kyiv.Views.NotesPage"
-             Title="Нотатки">
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20">
+             xmlns:model="clr-namespace:kyiv.Models"
+             xmlns:templates="clr-namespace:kyiv.Views.Templates"
+             xmlns:local="clr-namespace:kyiv.ViewModels"
+             Title="Усі нотатки">
 
-            <Button Text="Створити нотатку"
-                    Clicked="OnCreateNoteClicked"
-                    BackgroundColor="{StaticResource Primary}"
-                    TextColor="White"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Center"/>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="DarkBackgroundColor">Black</Color>
+            <Color x:Key="WhiteBackgroundColor">#c3c3df</Color>
+            <Color x:Key="DarkTextColor">#FFFFFF</Color>
+            <Color x:Key="WhiteTextColor">#000000</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-            <ListView x:Name="NotesListView"
-                      ItemsSource="{Binding Notes}"
-                      ItemSelected="OnNoteSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid ColumnDefinitions="*, Auto">
-                                <VerticalStackLayout 
-                                     Grid.Column="0"
-                                    VerticalOptions="Center">
-                                    <Label Text="{Binding Name}" FontSize="16"/>
-                                    <Label Text="{Binding Text}" FontSize="11" TextColor="Gray"/>
-                                </VerticalStackLayout>
-                                <Button Grid.Column="1"
-                                    Text="Видалити"
-                                    Clicked="OnDeleteNoteClicked"
-                                    BackgroundColor="{StaticResource Primary}"
-                                    TextColor="White"
-                                    FontAttributes="Bold"
-                                    HeightRequest="30"
-                                    WidthRequest="80"
-                                    FontSize="10"
-                                    VerticalOptions="Center"/>  
+    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource WhiteBackgroundColor}, Dark={StaticResource DarkBackgroundColor}}">
+
+        <CollectionView ItemsSource="{Binding Notes}"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Fill"
+                        x:Name="NotesListView"
+                        BackgroundColor="Transparent">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*"   RowDefinitions="Auto, Auto" HorizontalOptions="Fill"   VerticalOptions="Start" BackgroundColor="Transparent">
+
+
+                        <Border Margin="12, 40, 12, 12"
+
+            HorizontalOptions="Fill" 
+            VerticalOptions="Start"
+            Padding="20, 10"
+            BackgroundColor="{AppThemeBinding Light={DynamicResource WhiteBackgroundMarkColor}, Dark={DynamicResource DarkBackgroundMarkColor}}"
+                Stroke="Transparent"
+            HeightRequest="250"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="1"
+            Grid.Row="0">
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type local:NotesViewModel}}, Path=NoteTappedCommand}" CommandParameter="{Binding .}"/>
+  
+                            </Border.GestureRecognizers>
+
+                            <!-- Внутрішній Grid для вмісту -->
+                            <Grid RowDefinitions="Auto" 
+              RowSpacing="5" 
+              ColumnDefinitions="2*,*"
+              HorizontalOptions="Fill">
+
+                                <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                   Text="{Binding Text}" 
+                   LineBreakMode="WordWrap"
+                   MaxLines="5"
+                   Margin="0,5,0,5"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Fill"
+                       TextColor="White">
+                                </Label>
+
                             </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                        </Border>
+                        <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
+                   Text="{Binding Name}" 
+                   FontSize="18"
+                   LineBreakMode="TailTruncation"
+                   MaxLines="2"
+                   HorizontalOptions="Center"
+               Margin="0, 0, 0, 0">
+                        </Label>
 
-        </VerticalStackLayout>
-    </ScrollView>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Створити нотатку"
+                Command="{Binding CreateNoteCommand}"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Margin="20"
+                BackgroundColor="{AppThemeBinding Light=Blue, Dark=DarkBlue}"
+                TextColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource DarkTextColor}}"
+                CornerRadius="10"
+                Padding="10" />
+    </Grid>
 </ContentPage>
