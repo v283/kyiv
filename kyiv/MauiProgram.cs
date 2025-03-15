@@ -3,11 +3,10 @@ using ChatGPT.Services;
 using ChatGPT.ViewModels;
 using ChatGPT.Views;
 using CommunityToolkit.Maui;
-using Microsoft.Extensions.Logging;
-using kyiv.Views;
-using kyiv.ViewModels;
-using kyiv.Views.Templates;
 using Plugin.MauiMTAdmob;
+using kyiv.Views;
+using kyiv.Views.Templates;
+using Microsoft.Extensions.Logging;
 
 namespace kyiv;
 
@@ -85,5 +84,4 @@ public static class MauiProgram
 		return builder.Build();
 	}
 }
-
 
