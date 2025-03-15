@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Data;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using kyiv.Models;
@@ -31,7 +32,7 @@ namespace kyiv.ViewModels
         [RelayCommand]
         private async Task CreateNote()
         {
-            var newNote = new NoteModel { Name = "���� �������", Text = "" };
+            var newNote = new NoteModel { Name = "Нова нотатка", Text = "", Date = "" };
 
             _databaseService.AddNoteModel(newNote);
 

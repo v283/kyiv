@@ -11,6 +11,8 @@
         <ResourceDictionary>
             <Color x:Key="DarkBackgroundColor">Black</Color>
             <Color x:Key="WhiteBackgroundColor">#c3c3df</Color>
+            <Color x:Key="DarkBorderBackgroundColor">#1a1a1a</Color>
+            <Color x:Key="WhiteBorderBackgroundColor">#FFFFFF</Color>
             <Color x:Key="DarkTextColor">#FFFFFF</Color>
             <Color x:Key="WhiteTextColor">#000000</Color>
         </ResourceDictionary>
@@ -30,7 +32,7 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid ColumnDefinitions="*"   RowDefinitions="Auto, Auto" HorizontalOptions="Fill"   VerticalOptions="Start" BackgroundColor="Transparent">
+                    <Grid ColumnDefinitions="*"   RowDefinitions="Auto, Auto, Auto" HorizontalOptions="Fill"   VerticalOptions="Start" BackgroundColor="Transparent">
 
 
                         <Border Margin="12, 40, 12, 12"
@@ -38,11 +40,12 @@
             HorizontalOptions="Fill" 
             VerticalOptions="Start"
             Padding="20, 10"
-            BackgroundColor="{AppThemeBinding Light={DynamicResource WhiteBackgroundMarkColor}, Dark={DynamicResource DarkBackgroundMarkColor}}"
+            BackgroundColor="{AppThemeBinding Light={StaticResource WhiteBorderBackgroundColor}, Dark={StaticResource DarkBorderBackgroundColor}}"
                 Stroke="Transparent"
             HeightRequest="250"
             StrokeShape="RoundRectangle 10"
             StrokeThickness="1"
+                                
             Grid.Row="0">
 
                             <Border.GestureRecognizers>
@@ -63,19 +66,26 @@
                    Margin="0,5,0,5"
                    HorizontalOptions="Start"
                    VerticalOptions="Fill"
-                       TextColor="White">
+                                       TextColor="{AppThemeBinding Light={StaticResource WhiteTextColor}, Dark={StaticResource DarkTextColor}}">
                                 </Label>
 
                             </Grid>
                         </Border>
-                        <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
+                        <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
                    Text="{Binding Name}" 
-                   FontSize="18"
-                   LineBreakMode="TailTruncation"
+                   FontSize="15"
                    MaxLines="2"
                    HorizontalOptions="Center"
                Margin="0, 0, 0, 0">
                         </Label>
+                        <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
+    Text="{Binding Date}" 
+    FontSize="15"
+    MaxLines="1"
+    HorizontalOptions="Center"
+Margin="0, 0, 0, 0">
+                        </Label>
+
 
                     </Grid>
                 </DataTemplate>
@@ -87,6 +97,7 @@
                 HorizontalOptions="End"
                 VerticalOptions="End"
                 Margin="20"
+              
                 BackgroundColor="{AppThemeBinding Light=Blue, Dark=DarkBlue}"
                 TextColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource DarkTextColor}}"
                 CornerRadius="10"

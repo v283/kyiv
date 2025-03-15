@@ -14,6 +14,7 @@ namespace kyiv.Models
         private int _id;
         private string _text;
         private string _name;
+        private string _date;
 
         [PrimaryKey, AutoIncrement]
         public int Id
@@ -50,6 +51,19 @@ namespace kyiv.Models
                 if (_name != value)
                 {
                     _name = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public string Date
+        {
+            get => _date;
+            set
+            {
+                if (_date != value)
+                {
+                    _date = value;
                     OnPropertyChanged();
                 }
             }

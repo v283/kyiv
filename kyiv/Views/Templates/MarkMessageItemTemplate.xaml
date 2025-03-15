@@ -18,8 +18,7 @@
     <Grid ColumnDefinitions="*" 
           RowDefinitions="Auto"
           HorizontalOptions="Fill" 
-          VerticalOptions="Start"
-          BackgroundColor="{AppThemeBinding Light={StaticResource WhiteBackgroundColor}, Dark={StaticResource DarkBackgroundColor}}">
+          VerticalOptions="Start">
 
         <!-- Border займає всю ширину екрана -->
         <Border Margin="12" 
@@ -28,7 +27,8 @@
                 Padding="10"
                 Stroke="Transparent"
                 StrokeShape="RoundRectangle 10"
-                StrokeThickness="1">
+                StrokeThickness="1"
+                BackgroundColor="{AppThemeBinding Light={StaticResource WhiteBackgroundMarkColor}, Dark={StaticResource DarkBackgroundMarkColor}}">
 
             <!-- Внутрішній Grid для вмісту -->
             <Grid RowDefinitions="Auto, Auto, Auto, *" 

@@ -8,11 +8,13 @@ public partial class NoteDetailPage : ContentPage
 {
     private NoteModel _note;
     private LocalDataService _databaseService;
+    bool isDeleting;
 
     public NoteDetailPage(NoteModel note)
     {
         InitializeComponent();
 
+        isDeleting = false;
         _note = note;
         _databaseService = new LocalDataService();
 
@@ -30,11 +32,13 @@ public partial class NoteDetailPage : ContentPage
     {
         if (sender is Button button && button.BindingContext is NoteModel note)
         {
-            bool confirm = await DisplayAlert("�������� �������", "�� ��������, �� ������ �������� �������?", "���", "ͳ");
+            bool confirm = await DisplayAlert("Видалення нотатки", "Ви впевнені що хочете видалити нотатку?", "Так", "Ні");
 
             if (confirm)
             {
                 _databaseService.DeleteNoteModel(note.Id);
+
+                isDeleting = true;
 
                 await Navigation.PopAsync();
             }
@@ -44,6 +48,13 @@ public partial class NoteDetailPage : ContentPage
 
     protected override void OnDisappearing()
     {
+        if (!isDeleting && _note.Name.Equals("Нова нотатка"))
+        {
+            _note.Date = DateTime.Now.ToString("dd/MM/yyyy");
+            _note.Name = _note.Name + " " + _note.Date;
+        }
+
+        isDeleting = false;
 
         _databaseService.UpdateNoteModel(_note);
         Thread.Sleep(500);
