@@ -38,6 +38,8 @@ public partial class NoteDetailPage : ContentPage
             {
                 _databaseService.DeleteNoteModel(note.Id);
 
+                MessagingCenter.Send(this, "NoteDeleted", note);
+
                 isDeleting = true;
 
                 await Navigation.PopAsync();

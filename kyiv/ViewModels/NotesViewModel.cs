@@ -13,20 +13,42 @@ namespace kyiv.ViewModels
     {
         private LocalDataService _databaseService;
 
-        [ObservableProperty]
-        public List<NoteModel> notes;
+        private ObservableCollection<NoteModel> _notes;
+
+        public ObservableCollection<NoteModel> Notes
+        {
+            get => _notes;
+            set => SetProperty(ref _notes, value);
+        }
 
 
         public NotesViewModel()
         {
             _databaseService = new LocalDataService();
+            Notes = new ObservableCollection<NoteModel>();
             LoadNotes();
+
+            MessagingCenter.Subscribe<NoteDetailPage, NoteModel>(this, "NoteDeleted", (sender, deletedNote) =>
+            {
+                var noteToRemove = Notes.FirstOrDefault(n => n.Id == deletedNote.Id);
+                if (noteToRemove != null)
+                {
+                    Notes.Remove(noteToRemove);
+                }
+            });
         }
 
         public void LoadNotes()
         {
-            Notes = _databaseService.GetNoteModels();
+            var notesFromDb = _databaseService.GetNoteModels();
+            Notes.Clear();
+            foreach (var note in notesFromDb)
+            {
+                Notes.Add(note);
+            }
         }
+
+
 
 
         [RelayCommand]
