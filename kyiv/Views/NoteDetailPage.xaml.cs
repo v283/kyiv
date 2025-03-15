@@ -30,7 +30,7 @@ public partial class NoteDetailPage : ContentPage
     {
         if (sender is Button button && button.BindingContext is NoteModel note)
         {
-            bool confirm = await DisplayAlert("�������� �������", "�� ��������, �� ������ �������� �������?", "���", "ͳ");
+            bool confirm = await DisplayAlert("Видалення нотатків", "Ви впевнені, що хочете видалити нотатку?", "Так", "Ні");
 
             if (confirm)
             {

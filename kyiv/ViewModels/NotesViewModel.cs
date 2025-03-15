@@ -31,7 +31,7 @@ namespace kyiv.ViewModels
         [RelayCommand]
         private async Task CreateNote()
         {
-            var newNote = new NoteModel { Name = "���� �������", Text = "" };
+            var newNote = new NoteModel { Name = "Загаловок", Text = "" };
 
             _databaseService.AddNoteModel(newNote);
 

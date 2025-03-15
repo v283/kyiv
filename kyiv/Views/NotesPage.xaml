@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="kyiv.Views.NotesPage"
@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:kyiv.ViewModels"
              Title="Усі нотатки">
 
-     <ContentPage.Resources>
+    <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="DarkBackgroundColor">Black</Color>
             <Color x:Key="WhiteBackgroundColor">#c3c3df</Color>
@@ -32,7 +32,7 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid ColumnDefinitions="*"   RowDefinitions="Auto, Auto" HorizontalOptions="Fill"   VerticalOptions="Start" BackgroundColor="Transparent">
+                    <Grid ColumnDefinitions="*"   RowDefinitions="Auto, Auto, Auto" HorizontalOptions="Fill"   VerticalOptions="Start" BackgroundColor="Transparent">
 
 
                         <Border Margin="12, 40, 12, 12"
@@ -45,6 +45,7 @@
             HeightRequest="250"
             StrokeShape="RoundRectangle 10"
             StrokeThickness="1"
+                                
             Grid.Row="0">
 
                             <Border.GestureRecognizers>
@@ -52,7 +53,6 @@
   
                             </Border.GestureRecognizers>
 
-                            <!-- Внутрішній Grid для вмісту -->
                             <Grid RowDefinitions="Auto" 
               RowSpacing="5" 
               ColumnDefinitions="2*,*"
@@ -65,18 +65,26 @@
                    Margin="0,5,0,5"
                    HorizontalOptions="Start"
                    VerticalOptions="Fill"
-                       TextColor="White">
+                                       TextColor="{AppThemeBinding Light={StaticResource WhiteTextColor}, Dark={StaticResource DarkTextColor}}">
                                 </Label>
 
                             </Grid>
                         </Border>
-                        <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
+                        <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
                    Text="{Binding Name}" 
                    FontSize="15"
                    MaxLines="2"
                    HorizontalOptions="Center"
                Margin="0, 0, 0, 0">
                         </Label>
+                        <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
+    Text="{Binding Date}" 
+    FontSize="15"
+    MaxLines="1"
+    HorizontalOptions="Center"
+Margin="0, 0, 0, 0">
+                        </Label>
+
 
                     </Grid>
                 </DataTemplate>
@@ -88,10 +96,10 @@
                 HorizontalOptions="End"
                 VerticalOptions="End"
                 Margin="20"
+              
                 BackgroundColor="{AppThemeBinding Light=Blue, Dark=DarkBlue}"
                 TextColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource DarkTextColor}}"
                 CornerRadius="10"
                 Padding="10" />
     </Grid>
-
 </ContentPage>

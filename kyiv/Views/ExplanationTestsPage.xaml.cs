@@ -243,7 +243,7 @@ public partial class ExplanationTestsPage : ContentPage
             //replace
             double done = 0;
             double total = 0;
-            //TestPageLogic.CalculateResult(out done, out total, TestList, userAnswers, topic.TableTopicName.ToString().Replace(".html", ""), ((TestsModel)testsColection.SelectedItem).Id);
+            TestPageLogic.CalculateResult(out done, out total, TestList, userAnswers, topic.TableTopicName.ToString().Replace(".html", ""), ((TestsModel)testsColection.SelectedItem).Id);
             resultProgressBar.Done = (int)done;
             resultProgressBar.Total = (int)total;
 

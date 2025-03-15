@@ -37,7 +37,7 @@
             </Label>
         </Border>
 
-        <Border x:Name="answerBtn" Grid.Column="0" Grid.Row="4" HorizontalOptions="Center" VerticalOptions="Center" StrokeShape="RoundRectangle 30" Style="{StaticResource RGradientBorder}" StrokeThickness="0" WidthRequest="100" HeightRequest="55"   >
+        <Border x:Name="answerBtn" Grid.Column="0" Grid.Row="4" HorizontalOptions="Center" VerticalOptions="Center" StrokeShape="RoundRectangle 30" Background="{StaticResource Primary}" StrokeThickness="0" WidthRequest="100" HeightRequest="55"   >
             <Border.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnAnswerBtn"/>
             </Border.GestureRecognizers>
