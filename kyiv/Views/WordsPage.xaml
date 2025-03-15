@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="kyiv.Views.WordsPage"
+    xmlns:control="clr-namespace:kyiv.Views.Templates">
+
+    <Shell.TitleView>
+        <Grid BackgroundColor="#512BD4" ColumnDefinitions="7*,*,*">
+            <Label x:Name="PageTitle" Text="Dictionary" FontFamily="OpenSansRegular" FontSize="20" FontAttributes="Bold" TextColor="White"  HorizontalOptions="{ OnPlatform Android=Start, iOS=Center}" Grid.Column="0" VerticalTextAlignment="Center"/>
+            <Image HeightRequest="23" x:Name="readWrite" Source="book_read.png" Grid.Column="1" HorizontalOptions="Start">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnReadWrite"/>
+
+                </Image.GestureRecognizers>
+            </Image>
+            <Image HeightRequest="23"  Source="more.png" Grid.Column="2" HorizontalOptions="Start">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnToolBarTapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+        </Grid>
+    </Shell.TitleView>
+
+
+
+    <ScrollView>
+
+        <VerticalStackLayout BackgroundColor="WhiteSmoke" HorizontalOptions="Center">
+
+            <Grid BackgroundColor="White" RowSpacing="40" ColumnSpacing="20" Padding="30" x:Name="toolBar" RowDefinitions="*, *, *" ColumnDefinitions="Auto, *" IsVisible="false">
+                <Image Grid.Row="0" Grid.Column="0" Source="share.png" HeightRequest="19">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnShareTable"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Row="0" FontSize="20" Grid.Column="1" Text="Share">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnShareTable"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Image Grid.Row="1" Grid.Column="0" Source="importfile.png" HeightRequest="19">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImportTable"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Row="1" FontSize="20" Grid.Column="1" Text="Import">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImportTable"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Image Grid.Row="2" Grid.Column="0" Source="delete.png" HeightRequest="19">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDeleteTable"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Row="2" FontSize="20" Grid.Column="1" Text="Delete">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDeleteTable"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </Grid>
+
+
+            <Grid x:Name="searchBar" Padding="10"  ColumnDefinitions="*, Auto" RowDefinitions="Auto">
+             <SearchBar x:Name="WordSearchBar" 
+                   Placeholder="Search for a word"
+                   TextChanged="OnSearchBarTextChanged" Grid.Column="0" Grid.Row="0" />
+                <Image Grid.Row="0" Grid.Column="1" HeightRequest="30" Margin="5,5,0, -10"  Source="sort.png" HorizontalOptions="End">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSort"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+            <CollectionView x:Name="wordColection" Margin="10" BackgroundColor="WhiteSmoke" SelectionMode="None" >
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate >
+
+                        <SwipeView Padding="7" >
+
+                            <SwipeView.LeftItems >
+                                <SwipeItems >
+                                    <SwipeItem Clicked="OnDeleteSwipeWordInvoked" Text="Delete"  IconImageSource="delete.png" BackgroundColor="LightPink"/>
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+
+                            <Border StrokeShape="RoundRectangle 7"  StrokeThickness="0">
+                                <Grid  BackgroundColor="White" RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="10*, *" Padding="12"  RowSpacing="3" >
+
+                                    <Label Text="{Binding Word}" FontSize="18" HorizontalOptions="Start" Grid.Column="0" Grid.Row="0"/>
+                                    <Image Source="playsound.png" HorizontalOptions="End" HeightRequest="25" Grid.Column="1" Grid.Row="0">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnPlaySound" />
+                                        </Image.GestureRecognizers>
+
+                                    </Image>
+
+                                    <Image Source="{Binding Image}"  Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" Grid.ColumnSpan="2" MaximumHeightRequest="95"  />
+
+                                    <Label Text="{Binding Translation}" Grid.ColumnSpan="2" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="2" />
+
+                                </Grid>
+                            </Border>
+
+                        </SwipeView>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Grid x:Name="newWord" IsVisible="False" Margin="15" ColumnDefinitions="*, *" RowDefinitions="*, *, *, *, *, *" BackgroundColor="White" Padding="10" RowSpacing="5">
+
+                <Image HeightRequest="23" HorizontalOptions="End" Grid.Row="0" Grid.Column="1" Source="check.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAddWord"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Entry x:Name="termEntry" ReturnCommand="{Binding OnEntryCompleted}"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+                <Label HorizontalOptions="Start" FontAttributes="Bold" TextColor="Grey" FontSize="12" Text="TERM" Grid.Row="2" Grid.Column="0" />
+                <!--<Label HorizontalOptions="End" FontAttributes="Bold" TextColor="#8ee6d6" FontSize="12" Text="SELECT LANGUAGE" Grid.Row="2" Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Button_Clicked"/>
+
+                    </Label.GestureRecognizers>
+
+                </Label>-->
+
+                <Entry x:Name="defEntry" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"/>
+                <Label HorizontalOptions="Start" FontAttributes="Bold" TextColor="Grey" FontSize="12" Text="DEFINITION" Grid.Row="4" Grid.Column="0" />
+                <Label HorizontalOptions="End" FontAttributes="Bold" TextColor="#8ee6d6" FontSize="12" Text="SELECT LANGUAGE" Grid.Row="4" Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SelectLanguage"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Image Source="camera.png"  Grid.Row="5" HorizontalOptions="End" HeightRequest="35" Grid.Column="1">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageLink"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image x:Name="uploadedImage" HeightRequest="40" Grid.Row="5" HorizontalOptions="End"  Grid.Column="0"/>
+            </Grid>
+
+            <Grid BackgroundColor="White" RowSpacing="40" ColumnSpacing="20" Padding="30" x:Name="studySet" RowDefinitions="*, *, *" ColumnDefinitions="Auto, *" IsVisible="false">
+                <Image Grid.Row="0" Grid.Column="0" Source="truefalse.png" HeightRequest="25">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTrueFalsePage"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Row="0" FontSize="20" Grid.Column="1" Text="True/False">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTrueFalsePage"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Image Grid.Row="1" Grid.Column="0" Source="missing.png" HeightRequest="25">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMissingLetterPage"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Row="1" FontSize="20" Grid.Column="1" Text="Missing letters">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMissingLetterPage"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Image Grid.Row="2" Grid.Column="0" Source="writing.png" HeightRequest="25">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnWritingPage"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Row="2" FontSize="20" Grid.Column="1" Text="Writing">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnWritingPage"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </Grid>
+
+            <Button x:Name="studySetBtn" HeightRequest="47" Clicked="OnStudySet" Margin="10, 0, 10, 10" FontSize="17" FontAttributes="Bold" Text="Study this set"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

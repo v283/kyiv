@@ -2,26 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="kyiv.Views.MainView"
-            xmlns:local="clr-namespace:kyiv.ViewModels">
+            xmlns:local="clr-namespace:kyiv.ViewModels"
+            xmlns:templates="clr-namespace:kyiv.Views.Templates">
 
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <!--<Grid BackgroundColor="{StaticResource SubjectBtnColor}" RowDefinitions="100, 100, 100" ColumnDefinitions="*, *" RowSpacing="2" ColumnSpacing="2">
-                <Button CornerRadius="0" Grid.Row="0" Grid.Column="0" x:Name="btnNMT" Grid.ColumnSpan="2" Text="Англійська мова"/>
-                <Button CornerRadius="0" Grid.Row="1" Grid.Column="0" Text="Українська мова" x:Name="btnUkr" />
-                <Button CornerRadius="0" Grid.Row="1" Grid.Column="1" Text="Математика" x:Name="btnMath"></Button>
-                <Button CornerRadius="0" Grid.Row="2" Grid.ColumnSpan="2" Text="Історія України" x:Name="btnHistory"/>
-                <Button CornerRadius="0" Grid.Row="2" Grid.Column="1" Text="Англійська мова" x:Name="btnEng"/>
-            </Grid>-->
 
-            <!--<Grid  Margin="5, 25" RowDefinitions="*, *, * ">
-                <Label FontSize="45" TextColor="{StaticResource Black}" Grid.Row="0" Text="❝"/>
-                <Label  FontSize="27" FontFamily="Lobster"  Grid.Row="1" Text="Життя – це не тільки навчання, але якщо ти не можеш пройти навіть через цю її частину, як ти будеш знати, на що здатний?"/>
-                <Label FontSize="45" TextColor="{StaticResource BlueViolet}" Text="❝" Grid.Row="2" HorizontalOptions="End" />
-            </Grid>-->
 
+            <templates:ProgressBar   />
+         
 
 
             <Button

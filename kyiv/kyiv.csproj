@@ -80,5 +80,17 @@
 	<ItemGroup>
 		<EmbeddedResource Include="Notes.db" />
 		<EmbeddedResource Include="mydb.db" />
+		<EmbeddedResource Include="dictionary.db" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="dictionary.db" />
+	  <None Remove="Data\" />
+	  <None Remove="Resources\Images\folder.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Data\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Images\folder.png" />
 	</ItemGroup>
 </Project>

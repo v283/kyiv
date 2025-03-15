@@ -10,9 +10,9 @@
         <ShellContent Title="Головна"
                      Icon="home.png" 
                      ContentTemplate="{DataTemplate views:MainView}"/>
-        <ShellContent Title="Завдання" 
-                     Icon="home.png"
-                     ContentTemplate="{DataTemplate views:MainView}" />
+        <ShellContent Title="Словник" 
+                     Icon="dictionary_light.png"
+                     ContentTemplate="{DataTemplate views:DictionaryView}" />
         <ShellContent Title="Коменти" 
                      Icon="comments.png" 
                      ContentTemplate="{DataTemplate views:MarkView}" />

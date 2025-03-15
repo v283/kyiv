@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:controls="clr-namespace:kyiv.Views.Templates"
+             x:Class="kyiv.Views.WritingPage"
+             Title="Write a translation"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <Grid RowDefinitions="*" ColumnDefinitions="*">
+            <Grid Grid.Column="0" Grid.Row="0" x:Name="examGrid" RowDefinitions="Auto, 3*, *"  ColumnDefinitions="*" >
+                <ProgressBar x:Name="progressBar" Margin="{ OnPlatform Android=-5 , iOS=0}" Grid.Row="0" Grid.Column="0" Progress="0.0" />
+
+                <Grid Padding="20" RowDefinitions="*,Auto,*" ColumnDefinitions="*" Grid.Row="1" Grid.Column="0">
+
+                    <Label  x:Name="translate" VerticalOptions="Start" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0" FontSize="22" FontAttributes="Bold" />
+                    <Image  x:Name="wordImage" MaximumHeightRequest="100"  HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" Source="camera.png"/>
+                    <Label x:Name="word" TextColor="#2eaa63" IsVisible="false" VerticalOptions="End" HorizontalOptions="Start" Grid.Row="2" Grid.Column="0" FontSize="25"/>
+                </Grid>
+                <Border StrokeThickness="{OnPlatform Android=0 , iOS=1}" StrokeShape="RoundRectangle 7" VerticalOptions="End" HeightRequest="60"  Grid.Row="2" Grid.Column="0" Margin="10" Padding="10">
+                    <Grid HeightRequest="60"   RowDefinitions="*,*" ColumnDefinitions="*, Auto" >
+
+                        <Label x:Name="nextSkip"  FontSize="17" HorizontalTextAlignment="End"
+                         FontAttributes="Bold" Text="Don'tknow" TextColor="#512BD4" VerticalOptions="Center" Grid.RowSpan="{OnPlatform Android=0, iOS=2 }" Grid.Row="0" Grid.Column="1" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNext"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+
+                        <Entry  HeightRequest="{x:OnPlatform Android=45, iOS=60}" FontSize="18"  Completed="OnComplete" x:Name="userAnsw" VerticalOptions="End" Grid.ColumnSpan="{OnPlatform Android=2, iOS=0}"  Grid.Row="1" Grid.Column="0"  />
+
+                    </Grid>
+                  
+                </Border>
+            </Grid>
+
+            <VerticalStackLayout x:Name="resultStack" IsVisible="false" Grid.Column="0" Grid.Row="0">
+
+                <Grid  Margin="10"   RowDefinitions="*, *, *, *" ColumnDefinitions="Auto,*" ColumnSpacing="15" RowSpacing="5">
+
+                    <controls:MyCircleProgressBar Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" FontZoom="0.9" TextStyle="Percent" TextColor="Black" Thickness="10" ProgressColor="#512BD4" ProgressLeftColor="#e6e6e6"
+                                         Size="120" Total="10"  Done="1"  x:Name="resultProgressBar" VerticalOptions="Center" HorizontalOptions="Center" />
+
+                    <Label x:Name="resultPhrase" Grid.Row="0" Grid.Column="1" FontSize="25" TextColor="#512BD4" FontAttributes="Bold" Text="You're doing great!"/>
+                    <Label Grid.Row="1" Grid.Column="1" FontSize="20" TextColor="Black" FontAttributes="Bold"
+                                           Text="{Binding Source={x:Reference resultProgressBar}, Path=Total, StringFormat='Total: {0}'}" />
+                    <Label Grid.Row="2" Grid.Column="1" FontSize="20" TextColor="Black" FontAttributes="Bold"
+                                           Text="{Binding Source={x:Reference resultProgressBar}, Path=Done, StringFormat='Done: {0}'}"/>
+
+                </Grid>
+
+                <CollectionView x:Name="wordColection" Margin="10" BackgroundColor="WhiteSmoke" SelectionMode="None" >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate >
+
+                            <Border StrokeShape="RoundRectangle 7"  StrokeThickness="0" Margin="10">
+                                <Grid Loaded="OnCheck"  BackgroundColor="#2eaa63" RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="10*, *" Padding="12"   >
+
+                                    <Label Text="{Binding Word}" FontSize="18" HorizontalOptions="Start" Grid.Column="0" Grid.Row="0"/>
+                                    <Image Source="playsound.png" HorizontalOptions="End" HeightRequest="25" Grid.Column="1" Grid.Row="0">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnPlaySound" />
+                                        </Image.GestureRecognizers>
+
+                                    </Image>
+
+                                    <Image Source="{Binding Image}"  Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" Grid.ColumnSpan="2" MaximumHeightRequest="95"  />
+
+                                    <Label Text="{Binding Translation}" Grid.ColumnSpan="2" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="2" />
+                                </Grid>
+                            </Border>
+
+
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+
+
+        </Grid>
+
+    </ScrollView>
+
+</ContentPage>

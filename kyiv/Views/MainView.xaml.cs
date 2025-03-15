@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using kyiv.Data;
+using kyiv.Services;
 using kyiv.ViewModels;
 
 namespace kyiv.Views;
@@ -17,7 +17,8 @@ public partial class MainView : ContentPage
         //btnHistory.Clicked += async (s, e) => Shell.Current.GoToAsync("subjecttopics?subjectName=History");
         //btnNMT.Clicked += async (s, e) => Shell.Current.GoToAsync("subjecttopics?subjectName=NMT");
 
-
+        Services.DbProvider.FirstRunDb();
+        DbProvider.ConnctToDb();
 
         //StorageWritePermission();
         //StorageReadPermission();

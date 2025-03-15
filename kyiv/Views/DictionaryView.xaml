@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:kyiv.Views.Templates"
+             xmlns:local="clr-namespace:kyiv.ViewModels"
+xmlns:constants="clr-namespace:kyiv.Constants"
+
+             x:Class="kyiv.Views.DictionaryView" 
+BackgroundColor="White">
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="6*,1*" Background="#512BD4">
+            <Label x:Name="title" Text="Dictionary" FontFamily="OpenSansRegular" FontSize="20" FontAttributes="Bold" TextColor="White"  HorizontalOptions="{ OnPlatform Android=Start, iOS=Center}" Grid.Column="0" VerticalTextAlignment="Center"/>
+
+        </Grid>
+    </Shell.TitleView>
+
+    <Grid RowDefinitions="Auto, *" ColumnDefinitions="*">
+
+
+        <Grid RowDefinitions="*, Auto" ColumnDefinitions="*" Grid.Row="1" Grid.Column="0" Padding="2">
+            <ScrollView Grid.Row="0" Grid.Column="0">
+                <CollectionView x:Name="foldersLayout" ItemsSource="{Binding FoldersLayout}" BackgroundColor="Transparent" 
+                            ItemsLayout="VerticalGrid, 4" 
+                            SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout Padding="10" >
+                                <Image Source="{Binding FolderImage}"/>
+
+                                <Label Text="{Binding FolderName}" HorizontalOptions="Center" FontAttributes="Bold" LineBreakMode="TailTruncation" />
+                                <Label Text="{Binding DictRef}" HeightRequest="0" WidthRequest="0" />
+                                <VerticalStackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type local:DictionaryViewModel}}, Path=FolderSelectCommand}" CommandParameter="{Binding .}"  />
+
+                                </VerticalStackLayout.GestureRecognizers>
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+
+            <AbsoluteLayout >
+                <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="60" 
+                   Text="+" TextColor="{StaticResource Primary}" 
+                   AbsoluteLayout.LayoutBounds=".95, .9, 40, 60" AbsoluteLayout.LayoutFlags="PositionProportional">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type local:DictionaryViewModel}}, Path=AddFolderCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </AbsoluteLayout>
+
+
+            <!--<adMobControls:MTAdView VerticalOptions="End" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" AdSize="Smart" x:Name="myAds" AdsId="{x:Static constants:APIAdMob.BannerAdsId} "/>-->
+
+        </Grid>
+
+
+    </Grid>
+
+
+
+
+</ContentPage>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Class="kyiv.Views.Templates.PopupAddFolder" Color="Transparent"  Size="300,200">
+
+
+    <Border StrokeShape="RoundRectangle 10" BackgroundColor="White" >
+        <VerticalStackLayout Margin="15"  BackgroundColor="White">
+
+            <Label Text="Folder name" FontSize="20" HorizontalOptions="Center"/>
+
+            <Border Margin="10" StrokeShape="RoundRectangle 10">
+                <Entry x:Name="NewValue" Margin="15,0" Placeholder="Enter a folder name"/>
+            </Border>
+
+            <HorizontalStackLayout HorizontalOptions="End" >
+                <Button WidthRequest="100" CornerRadius="10"  Margin="10" BackgroundColor="Red" FontSize="16" Text="Cancel" Command="{Binding ChangeCommand}" />
+                <Button WidthRequest="100" CornerRadius="10" Margin="10" BackgroundColor="{StaticResource Primary}" FontSize="16" Text="Done" Command="{Binding ChangeCommand}" />
+
+
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Border>
+
+</toolkit:Popup>
