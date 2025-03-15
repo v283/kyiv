@@ -20,7 +20,7 @@ namespace kyiv.ViewModels
         {
 
             _databaseService = new LocalDataService();
-            Notes = new ObservableCollection<NoteModel>(_databaseService.GetNotes());
+            Notes = new ObservableCollection<NoteModel>(_databaseService.GetNoteModels());
 
         }
 

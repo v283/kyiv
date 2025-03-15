@@ -24,7 +24,7 @@ namespace kyiv.ViewModels
 
         public void LoadNotes()
         {
-            Notes = _databaseService.GetNotes();
+            Notes = _databaseService.GetNoteModels();
         }
 
 
@@ -33,7 +33,7 @@ namespace kyiv.ViewModels
         {
             var newNote = new NoteModel { Name = "���� �������", Text = "" };
 
-            _databaseService.AddNote(newNote);
+            _databaseService.AddNoteModel(newNote);
 
             Notes.Add(newNote);
 
