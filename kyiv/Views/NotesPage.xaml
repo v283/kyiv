@@ -53,7 +53,6 @@
   
                             </Border.GestureRecognizers>
 
-                            <!-- Внутрішній Grid для вмісту -->
                             <Grid RowDefinitions="Auto" 
               RowSpacing="5" 
               ColumnDefinitions="2*,*"
