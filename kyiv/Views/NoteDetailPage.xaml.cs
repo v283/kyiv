@@ -21,7 +21,7 @@ public partial class NoteDetailPage : ContentPage
 
     private async void OnSaveChangesClicked(object sender, EventArgs e)
     {
-        _databaseService.UpdateNote(_note);
+        _databaseService.UpdateNoteModel(_note);
 
         await Navigation.PopAsync();
     }
@@ -34,7 +34,7 @@ public partial class NoteDetailPage : ContentPage
 
             if (confirm)
             {
-                _databaseService.DeleteNote(note.Id);
+                _databaseService.DeleteNoteModel(note.Id);
 
                 await Navigation.PopAsync();
             }
@@ -45,7 +45,7 @@ public partial class NoteDetailPage : ContentPage
     protected override void OnDisappearing()
     {
 
-        _databaseService.UpdateNote(_note);
+        _databaseService.UpdateNoteModel(_note);
         Thread.Sleep(500);
         base.OnDisappearing();
 

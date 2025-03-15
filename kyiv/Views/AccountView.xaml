@@ -28,16 +28,16 @@
 
             <Grid  Padding="15" RowDefinitions="*,*,*,*,*,*,*,*" ColumnDefinitions="Auto, *" ColumnSpacing="30" RowSpacing="23">
 
-                <Image VerticalOptions="Center" HeightRequest="25" Source="saved.png" Grid.Row="0" Grid.Column="0">
+                <Image VerticalOptions="Center" HeightRequest="25" Source="jack_bot_light.png" Grid.Row="0" Grid.Column="0">
                     <Image.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
 
                     </Image.Behaviors>
 
                 </Image>
-                <Label VerticalOptions="Center" FontSize="15" Text="Збережене" Grid.Row="0" Grid.Column="1">
+                <Label VerticalOptions="Center" FontSize="15" Text="AI помічник" Grid.Row="0" Grid.Column="1">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Tapped="OnAiAssistant"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -54,13 +54,13 @@
                     </Label.GestureRecognizers>
                 </Label>
 
-                <Image VerticalOptions="Center" HeightRequest="25" Source="add_user.png"  Grid.Row="2" Grid.Column="0">
+                <Image VerticalOptions="Center" HeightRequest="25" Source="saved.png"  Grid.Row="2" Grid.Column="0">
                     <Image.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
                     </Image.Behaviors>
 
                 </Image>
-                <Label x:Name="Ref" VerticalOptions="Center" FontSize="15" Text="Запросити друзів"  Grid.Row="2" Grid.Column="1">
+                <Label x:Name="Ref" VerticalOptions="Center" FontSize="15" Text="Збережені"  Grid.Row="2" Grid.Column="1">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer />
                     </Label.GestureRecognizers>
@@ -122,7 +122,7 @@
                 </Label>
             </Grid>
 
-            <Grid Margin="10,15,10,20" ColumnDefinitions="*,*,*,*,*" RowDefinitions="*,Auto">
+            <Grid Margin="10,15,10,20" ColumnDefinitions="*,*,*" RowDefinitions="*,Auto">
                 <Image  HeightRequest="35" Source="telegram.png"  Grid.Row="0" Grid.Column="0">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer  Tapped="OnTelegram"/>
@@ -138,26 +138,16 @@
                 </Image>
                 <Label HorizontalOptions="Center" FontSize="11" Text="Instagram"  Grid.Row="1" Grid.Column="1"/>
 
-                <Image  HeightRequest="35" Source="tiktok.png"  Grid.Row="0" Grid.Column="2">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer />
-                    </Image.GestureRecognizers>
-                </Image>
-                <Label  HorizontalOptions="Center" FontSize="11" Text="TicTok"  Grid.Row="1" Grid.Column="2"/>
 
-                <Image  HeightRequest="35" Source="youtube.png"  Grid.Row="0" Grid.Column="3">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer />
-                    </Image.GestureRecognizers>
-                </Image>
-                <Label  HorizontalOptions="Center" FontSize="11" Text="YouTube"  Grid.Row="1" Grid.Column="3"/>
 
-                <Image  HeightRequest="35" Source="facebook.png"  Grid.Row="0" Grid.Column="4">
+                <Image  HeightRequest="35" Source="youtube.png"  Grid.Row="0" Grid.Column="2">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer />
                     </Image.GestureRecognizers>
                 </Image>
-                <Label  HorizontalOptions="Center" FontSize="11" Text="Facebook"  Grid.Row="1" Grid.Column="4"/>
+                <Label  HorizontalOptions="Center" FontSize="11" Text="YouTube"  Grid.Row="1" Grid.Column="2"/>
+
+
             </Grid>
 
 

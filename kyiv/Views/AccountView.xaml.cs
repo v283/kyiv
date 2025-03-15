@@ -66,6 +66,12 @@ public partial class AccountView : ContentPage
     }
 
 
+    private async void OnAiAssistant(object sender, TappedEventArgs e)
+    {
+  await Shell.Current.GoToAsync($"chatgpt?question=");
+
+    }
+
 
     private async void OnUserSettings(object sender, TappedEventArgs args)
     {

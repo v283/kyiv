@@ -1,31 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-	<application 
-		android:allowBackup="true"
-		android:icon="@mipmap/appicon"
-		android:roundIcon="@mipmap/appicon_round"
-		android:supportsRtl="true">
-		
-<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
-           android:value="ca-app-pub-3940256099942544~3347511713"/>
-
-
-		<activity android:name=".MainActivity" android:exported="true">
-			<intent-filter>
-				<data android:scheme="kyiv" android:host="mobile" />
-				<action android:name="android.intent.action.VIEW" />
-				<category android:name="android.intent.category.DEFAULT" />
-				<category android:name="android.intent.category.BROWSABLE" />
-			</intent-filter>
-		</activity>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.companyname.kyiv" android:versionCode="1" android:versionName="1.0">
+	<application android:allowBackup="true" android:icon="@mipmap/appicon" android:supportsRtl="true" android:label="kyiv">
+		<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-3940256099942544~3347511713" />
 	</application>
-
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<queries>
 		<intent>
 			<action android:name="android.support.customtabs.action.CustomTabsService" />
 		</intent>
 	</queries>
-
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.INTERNET" />
 </manifest>

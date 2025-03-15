@@ -42,8 +42,7 @@
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
-		<!-- Custom Fonts -->
+
 		<MauiFont Include="Resources\Fonts\*" />
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
@@ -56,28 +55,14 @@
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 		<PackageReference Include="OpenAI" Version="1.11.0" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="9.1.0" />
-		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
-		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />
+<!--		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />-->
 		<PackageReference Include="Supabase" Version="1.1.1" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
-		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />
+		<!--<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />-->
 		<PackageReference Include="Plugin.MauiMTAdmob" Version="1.7.1" />
+		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.4" />
 	</ItemGroup>
-	<ItemGroup>
-		<None Remove="Constants\" />
-		<None Remove="Resources\Images\Green_check.png" />
-		<None Remove="Resources\Images\jack_bot_light.png" />
-		<None Remove="Resources\Images\send.png" />
-		<None Remove="Resources\Images\svg_user.svg" />
-		<None Remove="Resources\Images\jack_bot_dark.png" />
-		<None Remove="ViewModels\" />
-		<None Remove="Views\" />
-		<None Remove="Views\Templates\" />
-		<None Remove="Services\" />
-		<None Remove="Models\" />
-		<None Remove="Resources\Images\google.png" />
-		<None Remove="Notes.db" />
-	</ItemGroup>
+
 	<ItemGroup>
 		<Compile Update="Views\NotesPage.xaml.cs">
 			<DependentUpon>NotesPage.xaml</DependentUpon>
@@ -94,11 +79,6 @@
 	</ItemGroup>
 	<ItemGroup>
 		<EmbeddedResource Include="Notes.db" />
+		<EmbeddedResource Include="mydb.db" />
 	</ItemGroup>
-	<PropertyGroup Condition="$(TargetFramework.Contains('-ios'))">
-		<RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
-	</PropertyGroup>
-	<PropertyGroup>
-		<ForceSimulatorX64ArchitectureInIDE>true</ForceSimulatorX64ArchitectureInIDE>
-	</PropertyGroup>
 </Project>

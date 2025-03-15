@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -8,10 +7,12 @@
              xmlns:local="clr-namespace:kyiv.ViewModels"
              Title="Усі нотатки">
 
-    <ContentPage.Resources>
+     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="DarkBackgroundColor">Black</Color>
             <Color x:Key="WhiteBackgroundColor">#c3c3df</Color>
+            <Color x:Key="DarkBorderBackgroundColor">#1a1a1a</Color>
+            <Color x:Key="WhiteBorderBackgroundColor">#FFFFFF</Color>
             <Color x:Key="DarkTextColor">#FFFFFF</Color>
             <Color x:Key="WhiteTextColor">#000000</Color>
         </ResourceDictionary>
@@ -39,7 +40,7 @@
             HorizontalOptions="Fill" 
             VerticalOptions="Start"
             Padding="20, 10"
-            BackgroundColor="{AppThemeBinding Light={DynamicResource WhiteBackgroundMarkColor}, Dark={DynamicResource DarkBackgroundMarkColor}}"
+            BackgroundColor="{AppThemeBinding Light={StaticResource WhiteBorderBackgroundColor}, Dark={StaticResource DarkBorderBackgroundColor}}"
                 Stroke="Transparent"
             HeightRequest="250"
             StrokeShape="RoundRectangle 10"
@@ -71,8 +72,7 @@
                         </Border>
                         <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
                    Text="{Binding Name}" 
-                   FontSize="18"
-                   LineBreakMode="TailTruncation"
+                   FontSize="15"
                    MaxLines="2"
                    HorizontalOptions="Center"
                Margin="0, 0, 0, 0">
@@ -93,4 +93,5 @@
                 CornerRadius="10"
                 Padding="10" />
     </Grid>
+
 </ContentPage>
