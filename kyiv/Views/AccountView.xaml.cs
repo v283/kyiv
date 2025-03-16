@@ -72,6 +72,12 @@ public partial class AccountView : ContentPage
 
     }
 
+    private async void OnEmailTapped(object sender, TappedEventArgs e)
+    {
+        var email = "gandribidavalentin@gmail.com";
+        await Launcher.OpenAsync($"mailto:{email}");
+    }
+
     private async void OnCrip(object sender, TappedEventArgs e)
     {
         await Shell.Current.Navigation.PushAsync(new CribView());
@@ -81,9 +87,9 @@ public partial class AccountView : ContentPage
     {
         await Navigation.PushAsync(new UserSettingsView(_dataService, viewModel.BindUserDataModel));
     }
-    private async void OnSettings(object sender, TappedEventArgs args)
+    private async void OnDictionary(object sender, TappedEventArgs args)
     {
-        //       await Navigation.PushAsync(new SettingsView());
+        await Shell.Current.Navigation.PushAsync(new DictionaryView());
     }
 
     private async void OnPrivacyPolicyTapped(object sender, EventArgs e)
@@ -109,7 +115,7 @@ public partial class AccountView : ContentPage
     {
         try
         {
-            Uri uri = new Uri("https://t.me/avocado_officialy");
+            Uri uri = new Uri("https://t.me/kyiv24vv");
             await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
         catch (Exception ex)

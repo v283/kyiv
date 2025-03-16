@@ -118,6 +118,10 @@
 		<BundleResource Include="Resources\Raw\TheoryUkr.html" />
 		<BundleResource Include="Resources\Raw\KeyDates.html" />
 		<BundleResource Include="Resources\Raw\AndOrSoBecause.html" />
+		<BundleResource Include="Resources\Images\svg_user.svg" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Resources\Images\svg_user.svg" />
+	</ItemGroup>
 </Project>

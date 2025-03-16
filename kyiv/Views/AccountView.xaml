@@ -54,68 +54,57 @@
                     </Label.GestureRecognizers>
                 </Label>
 
-                <Image VerticalOptions="Center" HeightRequest="25" Source="saved.png"  Grid.Row="2" Grid.Column="0">
-                    <Image.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
-                    </Image.Behaviors>
-
-                </Image>
-                <Label x:Name="Ref" VerticalOptions="Center" FontSize="15" Text="Збережені"  Grid.Row="2" Grid.Column="1">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer />
-                    </Label.GestureRecognizers>
-                </Label>
-                <Image VerticalOptions="Center" HeightRequest="25" Source="ukraine.png"   Grid.Row="3" Grid.Column="0"/>
-                <Label  VerticalOptions="Center" FontSize="15" Text="Допомога ЗСУ"   Grid.Row="3" Grid.Column="1">
+                <Image VerticalOptions="Center" HeightRequest="25" Source="ukraine.png"   Grid.Row="2" Grid.Column="0"/>
+                <Label  VerticalOptions="Center" FontSize="15" Text="Допомога ЗСУ"   Grid.Row="2" Grid.Column="1">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnZCU"/>
                     </Label.GestureRecognizers>
                 </Label>
-                <Image VerticalOptions="Center" HeightRequest="25" Source="crips.png"     Grid.Row="4" Grid.Column="0">
+                <Image VerticalOptions="Center" HeightRequest="25" Source="crips.png"     Grid.Row="3" Grid.Column="0">
                     <Image.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
 
                     </Image.Behaviors>
 
                 </Image>
-                <Label VerticalOptions="Center" FontSize="15" Text="Шпаргалки"     Grid.Row="4" Grid.Column="1">
+                <Label VerticalOptions="Center" FontSize="15" Text="Шпаргалки"     Grid.Row="3" Grid.Column="1">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnCrip" />
                     </Label.GestureRecognizers>
                 </Label>
-                <Image VerticalOptions="Center" HeightRequest="25" Source="settings.png"   Grid.Row="5" Grid.Column="0">
+                <Image VerticalOptions="Center" HeightRequest="25" Source="dictionary_light.png"   Grid.Row="4" Grid.Column="0">
                     <Image.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
 
                     </Image.Behaviors>
 
                 </Image>
-                <Label VerticalOptions="Center" FontSize="15" Text="Налаштування"   Grid.Row="5" Grid.Column="1">
+                <Label VerticalOptions="Center" FontSize="15" Text="Словник"   Grid.Row="4" Grid.Column="1">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnSettings"/>
+                        <TapGestureRecognizer Tapped="OnDictionary"/>
                     </Label.GestureRecognizers>
                 </Label>
-                <Image VerticalOptions="Center" HeightRequest="25" Source="customer_support.png"  Grid.Row="6" Grid.Column="0">
+                <Image VerticalOptions="Center" HeightRequest="25" Source="customer_support.png"  Grid.Row="5" Grid.Column="0">
                     <Image.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
 
                     </Image.Behaviors>
 
                 </Image>
-                <Label VerticalOptions="Center" FontSize="15" Text="Підтримка"  Grid.Row="6" Grid.Column="1">
+                <Label VerticalOptions="Center" FontSize="15" Text="Підтримка"  Grid.Row="5" Grid.Column="1">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Tapped="OnEmailTapped" />
                     </Label.GestureRecognizers>
                 </Label>
 
-                <Image VerticalOptions="Center" HeightRequest="25" Source="privacy_policy.png"   Grid.Row="7" Grid.Column="0">
+                <Image VerticalOptions="Center" HeightRequest="25" Source="privacy_policy.png"   Grid.Row="6" Grid.Column="0">
                     <Image.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
 
                     </Image.Behaviors>
 
                 </Image>
-                <Label VerticalOptions="Center" FontSize="15" Text="Політика конфіденційності"   Grid.Row="7" Grid.Column="1">
+                <Label VerticalOptions="Center" FontSize="15" Text="Політика конфіденційності"   Grid.Row="6" Grid.Column="1">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnPrivacyPolicyTapped"/>
                     </Label.GestureRecognizers>
