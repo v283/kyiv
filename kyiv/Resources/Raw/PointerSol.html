@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta charset="UTF-8">
+
+<head><style>
+    body {
+      background-color: #c3c3df;
+    }
+</style>
+</head><body>
+    <style>
+        body {
+            background-color: #c3c3df;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            border-bottom: 2px solid #02b0f1;
+            padding-bottom: 10px;
+            color: #02b0f1;
+        }
+
+        .section p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .section ul {
+            padding-left: 20px;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #ec6825;
+            font-weight: bold;
+        }
+
+        .example {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 5px solid #02b0f1;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .example h4 {
+            margin-top: 0;
+            color: #02b0f1;
+        }
+
+        .formula {
+            font-family: monospace;
+            background-color: #f0f0f0;
+            padding: 5px;
+            border-radius: 3px;
+        }
+    </style>
+
+    <div class="container">
+        <h1>Показникові, логарифмічні рівняння та системи рівнянь</h1>
+        <p>На цій сторінці представлено основні поняття, методи розв'язання та приклади показникових, логарифмічних
+            рівнянь та систем рівнянь.</p>
+
+        <div class="section">
+            <h2>Показникові рівняння</h2>
+            <p><span class="highlight">Показникове рівняння</span> має вигляд <span class="formula">a<sup>x</sup> =
+                    b</span>, де <span class="formula">a > 0</span>, <span class="formula">a ≠ 1</span>.</p>
+            <p><strong>Метод розв'язання:</strong></p>
+            <ul>
+                <li>Якщо <span class="formula">b > 0</span>, то рівняння має розв'язок: <span class="formula">x =
+                        log<sub>a</sub>b</span>.</li>
+                <li>Якщо <span class="formula">b ≤ 0</span>, рівняння не має розв'язків.</li>
+            </ul>
+            <div class="example">
+                <h4>Приклад 1: Розв'язання показникового рівняння</h4>
+                <p>Розв'яжіть рівняння: <span class="formula">2<sup>x</sup> = 8</span>.</p>
+                <p><strong>Розв'язання:</strong> <span class="formula">x = log<sub>2</sub>8 = 3</span>.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Логарифмічні рівняння</h2>
+            <p><span class="highlight">Логарифмічне рівняння</span> має вигляд <span class="formula">log<sub>a</sub>x =
+                    b</span>, де <span class="formula">a > 0</span>, <span class="formula">a ≠ 1</span>.</p>
+            <p><strong>Метод розв'язання:</strong></p>
+            <ul>
+                <li>Перетворюємо рівняння до показникового вигляду: <span class="formula">x = a<sup>b</sup></span>.</li>
+                <li>Перевіряємо, чи задовольняє знайдений корінь області визначення логарифма (<span class="formula">x >
+                        0</span>).</li>
+            </ul>
+            <div class="example">
+                <h4>Приклад 2: Розв'язання логарифмічного рівняння</h4>
+                <p>Розв'яжіть рівняння: <span class="formula">log<sub>3</sub>x = 4</span>.</p>
+                <p><strong>Розв'язання:</strong> <span class="formula">x = 3<sup>4</sup> = 81</span>.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Системи показникових та логарифмічних рівнянь</h2>
+            <p><span class="highlight">Система рівнянь</span> може містити як показникові, так і логарифмічні рівняння.
+                Для їх розв'язання часто використовуються методи підстановки або заміни змінних.</p>
+            <div class="example">
+                <h4>Приклад 3: Розв'язання системи рівнянь</h4>
+                <p>Розв'яжіть систему: <span class="formula">2<sup>x</sup> = 16</span>, <span
+                        class="formula">log<sub>2</sub>y = x</span>.</p>
+                <p><strong>Розв'язання:</strong></p>
+                <p>З першого рівняння: <span class="formula">2<sup>x</sup> = 16</span>, <span class="formula">x =
+                        4</span>.</p>
+                <p>Підставляємо <span class="formula">x = 4</span> у друге рівняння: <span
+                        class="formula">log<sub>2</sub>y = 4</span>, <span class="formula">y = 2<sup>4</sup> =
+                        16</span>.</p>
+                <p>Розв'язок: <span class="formula">x = 4</span>, <span class="formula">y = 16</span>.</p>
+            </div>
+        </div>
+
+        <h2>Висновок</h2>
+        <p>Показникові та логарифмічні рівняння та системи рівнянь є важливими елементами математики. Розуміння методів
+            їх розв'язання допомагає у вирішенні складних задач.</p>
+    </div>
+
+</body>
+
+</html>

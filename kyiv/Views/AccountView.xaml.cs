@@ -72,7 +72,11 @@ public partial class AccountView : ContentPage
 
     }
 
+    private async void OnCrip(object sender, TappedEventArgs e)
+    {
+        await Shell.Current.Navigation.PushAsync(new CribView());
 
+    }
     private async void OnUserSettings(object sender, TappedEventArgs args)
     {
         await Navigation.PushAsync(new UserSettingsView(_dataService, viewModel.BindUserDataModel));

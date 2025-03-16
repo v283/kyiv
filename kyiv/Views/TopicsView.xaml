@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:kyiv.ViewModels"
              x:Class="kyiv.Views.TopicsView"  
              BackgroundColor="White" x:Name="TopicsPae"
-             >
+             Title="{Binding SubjlName}">
 
 
     <!--<ContentPage.Resources>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Формули</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #c3c3df;
+            color: #333;
+        }
+
+        h1,
+        h2 {
+            color: #444;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .formula {
+            background: #e7f3fe;
+            padding: 10px;
+            border-left: 6px solid #2196F3;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        .tip {
+            background: #fff3cd;
+            padding: 10px;
+            border-left: 6px solid #ffc107;
+            margin: 10px 0;
+        }
+
+        .example {
+            background: #e8f5e9;
+            padding: 10px;
+            border-left: 6px solid #4caf50;
+            margin: 10px 0;
+        }
+    </style>
+    <!-- Підключення MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Формули для ЗНО</h1>
+
+        <h2>Алгебра</h2>
+        <div class="formula">
+            <strong>Квадратне рівняння</strong>:
+            \[
+            ax^2 + bx + c = 0
+            \]
+            \[
+            x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+            \]
+        </div>
+        <div class="formula">
+            <strong>Формула дискримінанта</strong>:
+            \[
+            D = b^2 - 4ac
+            \]
+        </div>
+        <div class="formula">
+            <strong>Сума та добуток коренів квадратного рівняння</strong>:
+            \[
+            x_1 + x_2 = -\frac{b}{a}, \quad x_1 \cdot x_2 = \frac{c}{a}
+            \]
+        </div>
+        <div class="formula">
+            <strong>Формула різниці квадратів</strong>:
+            \[
+            a^2 - b^2 = (a - b)(a + b)
+            \]
+        </div>
+        <div class="formula">
+            <strong>Формула квадрата суми</strong>:
+            \[
+            (a + b)^2 = a^2 + 2ab + b^2
+            \]
+        </div>
+        <div class="formula">
+            <strong>Формула квадрата різниці</strong>:
+            \[
+            (a - b)^2 = a^2 - 2ab + b^2
+            \]
+        </div>
+
+        <h2>Геометрія</h2>
+        <div class="formula">
+            <strong>Площа трикутника</strong>:
+            \[
+            S = \frac{1}{2} \cdot a \cdot h
+            \]
+        </div>
+        <div class="formula">
+            <strong>Теорема Піфагора</strong>:
+            \[
+            a^2 + b^2 = c^2
+            \]
+        </div>
+        <div class="formula">
+            <strong>Площа кола</strong>:
+            \[
+            S = \pi r^2
+            \]
+        </div>
+        <div class="formula">
+            <strong>Довжина кола</strong>:
+            \[
+            C = 2\pi r
+            \]
+        </div>
+        <div class="formula">
+            <strong>Об'єм куба</strong>:
+            \[
+            V = a^3
+            \]
+        </div>
+        <div class="formula">
+            <strong>Площа поверхні куба</strong>:
+            \[
+            S = 6a^2
+            \]
+        </div>
+
+        <h2>Тригонометрія</h2>
+        <div class="formula">
+            <strong>Основне тригонометричне тотожність</strong>:
+            \[
+            \sin^2 \alpha + \cos^2 \alpha = 1
+            \]
+        </div>
+        <div class="formula">
+            <strong>Формули подвійного кута</strong>:
+            \[
+            \sin 2\alpha = 2 \sin \alpha \cos \alpha
+            \]
+            \[
+            \cos 2\alpha = \cos^2 \alpha - \sin^2 \alpha
+            \]
+        </div>
+        <div class="formula">
+            <strong>Формули суми та різниці</strong>:
+            \[
+            \sin(\alpha \pm \beta) = \sin \alpha \cos \beta \pm \cos \alpha \sin \beta
+            \]
+            \[
+            \cos(\alpha \pm \beta) = \cos \alpha \cos \beta \mp \sin \alpha \sin \beta
+            \]
+        </div>
+        <div class="formula">
+            <strong>Тангенс кута</strong>:
+            \[
+            \tan \alpha = \frac{\sin \alpha}{\cos \alpha}
+            \]
+        </div>
+
+        <h2>Приклади</h2>
+        <div class="example">
+            <strong>Приклад 1</strong>: Розв'язати квадратне рівняння \( x^2 - 5x + 6 = 0 \).<br>
+            Розв'язок:
+            \[
+            x = \frac{5 \pm \sqrt{25 - 24}}{2} = \frac{5 \pm 1}{2}
+            \]
+            \[
+            x_1 = 3, \quad x_2 = 2
+            \]
+        </div>
+        <div class="example">
+            <strong>Приклад 2</strong>: Знайти площу трикутника з основою 10 см і висотою 5 см.<br>
+            Розв'язок:
+            \[
+            S = \frac{1}{2} \cdot 10 \cdot 5 = 25 \text{ см}^2
+            \]
+        </div>
+        <div class="example">
+            <strong>Приклад 3</strong>: Знайти значення \( \sin 30^\circ \).<br>
+            Розв'язок:
+            \[
+            \sin 30^\circ = \frac{1}{2}
+            \]
+        </div>
+    </div>
+</body>
+
+</html>

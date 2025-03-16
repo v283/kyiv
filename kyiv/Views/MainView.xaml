@@ -19,11 +19,6 @@
             <templates:ProgressBar   />
 
 
-
-            <!--<Button
-                Text="Добровільний донат" 
-                Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainViewModel}}, Path=AddMobCommand}"
-                HorizontalOptions="Fill" />-->
         </VerticalStackLayout>
     </ScrollView>
 

@@ -14,16 +14,35 @@ namespace kyiv.ViewModels
         private string subjlName;
 
         [ObservableProperty]
+        private string currentTable;
+
+        [ObservableProperty]
         public List<TopicModel> topics = new List<TopicModel>();
 
         public TopicsViewModel(string subj)
 		{
-            subjlName = subj;
+            currentTable = subj;
             if (subj == "engtable")
             {
-                LoadDataUI("beginner");
+                SubjlName = "English";
+                LoadDataUI("engtable");
             }
 
+            else if (subj == "mathtable")
+            {
+                SubjlName = "Математика";
+                LoadDataUI("mathtable");
+            }
+            else if (subj == "ukrtable")
+            {
+                SubjlName = "Українська мова";
+                LoadDataUI("ukrtable");
+            }
+            else if (subj == "historytable")
+            {
+                SubjlName = "Історія України";
+                LoadDataUI("historytable");
+            }
 
         }
 
@@ -52,7 +71,7 @@ namespace kyiv.ViewModels
             }
             else
             {
-                await Shell.Current.Navigation.PushAsync(new ExplanationTestsPage(obj, "beginner"));
+                await Shell.Current.Navigation.PushAsync(new ExplanationTestsPage(obj, currentTable));
             }
 
 

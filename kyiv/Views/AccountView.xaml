@@ -71,16 +71,16 @@
                         <TapGestureRecognizer Tapped="OnZCU"/>
                     </Label.GestureRecognizers>
                 </Label>
-                <Image VerticalOptions="Center" HeightRequest="25" Source="rating_stars.png"     Grid.Row="4" Grid.Column="0">
+                <Image VerticalOptions="Center" HeightRequest="25" Source="crips.png"     Grid.Row="4" Grid.Column="0">
                     <Image.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference Ref}, Path=TextColor}"/>
 
                     </Image.Behaviors>
 
                 </Image>
-                <Label VerticalOptions="Center" FontSize="15" Text="Оцінити додаток"     Grid.Row="4" Grid.Column="1">
+                <Label VerticalOptions="Center" FontSize="15" Text="Шпаргалки"     Grid.Row="4" Grid.Column="1">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Tapped="OnCrip" />
                     </Label.GestureRecognizers>
                 </Label>
                 <Image VerticalOptions="Center" HeightRequest="25" Source="settings.png"   Grid.Row="5" Grid.Column="0">

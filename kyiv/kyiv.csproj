@@ -42,6 +42,10 @@
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dictionary_light.png" Resize="True" BaseSize="25,25" />
+		<MauiImage Update="Resources\Images\comments.png" Resize="True" BaseSize="25,25" />
+		<MauiImage Update="Resources\Images\user.png" Resize="True" BaseSize="25,25" />
+		<MauiImage Update="Resources\Images\like.png" Resize="True" BaseSize="25,25" />
 
 		<MauiFont Include="Resources\Fonts\*" />
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
@@ -55,14 +59,12 @@
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 		<PackageReference Include="OpenAI" Version="1.11.0" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="9.1.0" />
-<!--		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />-->
 		<PackageReference Include="Supabase" Version="1.1.1" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
-		<!--<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />-->
+
 		<PackageReference Include="Plugin.MauiMTAdmob" Version="1.7.1" />
 		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.4" />
 	</ItemGroup>
-
 	<ItemGroup>
 		<Compile Update="Views\NotesPage.xaml.cs">
 			<DependentUpon>NotesPage.xaml</DependentUpon>
@@ -84,17 +86,38 @@
 		<EmbeddedResource Include="UserData.db" />
 		<EmbeddedResource Include="tests.db" />
 	</ItemGroup>
+
 	<ItemGroup>
-	  <None Remove="dictionary.db" />
-	  <None Remove="Data\" />
-	  <None Remove="Resources\Images\folder.png" />
-	  <None Remove="UserData.db" />
-	  <None Remove="tests.db" />
+		<Folder Include="Data\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Data\" />
+		<BundleResource Include="Resources\Raw\UseOfArticlesInEnglish.html" />
+		<BundleResource Include="Resources\Raw\IrregularVerbs.html" />
+		<BundleResource Include="Resources\Raw\WillShall.html" />
+		<BundleResource Include="Resources\Raw\WhosePossessiveS.html" />
+		<BundleResource Include="Resources\Raw\ThisTheseThose.html" />
+		<BundleResource Include="Resources\Raw\PresentSimpleVSPresenContinuous.html" />
+		<BundleResource Include="Resources\Raw\PresentContinuous.html" />
+		<BundleResource Include="Resources\Raw\PastSimple.html" />
+		<BundleResource Include="Resources\Raw\ObjPronounsSubjPronouns.html" />
+		<BundleResource Include="Resources\Raw\HaveGot.html" />
+		<BundleResource Include="Resources\Raw\CompAndSupAdj.html" />
+		<BundleResource Include="Resources\Raw\BeGoingTo.html" />
+		<BundleResource Include="Resources\Raw\BasicWordOrder.html" />
+		<BundleResource Include="Resources\Raw\AtOnInPlace.html" />
+		<BundleResource Include="Resources\Raw\AtOnIn.html" />
+		<BundleResource Include="Resources\Raw\ASomeAny.html" />
+		<BundleResource Include="Resources\Raw\ArticlesSngAndPlr.html" />
+		<BundleResource Include="Resources\Raw\WouldYouLike.html" />
+		<BundleResource Include="Resources\Raw\ThereOrIt.html" />
+		<BundleResource Include="Resources\Raw\PresentSimple.html" />
+		<BundleResource Include="Resources\Raw\PossessiveAdj.html" />
+		<BundleResource Include="Resources\Raw\RealNumbers.html" />
+		<BundleResource Include="Resources\Raw\PointerSol.html" />
+		<BundleResource Include="Resources\Raw\KyivMonarh.html" />
+		<BundleResource Include="Resources\Raw\TheoryUkr.html" />
+		<BundleResource Include="Resources\Raw\KeyDates.html" />
+		<BundleResource Include="Resources\Raw\AndOrSoBecause.html" />
 	</ItemGroup>
-	<ItemGroup>
-	  <BundleResource Include="Resources\Images\folder.png" />
-	</ItemGroup>
+
 </Project>

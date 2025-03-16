@@ -19,7 +19,7 @@ namespace kyiv.ViewModels
         [RelayCommand]
         private async Task GetTopics(string subj)
         {
-            Shell.Current.Navigation.PushAsync(new TopicsView("engtable"));
+            Shell.Current.Navigation.PushAsync(new TopicsView(subj));
         }
 
         [RelayCommand]
